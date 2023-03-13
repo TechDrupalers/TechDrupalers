@@ -1,0 +1,20 @@
+uuid: 48330a4e-06cb-4d9b-96da-931e91775681
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product_attribute_value.field_hs
+field_name: field_hs
+entity_type: commerce_product_attribute_value
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

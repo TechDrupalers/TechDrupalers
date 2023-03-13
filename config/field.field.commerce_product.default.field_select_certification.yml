@@ -1,0 +1,29 @@
+uuid: 07ebb162-4dbf-4006-98ae-789bdaf04466
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_select_certification
+    - node.type.certificate
+id: commerce_product.default.field_select_certification
+field_name: field_select_certification
+entity_type: commerce_product
+bundle: default
+label: 'Select Certification'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      certificate: certificate
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

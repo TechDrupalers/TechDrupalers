@@ -1,0 +1,20 @@
+uuid: 4d8d6629-196c-4180-88f2-84278b18eb2d
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.field_local_transport
+field_name: field_local_transport
+entity_type: commerce_product
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

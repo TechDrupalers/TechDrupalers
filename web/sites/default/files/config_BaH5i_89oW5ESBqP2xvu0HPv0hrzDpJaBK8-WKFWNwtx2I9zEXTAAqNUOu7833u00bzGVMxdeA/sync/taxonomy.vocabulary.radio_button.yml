@@ -1,0 +1,8 @@
+uuid: f48fcd3d-521a-4307-a16c-b5a48df3f44d
+langcode: en
+status: true
+dependencies: {  }
+name: 'Radio button'
+vid: radio_button
+description: 'It shows the option yes or no'
+weight: 0

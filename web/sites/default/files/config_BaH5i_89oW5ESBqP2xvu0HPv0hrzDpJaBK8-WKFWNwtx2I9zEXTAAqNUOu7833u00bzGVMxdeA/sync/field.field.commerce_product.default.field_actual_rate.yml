@@ -1,0 +1,23 @@
+uuid: 35003b6d-9de7-4b4f-b4e5-02e49e4dcdb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_actual_rate
+id: commerce_product.default.field_actual_rate
+field_name: field_actual_rate
+entity_type: commerce_product
+bundle: default
+label: 'Actual Rate'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ₹
+  suffix: ''
+field_type: decimal

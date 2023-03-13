@@ -1,0 +1,17 @@
+uuid: 26f1e294-e0d2-4eb3-9551-46c2768b3769
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Category
+type: category
+description: 'Use Category is for it shows the different category of product'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

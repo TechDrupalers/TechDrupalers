@@ -1,0 +1,307 @@
+uuid: 4aa2b999-1c87-456d-9425-514dd0121e3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.field.commerce_product.default.field_1
+    - field.field.commerce_product.default.field_1_bumper______pounches
+    - field.field.commerce_product.default.field_actual_rate
+    - field.field.commerce_product.default.field_d
+    - field.field.commerce_product.default.field_fumigation
+    - field.field.commerce_product.default.field_gross_weight_per_pack_
+    - field.field.commerce_product.default.field_hs
+    - field.field.commerce_product.default.field_ingredients
+    - field.field.commerce_product.default.field_inner_package_material_amo
+    - field.field.commerce_product.default.field_is_this_product_form_human
+    - field.field.commerce_product.default.field_local_transport
+    - field.field.commerce_product.default.field_m
+    - field.field.commerce_product.default.field_mac
+    - field.field.commerce_product.default.field_manufacturing_process
+    - field.field.commerce_product.default.field_ou
+    - field.field.commerce_product.default.field_pro
+    - field.field.commerce_product.default.field_product_id
+    - field.field.commerce_product.default.field_product_scientific_name
+    - field.field.commerce_product.default.field_quoted_rate
+    - field.field.commerce_product.default.field_select_category
+    - field.field.commerce_product.default.field_select_certification
+    - field.field.commerce_product.default.field_t
+    - field.field.commerce_product.default.field_to
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_product_basic_details:
+      children:
+        - field_product_id
+        - field_pro
+        - field_product_scientific_name
+        - field_select_category
+        - field_hs
+      label: 'Product basic details'
+      region: content
+      parent_name: group_add_product
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+        direction: horizontal
+        width_breakpoint: 640
+    group_price_details:
+      children:
+        - field_actual_rate
+        - field_quoted_rate
+        - field_t
+        - field_inner_package_material_amo
+        - field_ou
+        - field_m
+        - field_mac
+        - field_local_transport
+        - field_fumigation
+        - field_to
+      label: 'Price Details'
+      region: content
+      parent_name: group_add_product
+      weight: 3
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_pa:
+      children:
+        - field_gross_weight_per_pack_
+        - field_1_bumper______pounches
+        - field_1
+      label: 'Packaging Details'
+      region: content
+      parent_name: group_add_product
+      weight: 4
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_declaration_details:
+      children:
+        - field_ingredients
+        - field_manufacturing_process
+        - field_d
+        - field_is_this_product_form_human
+        - field_select_certification
+      label: 'Declaration details'
+      region: content
+      parent_name: group_add_product
+      weight: 5
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_add_product:
+      children:
+        - group_product_basic_details
+        - group_price_details
+        - group_pa
+        - group_declaration_details
+      label: 'Add Product'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+_core:
+  default_config_hash: bVqhDE0CBvUi4RPHqKu4sBhUOUwOTgcHVhn5PkfngLU
+id: commerce_product.default.default
+targetEntityType: commerce_product
+bundle: default
+mode: default
+content:
+  field_1:
+    type: number
+    weight: 6
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_1_bumper______pounches:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_actual_rate:
+    type: number
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_d:
+    type: options_buttons
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_fumigation:
+    type: number
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_gross_weight_per_pack_:
+    type: number
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_hs:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_ingredients:
+    type: string_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_inner_package_material_amo:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_is_this_product_form_human:
+    type: options_buttons
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_local_transport:
+    type: number
+    weight: 10
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_m:
+    type: number
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mac:
+    type: number
+    weight: 9
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_manufacturing_process:
+    type: string_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_ou:
+    type: number
+    weight: 6
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_pro:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_product_id:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_product_scientific_name:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_quoted_rate:
+    type: number
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_select_category:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_select_certification:
+    type: options_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_t:
+    type: number
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_to:
+    type: number
+    weight: 12
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  status: true
+  stores: true
+  title: true
+  uid: true
+  variations: true

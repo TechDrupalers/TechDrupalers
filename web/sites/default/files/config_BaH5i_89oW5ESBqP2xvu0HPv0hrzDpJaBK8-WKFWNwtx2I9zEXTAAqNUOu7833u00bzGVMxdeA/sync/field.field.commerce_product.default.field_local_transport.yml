@@ -1,0 +1,23 @@
+uuid: 77199690-2690-46ff-9b37-b3c552db7760
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_local_transport
+id: commerce_product.default.field_local_transport
+field_name: field_local_transport
+entity_type: commerce_product
+bundle: default
+label: 'Local Transport'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ₹
+  suffix: ''
+field_type: decimal

@@ -1,0 +1,20 @@
+uuid: 8f039f35-3aae-4663-97c7-36922d8a4576
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product_attribute_value.field_t
+field_name: field_t
+entity_type: commerce_product_attribute_value
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

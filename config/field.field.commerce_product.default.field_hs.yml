@@ -1,0 +1,23 @@
+uuid: d7ae78d1-7016-4059-9e1e-6c2318440dd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_hs
+id: commerce_product.default.field_hs
+field_name: field_hs
+entity_type: commerce_product
+bundle: default
+label: 'HSN code'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

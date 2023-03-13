@@ -1,0 +1,29 @@
+uuid: cdba3175-e310-4582-bb93-d2d84b8b43bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_is_this_product_form_human
+    - taxonomy.vocabulary.radio_button
+id: commerce_product.default.field_is_this_product_form_human
+field_name: field_is_this_product_form_human
+entity_type: commerce_product
+bundle: default
+label: 'Is this product form human consumption'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      radio_button: radio_button
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

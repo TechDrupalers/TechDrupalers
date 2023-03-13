@@ -1,0 +1,23 @@
+uuid: 3b91eaac-4ea4-49bc-9887-9cf100436cd2
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_t
+id: commerce_product.default.field_t
+field_name: field_t
+entity_type: commerce_product
+bundle: default
+label: 'To Pune Freight'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

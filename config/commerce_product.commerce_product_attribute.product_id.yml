@@ -1,0 +1,7 @@
+uuid: 72ab92d3-f75e-4405-9248-5dd0d0158c13
+langcode: en
+status: true
+dependencies: {  }
+id: product_id
+label: 'Product ID'
+elementType: commerce_product_rendered_attribute

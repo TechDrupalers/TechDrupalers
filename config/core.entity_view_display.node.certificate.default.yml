@@ -1,0 +1,27 @@
+uuid: c9185d13-b57a-43b6-a68b-d6d2ba34077b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.certificate.field_description
+    - node.type.certificate
+  module:
+    - user
+id: node.certificate.default
+targetEntityType: node
+bundle: certificate
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

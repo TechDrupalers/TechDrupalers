@@ -1,0 +1,23 @@
+uuid: aa9ef645-3c2e-46f4-8608-02864b421dcd
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_fumigation
+id: commerce_product.default.field_fumigation
+field_name: field_fumigation
+entity_type: commerce_product
+bundle: default
+label: Fumigation
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal
