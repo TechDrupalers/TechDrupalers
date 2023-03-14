@@ -1,0 +1,20 @@
+uuid: 2205a6bc-43bb-4a6a-85b9-5509cbea8eeb
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.field_to
+field_name: field_to
+entity_type: commerce_product
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

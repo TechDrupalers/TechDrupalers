@@ -1,0 +1,20 @@
+uuid: 553f2098-8931-4434-bed2-e8cc48d048c0
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.field_1_bumper______pounches
+field_name: field_1_bumper______pounches
+entity_type: commerce_product
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

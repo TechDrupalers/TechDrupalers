@@ -1,0 +1,24 @@
+uuid: 45f2bc7c-3468-407a-95cf-27cae2eb5555
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.category.field_c_description
+    - field.field.node.category.field_parent_category
+    - node.type.category
+  module:
+    - user
+id: node.category.teaser
+targetEntityType: node
+bundle: category
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_c_description: true
+  field_parent_category: true

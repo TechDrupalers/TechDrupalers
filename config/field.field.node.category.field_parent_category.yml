@@ -1,0 +1,19 @@
+uuid: 69c58333-9e6d-41aa-90f3-f4240c4e57a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_parent_category
+    - node.type.category
+id: node.category.field_parent_category
+field_name: field_parent_category
+entity_type: node
+bundle: category
+label: 'Parent Category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

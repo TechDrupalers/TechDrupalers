@@ -1,0 +1,93 @@
+uuid: bd4c3208-6446-4652-be60-cbb919aec306
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_attribute.product_id
+    - field.field.commerce_product_attribute_value.product_id.field_a
+    - field.field.commerce_product_attribute_value.product_id.field_hs
+    - field.field.commerce_product_attribute_value.product_id.field_p
+    - field.field.commerce_product_attribute_value.product_id.field_product_name
+    - field.field.commerce_product_attribute_value.product_id.field_q
+    - field.field.commerce_product_attribute_value.product_id.field_se
+    - field.field.commerce_product_attribute_value.product_id.field_t
+id: commerce_product_attribute_value.product_id.default
+targetEntityType: commerce_product_attribute_value
+bundle: product_id
+mode: default
+content:
+  field_a:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_hs:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: -1
+    region: content
+  field_p:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -3
+    region: content
+  field_product_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  field_q:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_se:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: -2
+    region: content
+  field_t:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -5
+    region: content
+hidden: {  }

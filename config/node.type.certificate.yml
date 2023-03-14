@@ -1,0 +1,17 @@
+uuid: fb644471-dd42-4a09-adc6-f753c65567ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Certificate
+type: certificate
+description: 'Use Certificate is used to Shows the certificate when ever you need'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

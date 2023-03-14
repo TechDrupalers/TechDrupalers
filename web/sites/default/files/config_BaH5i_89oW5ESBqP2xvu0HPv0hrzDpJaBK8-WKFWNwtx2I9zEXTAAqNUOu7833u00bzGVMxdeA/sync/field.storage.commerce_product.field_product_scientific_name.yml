@@ -1,0 +1,21 @@
+uuid: 5b0b9c47-c6ca-4091-9562-8553570859b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.field_product_scientific_name
+field_name: field_product_scientific_name
+entity_type: commerce_product
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

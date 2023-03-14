@@ -1,0 +1,23 @@
+uuid: 7dfa30e2-e459-48ef-9ce0-6eccae2034b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_gross_weight_per_pack_
+id: commerce_product.default.field_gross_weight_per_pack_
+field_name: field_gross_weight_per_pack_
+entity_type: commerce_product
+bundle: default
+label: 'Gross Weight(per pack)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

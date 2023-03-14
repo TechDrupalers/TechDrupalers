@@ -1,0 +1,29 @@
+uuid: 00c6e3de-a595-420c-bdad-adf42d9b7fac
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_d
+    - taxonomy.vocabulary.radio_button
+id: commerce_product.default.field_d
+field_name: field_d
+entity_type: commerce_product
+bundle: default
+label: 'Dairy Declaration Required'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      radio_button: radio_button
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
