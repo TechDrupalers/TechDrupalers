@@ -1,0 +1,28 @@
+uuid: 054096e6-5428-4caf-8010-3d31b2c2d0e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.vendor.body
+    - node.type.vendor
+  module:
+    - text
+    - user
+id: node.vendor.default
+targetEntityType: node
+bundle: vendor
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

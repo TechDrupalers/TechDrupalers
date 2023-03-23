@@ -1,0 +1,30 @@
+uuid: cb180eab-1990-4296-9409-19a2548d3bed
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.vendor.body
+    - node.type.vendor
+  module:
+    - text
+    - user
+id: node.vendor.teaser
+targetEntityType: node
+bundle: vendor
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

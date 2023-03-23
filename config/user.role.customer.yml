@@ -11,11 +11,11 @@ label: customer
 weight: 5
 is_admin: null
 permissions:
-  - 'view default commerce_product'
   - 'create default commerce_wishlist'
   - 'delete own default commerce_wishlist'
-  - 'view own default commerce_wishlist'
-  - 'view own customer profile'
   - 'update own default commerce_wishlist'
+  - 'view default commerce_product'
   - 'view own commerce_wishlist'
+  - 'view own customer profile'
+  - 'view own default commerce_wishlist'
   - 'view own profile'

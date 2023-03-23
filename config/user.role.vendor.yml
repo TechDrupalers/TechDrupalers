@@ -13,13 +13,13 @@ label: vendor
 weight: 4
 is_admin: null
 permissions:
-  0: 'administer commerce_currency'
-  1: 'update own default commerce_product'
-  2: 'view default commerce_product'
-  3: 'view own customer profile'
-  6: 'update own online commerce_store'
-  7: 'view online commerce_store'
-  8: 'access profile overview'
-  9: 'administer users'
-  10: 'change own username'
-  11: 'view any default commerce_wishlist'
+  - 'access profile overview'
+  - 'administer commerce_currency'
+  - 'administer users'
+  - 'change own username'
+  - 'update own default commerce_product'
+  - 'update own online commerce_store'
+  - 'view any default commerce_wishlist'
+  - 'view default commerce_product'
+  - 'view online commerce_store'
+  - 'view own customer profile'
