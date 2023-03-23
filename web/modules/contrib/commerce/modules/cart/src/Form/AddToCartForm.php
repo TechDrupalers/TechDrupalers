@@ -256,6 +256,10 @@ class AddToCartForm extends ContentEntityForm implements AddToCartFormInterface 
       $store = $this->selectStore($purchased_entity);
       $cart = $this->cartProvider->createCart($order_type_id, $store);
     }
+    // Ensure we're adding an order_item, not amending one loaded from cache.
+    if (!$order_item->isNew()) {
+      $order_item = $order_item->createDuplicate();
+    }
     $this->entity = $this->cartManager->addOrderItem($cart, $order_item, $form_state->get([
       'settings',
       'combine',

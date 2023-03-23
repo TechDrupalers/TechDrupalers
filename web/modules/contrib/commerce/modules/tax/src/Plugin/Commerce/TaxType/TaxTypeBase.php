@@ -44,6 +44,14 @@ abstract class TaxTypeBase extends PluginBase implements TaxTypeInterface, Conta
   protected $parentEntity;
 
   /**
+   * The ID of the parent entity (used for serialization).
+   *
+   * @var string|int|null
+   */
+  // phpcs:ignore Drupal.Classes.PropertyDeclaration
+  protected $_parentEntityId;
+
+  /**
    * The ID of the parent config entity.
    *
    * @deprecated in commerce:8.x-2.16 and is removed from commerce:3.x.
@@ -242,6 +250,9 @@ abstract class TaxTypeBase extends PluginBase implements TaxTypeInterface, Conta
    */
   protected function resolveCustomerProfile(OrderItemInterface $order_item) {
     $order = $order_item->getOrder();
+    if (!$order) {
+      return NULL;
+    }
     $customer_profile = $this->buildCustomerProfile($order);
     // Allow the customer profile to be altered, per order item.
     $event = new CustomerProfileEvent($customer_profile, $order_item);

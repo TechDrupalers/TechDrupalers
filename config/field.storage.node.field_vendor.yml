@@ -1,0 +1,20 @@
+uuid: b1e98796-5de9-46ca-84a9-328d2c8a026d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - user
+id: node.field_vendor
+field_name: field_vendor
+entity_type: node
+type: entity_reference
+settings:
+  target_type: user
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

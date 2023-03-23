@@ -1,0 +1,23 @@
+uuid: 80f7f635-3eee-424d-9a1c-695c92bf0ccc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_i
+    - node.type.wishlist
+id: node.wishlist.field_product_i
+field_name: field_product_i
+entity_type: node
+bundle: wishlist
+label: 'Product ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -138,7 +138,7 @@ class BillingProfileWidget extends WidgetBase implements ContainerFactoryPluginI
       }
       $inline_form = $this->inlineFormManager->createInstance('customer_profile', [
         'profile_scope' => 'billing',
-        'available_countries' => $store->getBillingCountries(),
+        'available_countries' => $store ? $store->getBillingCountries() : [],
         'address_book_uid' => $order->getCustomerId(),
         'admin' => TRUE,
       ], $profile);

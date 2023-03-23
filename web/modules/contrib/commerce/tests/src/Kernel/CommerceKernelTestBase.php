@@ -5,6 +5,7 @@ namespace Drupal\Tests\commerce\Kernel;
 use Drupal\commerce_price\Comparator\NumberComparator;
 use Drupal\commerce_price\Comparator\PriceComparator;
 use Drupal\commerce_store\StoreCreationTrait;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
 use Drupal\Tests\commerce\Traits\DeprecationSuppressionTrait;
 use SebastianBergmann\Comparator\Factory as PhpUnitComparatorFactory;
@@ -16,6 +17,7 @@ abstract class CommerceKernelTestBase extends EntityKernelTestBase {
 
   use DeprecationSuppressionTrait;
   use StoreCreationTrait;
+  use StringTranslationTrait;
 
   /**
    * Modules to enable.

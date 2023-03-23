@@ -131,7 +131,19 @@ class StoreForm extends ContentEntityForm {
         $default_store = $store_storage->loadDefault();
         if (!$default_store || $default_store->id() == $store->id()) {
           $form['is_default']['widget']['value']['#default_value'] = TRUE;
+          $form['is_default']['widget']['value']['#title'] = $this->t('This is the default store.');
+          $form['is_default']['#disabled'] = TRUE;
         }
+        else {
+          $form['is_default']['widget']['value']['#title'] = $this->t('Make this the default store.');
+        }
+      }
+      else {
+        $form['is_default']['widget']['value']['#title'] = $this->t('This is the default store.');
+      }
+
+      if ($this->moduleHandler->moduleExists('commerce_cart')) {
+        $form['is_default']['widget']['value']['#description'] = $this->t('New carts will be assigned to this store unless a contributed module or custom code decides otherwise.');
       }
     }
 

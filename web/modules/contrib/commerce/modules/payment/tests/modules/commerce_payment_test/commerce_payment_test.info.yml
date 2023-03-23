@@ -6,7 +6,7 @@ dependencies:
   - commerce:commerce_payment
   - commerce:commerce_payment_example
 
-# Information added by Drupal.org packaging script on 2022-10-19
-version: '8.x-2.32'
+# Information added by Drupal.org packaging script on 2023-01-23
+version: '8.x-2.33'
 project: 'commerce'
-datestamp: 1666183944
+datestamp: 1674478179

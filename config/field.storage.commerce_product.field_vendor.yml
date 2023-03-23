@@ -1,0 +1,20 @@
+uuid: 208ed9e8-1056-4383-8b7f-6124cce84edc
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - user
+id: commerce_product.field_vendor
+field_name: field_vendor
+entity_type: commerce_product
+type: entity_reference
+settings:
+  target_type: user
+module: core
+locked: false
+cardinality: 3
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

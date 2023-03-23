@@ -3,6 +3,9 @@ _core:
 module:
   address: 0
   admin_toolbar: 0
+  admin_toolbar_links_access_filter: 0
+  admin_toolbar_search: 0
+  admin_toolbar_tools: 0
   automated_cron: 0
   big_pipe: 0
   block: 0
@@ -20,6 +23,7 @@ module:
   commerce_promotion: 0
   commerce_store: 0
   commerce_tax: 0
+  commerce_wishlist: 0
   config: 0
   contact: 0
   contextual: 0
@@ -53,6 +57,7 @@ module:
   state_machine: 0
   system: 0
   taxonomy: 0
+  telephone: 0
   text: 0
   token: 0
   toolbar: 0

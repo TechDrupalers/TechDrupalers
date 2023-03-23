@@ -69,6 +69,9 @@ commerce_checkout.commerce_checkout_pane.login:
     allow_registration:
       type: boolean
       label: 'Allow registration'
+    registration_form_mode:
+      type: string
+      label: 'Registration Form Mode'
 
 commerce_checkout.commerce_checkout_pane.order_summary:
   type: commerce_checkout_pane_configuration

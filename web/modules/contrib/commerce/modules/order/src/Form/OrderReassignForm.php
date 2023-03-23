@@ -125,7 +125,7 @@ class OrderReassignForm extends FormBase {
     /** @var \Drupal\user\UserInterface $user */
     $user = $this->userStorage->load($values['uid']);
     $this->orderAssignment->assign($this->order, $user);
-    $this->messenger()->addMessage($this->t('The order %label has been assigned to customer %customer.', [
+    $this->messenger()->addMessage($this->t('The %label has been assigned to customer %customer.', [
       '%label' => $this->order->label(),
       '%customer' => $this->order->getCustomer()->label(),
     ]));

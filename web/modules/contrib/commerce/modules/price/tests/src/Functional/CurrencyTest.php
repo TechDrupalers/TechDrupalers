@@ -57,7 +57,7 @@ class CurrencyTest extends CommerceBrowserTestBase {
       'fractionDigits' => 2,
     ];
     $this->submitForm($edit, 'Save');
-    $this->assertSession()->pageTextContains(t('Saved the @name currency.', ['@name' => $edit['name']]));
+    $this->assertSession()->pageTextContains($this->t('Saved the @name currency.', ['@name' => $edit['name']]));
 
     $currency = Currency::load('XXX');
     $this->assertEquals('XXX', $currency->getCurrencyCode());
@@ -103,8 +103,8 @@ class CurrencyTest extends CommerceBrowserTestBase {
       'fractionDigits' => 2,
     ]);
     $this->drupalGet('admin/commerce/config/currencies/' . $currency->id() . '/delete');
-    $this->assertSession()->pageTextContains(t("Are you sure you want to delete the currency @currency?", ['@currency' => $currency->getName()]));
-    $this->assertSession()->pageTextContains(t('This action cannot be undone.'));
+    $this->assertSession()->pageTextContains($this->t("Are you sure you want to delete the currency @currency?", ['@currency' => $currency->getName()]));
+    $this->assertSession()->pageTextContains($this->t('This action cannot be undone.'));
     $this->submitForm([], 'Delete');
 
     $currency_exists = (bool) Currency::load($currency->id());

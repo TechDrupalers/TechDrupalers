@@ -67,7 +67,9 @@ class PaymentMethodStorage extends CommerceContentEntityStorage implements Payme
       foreach ($payment_methods as $id => $payment_method) {
         $country_code = 'ZZ';
         if ($billing_profile = $payment_method->getBillingProfile()) {
-          $country_code = $billing_profile->address->first()->getCountryCode();
+          if (!$billing_profile->get('address')->isEmpty()) {
+            $country_code = $billing_profile->address->first()->getCountryCode();
+          }
         }
 
         if (!in_array($country_code, $billing_countries)) {

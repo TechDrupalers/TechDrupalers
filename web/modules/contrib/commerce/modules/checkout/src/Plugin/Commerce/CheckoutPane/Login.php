@@ -5,6 +5,7 @@ namespace Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane;
 use Drupal\commerce\CredentialsCheckFloodInterface;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutFlow\CheckoutFlowInterface;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
+use Drupal\Core\Entity\EntityDisplayRepositoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
@@ -63,6 +64,13 @@ class Login extends CheckoutPaneBase implements CheckoutPaneInterface, Container
   protected $languageManager;
 
   /**
+   * The entity display repository.
+   *
+   * @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface
+   */
+  protected $entityDisplayRepository;
+
+  /**
    * Constructs a new Login object.
    *
    * @param array $configuration
@@ -83,10 +91,12 @@ class Login extends CheckoutPaneBase implements CheckoutPaneInterface, Container
    *   The user authentication object.
    * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
    *   The request stack.
-   * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
+   * @param \Drupal\Core\Language\LanguageManagerInterface|null $language_manager
    *   The language manager.
+   * @param \Drupal\Core\Entity\EntityDisplayRepositoryInterface|null $entity_display_repository
+   *   The entity display repository.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, CheckoutFlowInterface $checkout_flow, EntityTypeManagerInterface $entity_type_manager, CredentialsCheckFloodInterface $credentials_check_flood, AccountInterface $current_user, UserAuthInterface $user_auth, RequestStack $request_stack, LanguageManagerInterface $language_manager = NULL) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, CheckoutFlowInterface $checkout_flow, EntityTypeManagerInterface $entity_type_manager, CredentialsCheckFloodInterface $credentials_check_flood, AccountInterface $current_user, UserAuthInterface $user_auth, RequestStack $request_stack, LanguageManagerInterface $language_manager = NULL, EntityDisplayRepositoryInterface $entity_display_repository = NULL) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $checkout_flow, $entity_type_manager);
 
     $this->credentialsCheckFlood = $credentials_check_flood;
@@ -97,7 +107,12 @@ class Login extends CheckoutPaneBase implements CheckoutPaneInterface, Container
       @trigger_error('Calling ' . __METHOD__ . '() without the $language_manager argument is deprecated in commerce:8.x-2.25 and is removed from commerce:3.x.');
       $language_manager = \Drupal::languageManager();
     }
+    if (!$entity_display_repository) {
+      @trigger_error('Calling ' . __METHOD__ . '() without the $entity_display_repository argument is deprecated in commerce:8.x-2.33 and is removed from commerce:3.x.');
+      $entity_display_repository = \Drupal::service('entity_display.repository');
+    }
     $this->languageManager = $language_manager;
+    $this->entityDisplayRepository = $entity_display_repository;
   }
 
   /**
@@ -114,7 +129,8 @@ class Login extends CheckoutPaneBase implements CheckoutPaneInterface, Container
       $container->get('current_user'),
       $container->get('user.auth'),
       $container->get('request_stack'),
-      $container->get('language_manager')
+      $container->get('language_manager'),
+      $container->get('entity_display.repository')
     );
   }
 
@@ -125,6 +141,7 @@ class Login extends CheckoutPaneBase implements CheckoutPaneInterface, Container
     return [
       'allow_guest_checkout' => TRUE,
       'allow_registration' => FALSE,
+      'registration_form_mode' => 'register',
     ] + parent::defaultConfiguration();
   }
 
@@ -139,7 +156,9 @@ class Login extends CheckoutPaneBase implements CheckoutPaneInterface, Container
       $summary = $this->t('Guest checkout: Not allowed') . '<br>';
     }
     if (!empty($this->configuration['allow_registration'])) {
-      $summary .= $this->t('Registration: Allowed');
+      $summary .= $this->t('Registration: Allowed') . '<br>';
+      $form_modes = $this->entityDisplayRepository->getFormModeOptions('user');
+      $summary .= $this->t('Registration form mode: @mode', ['@mode' => $form_modes[$this->configuration['registration_form_mode']]]);
     }
     else {
       $summary .= $this->t('Registration: Not allowed');
@@ -163,6 +182,17 @@ class Login extends CheckoutPaneBase implements CheckoutPaneInterface, Container
       '#title' => $this->t('Allow registration'),
       '#default_value' => $this->configuration['allow_registration'],
     ];
+    $form['registration_form_mode'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Registration Form Mode'),
+      '#default_value' => $this->configuration['registration_form_mode'],
+      '#options' => $this->entityDisplayRepository->getFormModeOptions('user'),
+      '#states' => [
+        'visible' => [
+          ':input[name="configuration[panes][login][configuration][allow_registration]"]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
 
     return $form;
   }
@@ -177,6 +207,7 @@ class Login extends CheckoutPaneBase implements CheckoutPaneInterface, Container
       $values = $form_state->getValue($form['#parents']);
       $this->configuration['allow_guest_checkout'] = !empty($values['allow_guest_checkout']);
       $this->configuration['allow_registration'] = !empty($values['allow_registration']);
+      $this->configuration['registration_form_mode'] = $values['registration_form_mode'];
     }
   }
 
@@ -312,7 +343,7 @@ class Login extends CheckoutPaneBase implements CheckoutPaneInterface, Container
 
     /** @var \Drupal\user\UserInterface $account */
     $account = $this->entityTypeManager->getStorage('user')->create([]);
-    $form_display = EntityFormDisplay::collectRenderDisplay($account, 'register');
+    $form_display = EntityFormDisplay::collectRenderDisplay($account, $this->configuration['registration_form_mode']);
     $form_display->buildForm($account, $pane_form['register'], $form_state);
 
     return $pane_form;
@@ -392,7 +423,7 @@ class Login extends CheckoutPaneBase implements CheckoutPaneInterface, Container
           'preferred_admin_langcode' => $this->languageManager->getCurrentLanguage()->getId(),
         ]);
 
-        $form_display = EntityFormDisplay::collectRenderDisplay($account, 'register');
+        $form_display = EntityFormDisplay::collectRenderDisplay($account, $this->configuration['registration_form_mode']);
         $form_display->extractFormValues($account, $pane_form['register'], $form_state);
         $form_display->validateFormValues($account, $pane_form['register'], $form_state);
 

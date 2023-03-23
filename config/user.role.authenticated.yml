@@ -8,6 +8,7 @@ dependencies:
     - comment
     - commerce_payment
     - commerce_product
+    - commerce_wishlist
     - contact
     - filter
     - search
@@ -30,3 +31,4 @@ permissions:
   - 'use text format basic_html'
   - 'view commerce_product'
   - 'manage own commerce_payment_method'
+  - 'access wishlist'

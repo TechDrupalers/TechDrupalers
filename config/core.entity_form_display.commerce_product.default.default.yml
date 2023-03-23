@@ -27,7 +27,9 @@ dependencies:
     - field.field.commerce_product.default.field_select_certification
     - field.field.commerce_product.default.field_t
     - field.field.commerce_product.default.field_to
+    - field.field.commerce_product.default.field_vendor
   module:
+    - commerce_product
     - field_group
 third_party_settings:
   field_group:
@@ -97,6 +99,7 @@ third_party_settings:
       children:
         - field_ingredients
         - field_manufacturing_process
+        - field_vendor
         - field_d
         - field_is_this_product_form_human
         - field_select_certification
@@ -297,11 +300,35 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_vendor:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  stores:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  variations:
+    type: commerce_product_single_variation
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   path: true
   status: true
-  stores: true
   title: true
   uid: true
-  variations: true

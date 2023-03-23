@@ -106,7 +106,7 @@ class NumberPatternTest extends CommerceWebDriverTestBase {
     $number_pattern->save();
 
     $this->drupalGet($number_pattern->toUrl('delete-form'));
-    $this->assertSession()->pageTextContains(t('Are you sure you want to delete the number pattern @type?', ['@type' => $number_pattern->label()]));
+    $this->assertSession()->pageTextContains($this->t('Are you sure you want to delete the number pattern @type?', ['@type' => $number_pattern->label()]));
     $this->assertSession()->pageTextContains('This action cannot be undone.');
     $this->submitForm([], 'Delete');
     $number_pattern_exists = (bool) NumberPattern::load($number_pattern->id());
@@ -146,7 +146,7 @@ class NumberPatternTest extends CommerceWebDriverTestBase {
     $this->assertEquals(2, $number);
 
     $this->drupalGet($number_pattern->toUrl('reset-sequence-form'));
-    $this->assertSession()->pageTextContains(t('Are you sure you want to reset the sequence for the @type number pattern?', ['@type' => $number_pattern->label()]));
+    $this->assertSession()->pageTextContains($this->t('Are you sure you want to reset the sequence for the @type number pattern?', ['@type' => $number_pattern->label()]));
     $this->assertSession()->pageTextContains('This action cannot be undone.');
     $this->submitForm([], 'Reset sequence');
 

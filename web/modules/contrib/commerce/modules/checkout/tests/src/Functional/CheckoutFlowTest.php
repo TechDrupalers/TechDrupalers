@@ -40,7 +40,7 @@ class CheckoutFlowTest extends CommerceBrowserTestBase {
       'plugin' => 'multistep_default',
     ];
     $this->submitForm($edit, 'Save');
-    $this->assertSession()->pageTextContains(t('Saved the @name checkout flow.', ['@name' => $edit['label']]));
+    $this->assertSession()->pageTextContains($this->t('Saved the @name checkout flow.', ['@name' => $edit['label']]));
 
     $checkout_flow = CheckoutFlow::load('test_checkout_flow');
     $this->assertEquals('Test checkout flow', $checkout_flow->label());
@@ -65,7 +65,7 @@ class CheckoutFlowTest extends CommerceBrowserTestBase {
       'configuration[panes][review][step_id]' => '_disabled',
     ];
     $this->submitForm($edit, 'Save');
-    $this->assertSession()->pageTextContains(t('Saved the @name checkout flow.', ['@name' => $edit['label']]));
+    $this->assertSession()->pageTextContains($this->t('Saved the @name checkout flow.', ['@name' => $edit['label']]));
 
     $checkout_flow = CheckoutFlow::load('test_checkout_flow');
     $this->assertEquals('Name has changed', $checkout_flow->label());
@@ -84,8 +84,8 @@ class CheckoutFlowTest extends CommerceBrowserTestBase {
       'plugin' => 'multistep_default',
     ]);
     $this->drupalGet('admin/commerce/config/checkout-flows/manage/' . $checkout_flow->id() . '/delete');
-    $this->assertSession()->pageTextContains(t("Are you sure you want to delete the checkout flow @flow?", ['@flow' => $checkout_flow->label()]));
-    $this->assertSession()->pageTextContains(t('This action cannot be undone.'));
+    $this->assertSession()->pageTextContains($this->t("Are you sure you want to delete the checkout flow @flow?", ['@flow' => $checkout_flow->label()]));
+    $this->assertSession()->pageTextContains($this->t('This action cannot be undone.'));
     $this->submitForm([], 'Delete');
 
     $checkout_flow_exists = (bool) CheckoutFlow::load($checkout_flow->id());
@@ -109,7 +109,7 @@ class CheckoutFlowTest extends CommerceBrowserTestBase {
     $edit = ['configuration[panes][contact_information][configuration][double_entry]' => 1];
     $this->submitForm($edit, 'Update');
     $this->submitForm([], 'Save');
-    $this->assertSession()->pageTextContains(t('Saved the @name checkout flow.', ['@name' => 'Test checkout flow']));
+    $this->assertSession()->pageTextContains($this->t('Saved the @name checkout flow.', ['@name' => 'Test checkout flow']));
 
     // Go back to the edit page, and check that the text has changed.
     $this->drupalGet('admin/commerce/config/checkout-flows/manage/test_checkout_flow');

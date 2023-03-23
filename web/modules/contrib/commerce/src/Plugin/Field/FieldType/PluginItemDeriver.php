@@ -27,13 +27,10 @@ class PluginItemDeriver extends DeriverBase implements ContainerDeriverInterface
   /**
    * Constructs a new PluginItemDeriver object.
    *
-   * @param string $base_plugin_id
-   *   The base plugin ID.
    * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $event_dispatcher
    *   The event dispatcher.
    */
-  public function __construct($base_plugin_id, EventDispatcherInterface $event_dispatcher) {
-    $this->basePluginId = $base_plugin_id;
+  public function __construct(EventDispatcherInterface $event_dispatcher) {
     $this->eventDispatcher = $event_dispatcher;
   }
 
@@ -42,7 +39,6 @@ class PluginItemDeriver extends DeriverBase implements ContainerDeriverInterface
    */
   public static function create(ContainerInterface $container, $base_plugin_id) {
     return new static(
-      $base_plugin_id,
       $container->get('event_dispatcher')
     );
   }

@@ -89,8 +89,8 @@ class CanadianSalesTaxTest extends OrderKernelTestBase {
     $this->assertCount(2, $adjustments);
     $this->assertEquals('canadian_sales_tax|ca|gst', $adjustments[0]->getSourceId());
     $this->assertEquals('canadian_sales_tax|bc|pst', $adjustments[1]->getSourceId());
-    $this->assertEquals(t('GST'), $adjustments[0]->getLabel());
-    $this->assertEquals(t('PST'), $adjustments[1]->getLabel());
+    $this->assertEquals($this->t('GST'), $adjustments[0]->getLabel());
+    $this->assertEquals($this->t('PST'), $adjustments[1]->getLabel());
     // Both taxes should be calculated on the unit price (non-cumulative).
     $this->assertEquals(new Price('0.5', 'USD'), $adjustments[0]->getAmount());
     $this->assertEquals(new Price('0.7', 'USD'), $adjustments[1]->getAmount());

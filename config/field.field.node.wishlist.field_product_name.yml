@@ -1,0 +1,19 @@
+uuid: eaf77cd5-b8fe-48df-aff1-4ed7aa22bdd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_name
+    - node.type.wishlist
+id: node.wishlist.field_product_name
+field_name: field_product_name
+entity_type: node
+bundle: wishlist
+label: 'Product Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

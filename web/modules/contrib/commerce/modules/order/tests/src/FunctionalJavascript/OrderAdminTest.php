@@ -85,11 +85,12 @@ class OrderAdminTest extends OrderWebDriverTestBase {
     $this->drupalGet('/admin/commerce/orders');
     $this->getSession()->getPage()->clickLink('Create a new order');
     $user = $this->loggedInUser->getAccountName() . ' (' . $this->loggedInUser->id() . ')';
+    $this->getSession()->getPage()->fillField('uid', $user);
+    $this->assertSession()->assertWaitOnAjaxRequest();
     $edit = [
       'customer_type' => 'existing',
-      'uid' => $user,
     ];
-    $this->submitForm($edit, $this->t('Create'));
+    $this->submitForm($edit, 'Create');
 
     $this->getSession()->getPage()->pressButton('add_billing_information');
     $this->assertSession()->assertWaitOnAjaxRequest();
@@ -328,7 +329,7 @@ class OrderAdminTest extends OrderWebDriverTestBase {
       'store_id' => $this->store,
     ]);
     $this->drupalGet($order->toUrl('delete-form'));
-    $this->assertSession()->pageTextContains(t('Are you sure you want to delete @label?', [
+    $this->assertSession()->pageTextContains($this->t('Are you sure you want to delete @label?', [
       '@label' => $order->label(),
     ]));
     $this->assertSession()->pageTextContains('This action cannot be undone.');
@@ -352,10 +353,13 @@ class OrderAdminTest extends OrderWebDriverTestBase {
       'locked' => TRUE,
     ]);
     $this->drupalGet($order->toUrl('unlock-form'));
-    $this->assertSession()->pageTextContains(t('Are you sure you want to unlock @label?', [
+    $this->assertSession()->pageTextContains($this->t('Are you sure you want to unlock @label?', [
       '@label' => $order->label(),
     ]));
     $this->submitForm([], $this->t('Unlock'));
+    $this->assertSession()->pageTextContains($this->t('The @label has been unlocked.', [
+      '@label' => $order->label(),
+    ]));
 
     $this->container->get('entity_type.manager')->getStorage('commerce_order')->resetCache([$order->id()]);
     $order = Order::load($order->id());
@@ -393,7 +397,7 @@ class OrderAdminTest extends OrderWebDriverTestBase {
     $order->save();
 
     $this->drupalGet($order->toUrl('resend-receipt-form'));
-    $this->assertSession()->pageTextContains(t('Are you sure you want to resend the receipt for @label?', [
+    $this->assertSession()->pageTextContains($this->t('Are you sure you want to resend the receipt for @label?', [
       '@label' => $order->label(),
     ]));
     $this->submitForm([], $this->t('Resend receipt'));

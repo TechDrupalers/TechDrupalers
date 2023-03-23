@@ -9,9 +9,11 @@ dependencies:
     - field.storage.commerce_product.field_product_id
     - field.storage.commerce_product.field_product_scientific_name
     - field.storage.commerce_product.field_select_category
+    - user.role.administrator
   module:
     - commerce
     - commerce_product
+    - user
 id: product_catalogue
 label: 'Product Catalogue'
 module: views
@@ -427,8 +429,10 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
       cache:
         type: tag
         options: {  }
@@ -537,14 +541,15 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags:
         - 'config:field.storage.commerce_product.field_hs'
         - 'config:field.storage.commerce_product.field_pro'
         - 'config:field.storage.commerce_product.field_product_id'
         - 'config:field.storage.commerce_product.field_product_scientific_name'
         - 'config:field.storage.commerce_product.field_select_category'
-  page_1:
-    id: page_1
+  page_2:
+    id: page_2
     display_title: Page
     display_plugin: page
     position: 1
@@ -558,6 +563,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags:
         - 'config:field.storage.commerce_product.field_hs'
         - 'config:field.storage.commerce_product.field_pro'

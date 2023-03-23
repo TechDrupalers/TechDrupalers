@@ -427,7 +427,7 @@ class PromotionTest extends CommerceWebDriverTestBase {
     ]);
     $this->assertTrue($promotion->isEnabled());
     $this->drupalGet($promotion->toUrl('disable-form'));
-    $this->assertSession()->pageTextContains(t('Are you sure you want to disable the promotion @label?', ['@label' => $promotion->label()]));
+    $this->assertSession()->pageTextContains($this->t('Are you sure you want to disable the promotion @label?', ['@label' => $promotion->label()]));
     $this->submitForm([], $this->t('Disable'));
 
     $promotion = $this->reloadEntity($promotion);
@@ -445,7 +445,7 @@ class PromotionTest extends CommerceWebDriverTestBase {
     ]);
     $this->assertFalse($promotion->isEnabled());
     $this->drupalGet($promotion->toUrl('enable-form'));
-    $this->assertSession()->pageTextContains(t('Are you sure you want to enable the promotion @label?', ['@label' => $promotion->label()]));
+    $this->assertSession()->pageTextContains($this->t('Are you sure you want to enable the promotion @label?', ['@label' => $promotion->label()]));
     $this->submitForm([], $this->t('Enable'));
 
     $promotion = $this->reloadEntity($promotion);

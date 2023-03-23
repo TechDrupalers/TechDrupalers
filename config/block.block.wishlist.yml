@@ -1,0 +1,35 @@
+uuid: 990805c6-f7fb-4d05-a69a-66804c370c7e
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - commerce_wishlist
+  theme:
+    - bartik
+id: wishlist
+theme: bartik
+region: sidebar_second
+weight: -7
+provider: null
+plugin: commerce_wishlist
+settings:
+  id: commerce_wishlist
+  label: Wishlist
+  label_display: visible
+  provider: commerce_wishlist
+visibility:
+  'entity_bundle:commerce_product':
+    id: 'entity_bundle:commerce_product'
+    negate: false
+    context_mapping:
+      commerce_product: '@commerce_product.product_route_context:commerce_product'
+    bundles:
+      default: default
+  'entity_bundle:commerce_product_variation':
+    id: 'entity_bundle:commerce_product_variation'
+    negate: false
+    context_mapping:
+      commerce_product_variation: '@commerce_product.product_variation_route_context:commerce_product_variation'
+    bundles:
+      default: default

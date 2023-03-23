@@ -6,8 +6,8 @@ use Drupal\commerce\EntityHelper;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
 use Drupal\Core\Entity\EntityRepositoryInterface;
-use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormInterface;
 use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -49,12 +49,19 @@ class ProductVariationListBuilder extends EntityListBuilder implements FormInter
   protected $hasTableDrag = TRUE;
 
   /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
    * Constructs a new ProductVariationListBuilder object.
    *
    * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
    *   The entity type definition.
-   * @param \Drupal\Core\Entity\EntityStorageInterface $storage
-   *   The entity storage.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager.
    * @param \Drupal\Core\Entity\EntityRepositoryInterface $entity_repository
    *   The entity repository.
    * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
@@ -62,10 +69,11 @@ class ProductVariationListBuilder extends EntityListBuilder implements FormInter
    * @param \Drupal\Core\Form\FormBuilderInterface $form_builder
    *   The form builder.
    */
-  public function __construct(EntityTypeInterface $entity_type, EntityStorageInterface $storage, EntityRepositoryInterface $entity_repository, RouteMatchInterface $route_match, FormBuilderInterface $form_builder) {
-    parent::__construct($entity_type, $storage);
+  public function __construct(EntityTypeInterface $entity_type, EntityTypeManagerInterface $entity_type_manager, EntityRepositoryInterface $entity_repository, RouteMatchInterface $route_match, FormBuilderInterface $form_builder) {
+    parent::__construct($entity_type, $entity_type_manager->getStorage($entity_type->id()));
 
     $this->formBuilder = $form_builder;
+    $this->entityTypeManager = $entity_type_manager;
     $this->product = $route_match->getParameter('commerce_product');
     // The product might not be available when the list builder is
     // instantiated by Views to build the list of operations.
@@ -80,7 +88,7 @@ class ProductVariationListBuilder extends EntityListBuilder implements FormInter
   public static function createInstance(ContainerInterface $container, EntityTypeInterface $entity_type) {
     return new static(
       $entity_type,
-      $container->get('entity_type.manager')->getStorage($entity_type->id()),
+      $container->get('entity_type.manager'),
       $container->get('entity.repository'),
       $container->get('current_route_match'),
       $container->get('form_builder')
@@ -141,7 +149,9 @@ class ProductVariationListBuilder extends EntityListBuilder implements FormInter
     $row['title'] = $title;
     $row['price'] = $entity->getPrice();
     $row['status'] = $entity->isPublished() ? $this->t('Published') : $this->t('Unpublished');
-    $row['type'] = $entity->bundle();
+    $variation_type_storage = $this->entityTypeManager->getStorage('commerce_product_variation_type');
+    $variation_type = $variation_type_storage->load($entity->bundle());
+    $row['type'] = $variation_type->label();
     if ($this->hasTableDrag) {
       $row['weight'] = [
         '#type' => 'weight',
@@ -242,8 +252,18 @@ class ProductVariationListBuilder extends EntityListBuilder implements FormInter
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $variations = $this->product->getVariations();
     $new_variations = [];
+    $variation_groups = [];
+    // Multiple variations can have the same weight, group the variations per
+    // weight, and then iterate on variation groups below to reassign a correct
+    // weight.
     foreach ($form_state->getValue('variations') as $id => $value) {
-      $new_variations[$value['weight']] = $variations[$this->variationDeltas[$id]];
+      $variation_groups[$value['weight']][] = $variations[$this->variationDeltas[$id]];
+    }
+    ksort($variation_groups);
+    foreach ($variation_groups as $variations) {
+      foreach ($variations as $variation) {
+        $new_variations[] = $variation;
+      }
     }
     $this->product->setVariations($new_variations);
     $this->product->save();

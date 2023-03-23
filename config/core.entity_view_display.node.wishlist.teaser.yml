@@ -1,0 +1,28 @@
+uuid: 6b43365d-220e-4264-be2d-4d87e4649759
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.wishlist.field_product_i
+    - field.field.node.wishlist.field_product_name
+    - field.field.node.wishlist.field_quantity
+    - field.field.node.wishlist.field_vendor
+    - node.type.wishlist
+  module:
+    - user
+id: node.wishlist.teaser
+targetEntityType: node
+bundle: wishlist
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_product_i: true
+  field_product_name: true
+  field_quantity: true
+  field_vendor: true

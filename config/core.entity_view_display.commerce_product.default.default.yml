@@ -27,6 +27,10 @@ dependencies:
     - field.field.commerce_product.default.field_select_certification
     - field.field.commerce_product.default.field_t
     - field.field.commerce_product.default.field_to
+    - field.field.commerce_product.default.field_vendor
+  module:
+    - commerce_product
+    - commerce_wishlist
 _core:
   default_config_hash: 10qgl6V_HwkrJufzsNCV75OpqOeMzzKDJb3BhaogmzQ
 id: commerce_product.default.default
@@ -41,7 +45,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 17
+    weight: 16
     region: content
   field_1_bumper______pounches:
     type: number_integer
@@ -50,7 +54,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 16
+    weight: 15
     region: content
   field_actual_rate:
     type: number_decimal
@@ -61,7 +65,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   field_d:
     type: entity_reference_label
@@ -69,7 +73,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 20
+    weight: 19
     region: content
   field_fumigation:
     type: number_decimal
@@ -80,7 +84,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 13
+    weight: 12
     region: content
   field_gross_weight_per_pack_:
     type: number_decimal
@@ -91,7 +95,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 15
+    weight: 14
     region: content
   field_hs:
     type: number_integer
@@ -100,14 +104,14 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_ingredients:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 18
+    weight: 17
     region: content
   field_inner_package_material_amo:
     type: number_decimal
@@ -118,7 +122,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 8
+    weight: 7
     region: content
   field_is_this_product_form_human:
     type: entity_reference_label
@@ -126,7 +130,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 21
+    weight: 20
     region: content
   field_local_transport:
     type: number_decimal
@@ -137,7 +141,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 12
+    weight: 11
     region: content
   field_m:
     type: number_decimal
@@ -148,7 +152,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 10
+    weight: 9
     region: content
   field_mac:
     type: number_decimal
@@ -159,14 +163,14 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 11
+    weight: 10
     region: content
   field_manufacturing_process:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 19
+    weight: 18
     region: content
   field_ou:
     type: number_decimal
@@ -177,7 +181,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 9
+    weight: 8
     region: content
   field_pro:
     type: string
@@ -213,7 +217,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 6
+    weight: 5
     region: content
   field_select_category:
     type: entity_reference_label
@@ -221,7 +225,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 23
+    weight: 22
     region: content
   field_select_certification:
     type: entity_reference_label
@@ -229,7 +233,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 22
+    weight: 21
     region: content
   field_t:
     type: number_decimal
@@ -240,7 +244,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 7
+    weight: 6
     region: content
   field_to:
     type: number_decimal
@@ -251,11 +255,30 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 14
+    weight: 13
+    region: content
+  field_vendor:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  variations:
+    type: commerce_add_to_cart
+    label: above
+    settings:
+      combine: true
+    third_party_settings:
+      commerce_wishlist:
+        show_wishlist: true
+        weight_wishlist: 99
+        label_wishlist: ''
+    weight: 24
     region: content
 hidden:
   created: true
   stores: true
   title: true
   uid: true
-  variations: true

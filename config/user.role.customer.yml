@@ -1,0 +1,21 @@
+uuid: 59dae5a3-4978-44ba-bd85-69f0546f991c
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - commerce_wishlist
+    - profile
+id: customer
+label: customer
+weight: 5
+is_admin: null
+permissions:
+  - 'view default commerce_product'
+  - 'create default commerce_wishlist'
+  - 'delete own default commerce_wishlist'
+  - 'view own default commerce_wishlist'
+  - 'view own customer profile'
+  - 'update own default commerce_wishlist'
+  - 'view own commerce_wishlist'
+  - 'view own profile'

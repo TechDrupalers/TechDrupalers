@@ -105,7 +105,7 @@ class OrderItemTypeTest extends OrderBrowserTestBase {
     $order_item_type->save();
     $this->drupalGet($order_item_type->toUrl('delete-form'));
     $this->assertSession()->statusCodeEquals(200);
-    $this->assertSession()->pageTextContains(t('This action cannot be undone.'));
+    $this->assertSession()->pageTextContains($this->t('This action cannot be undone.'));
     $this->submitForm([], $this->t('Delete'));
     $order_item_type_exists = (bool) OrderItemType::load($order_item_type->id());
     $this->assertEmpty($order_item_type_exists);

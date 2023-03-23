@@ -104,9 +104,9 @@ trait ProductCategoryTrait {
         $field_definitions = $this->entityFieldManager->getFieldDefinitions('commerce_product', $bundle);
         $field_definition = $field_definitions[$field_name];
         if ($field_definition->getSetting('target_type') == 'taxonomy_term') {
-          $target_bundles = $field_definition->getSetting('handler_settings')['target_bundles'];
-          if (!empty($target_bundles)) {
-            $vocabulary_ids = array_merge($vocabulary_ids, $target_bundles);
+          $handler_settings = $field_definition->getSetting('handler_settings') ?: [];
+          if (!empty($handler_settings['target_bundles'])) {
+            $vocabulary_ids = array_merge($vocabulary_ids, $handler_settings['target_bundles']);
           }
         }
       }

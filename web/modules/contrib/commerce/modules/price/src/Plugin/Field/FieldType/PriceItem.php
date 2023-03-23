@@ -130,6 +130,16 @@ class PriceItem extends FieldItemBase {
   /**
    * {@inheritdoc}
    */
+  public static function fieldSettingsToConfigData(array $settings) {
+    $settings['available_currencies'] = array_filter(
+      $settings['available_currencies']
+    );
+    return $settings;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getConstraints() {
     $constraint_manager = $this->getTypedDataManager()->getValidationConstraintManager();
     $constraints = parent::getConstraints();

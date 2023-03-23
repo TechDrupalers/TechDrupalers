@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - system
+    - user
   theme:
     - bartik
 _core:
@@ -19,4 +20,15 @@ settings:
   label: 'Main page content'
   label_display: '0'
   provider: system
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /product-catalogue
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      vendor: vendor

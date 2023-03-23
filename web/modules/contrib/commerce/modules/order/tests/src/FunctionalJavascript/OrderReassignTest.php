@@ -73,7 +73,8 @@ class OrderReassignTest extends OrderWebDriverTestBase {
     $this->submitForm($values, 'Reassign order');
     $collection_url = $this->order->toUrl('collection', ['absolute' => TRUE]);
     $this->assertSession()->addressEquals($collection_url);
-    $this->assertSession()->pageTextContains(t('has been assigned to customer @customer.', [
+    $this->assertSession()->pageTextContains($this->t('The @label has been assigned to customer @customer.', [
+      '@label' => $this->order->label(),
       '@customer' => 'example@example.com',
     ]));
 
@@ -91,7 +92,8 @@ class OrderReassignTest extends OrderWebDriverTestBase {
     $this->submitForm(['uid' => $another_user->getAccountName()], 'Reassign order');
     $collection_url = $this->order->toUrl('collection', ['absolute' => TRUE]);
     $this->assertSession()->addressEquals($collection_url);
-    $this->assertSession()->pageTextContains(t('has been assigned to customer @customer.', [
+    $this->assertSession()->pageTextContains($this->t('The @label has been assigned to customer @customer.', [
+      '@label' => $this->order->label(),
       '@customer' => $another_user->getAccountName(),
     ]));
 

@@ -643,6 +643,8 @@ $settings['update_free_access'] = FALSE;
  */
 # $config['system.site']['name'] = 'My Drupal site';
 # $config['user.settings']['anonymous'] = 'Visitor';
+$config['system.logging']['error_level']='verbose';
+$config['error_level'] = 'ERROR_REPORTING_DISPLAY_VERBOSE | ERROR_REPORTING_HIDE_DEPRECATE';
 
 /**
  * Load services definition file.

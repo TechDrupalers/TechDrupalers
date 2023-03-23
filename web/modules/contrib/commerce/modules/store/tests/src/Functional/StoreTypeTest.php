@@ -93,7 +93,7 @@ class StoreTypeTest extends CommerceBrowserTestBase {
 
     // Confirm that the type can't be deleted while there's a store.
     $this->drupalGet($store_type->toUrl('delete-form'));
-    $this->assertSession()->pageTextContains(t('@type is used by 1 store on your site. You cannot remove this store type until you have removed all of the @type stores.', ['@type' => $store_type->label()]));
+    $this->assertSession()->pageTextContains($this->t('@type is used by 1 store on your site. You cannot remove this store type until you have removed all of the @type stores.', ['@type' => $store_type->label()]));
     $this->assertSession()->pageTextNotContains('This action cannot be undone.');
     $this->assertSession()->pageTextNotContains('The store type deletion confirmation form is not available');
 
@@ -108,7 +108,7 @@ class StoreTypeTest extends CommerceBrowserTestBase {
     $store_type->unlock();
     $store_type->save();
     $this->drupalGet($store_type->toUrl('delete-form'));
-    $this->assertSession()->pageTextContains(t('Are you sure you want to delete the store type @type?', ['@type' => $store_type->label()]));
+    $this->assertSession()->pageTextContains($this->t('Are you sure you want to delete the store type @type?', ['@type' => $store_type->label()]));
     $this->saveHtmlOutput();
     $this->assertSession()->pageTextContains('This action cannot be undone.');
     $this->submitForm([], 'Delete');

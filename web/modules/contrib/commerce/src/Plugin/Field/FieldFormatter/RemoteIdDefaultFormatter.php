@@ -22,6 +22,8 @@ class RemoteIdDefaultFormatter extends FormatterBase {
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
+    $element = [];
+
     foreach ($items as $delta => $item) {
       // Render each element as markup.
       $element[$delta] = ['#markup' => $item->provider . ':' . $item->remote_id];

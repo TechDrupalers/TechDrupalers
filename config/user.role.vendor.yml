@@ -1,0 +1,25 @@
+uuid: 8fb97788-740f-4a08-b3bc-79cc6ecad230
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_price
+    - commerce_product
+    - commerce_store
+    - commerce_wishlist
+    - profile
+id: vendor
+label: vendor
+weight: 4
+is_admin: null
+permissions:
+  0: 'administer commerce_currency'
+  1: 'update own default commerce_product'
+  2: 'view default commerce_product'
+  3: 'view own customer profile'
+  6: 'update own online commerce_store'
+  7: 'view online commerce_store'
+  8: 'access profile overview'
+  9: 'administer users'
+  10: 'change own username'
+  11: 'view any default commerce_wishlist'

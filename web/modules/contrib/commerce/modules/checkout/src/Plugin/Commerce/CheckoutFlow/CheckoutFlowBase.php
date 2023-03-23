@@ -51,6 +51,14 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
   protected $order;
 
   /**
+   * The order ID (used for serialization).
+   *
+   * @var string|int|null
+   */
+  // phpcs:ignore Drupal.Classes.PropertyDeclaration
+  protected $_orderId;
+
+  /**
    * The parent config entity.
    *
    * Not available while the plugin is being configured.
@@ -58,6 +66,14 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
    * @var \Drupal\commerce_checkout\Entity\CheckoutFlowInterface
    */
   protected $parentEntity;
+
+  /**
+   * The ID of the parent entity (used for serialization).
+   *
+   * @var string|int|null
+   */
+  // phpcs:ignore Drupal.Classes.PropertyDeclaration
+  protected $_parentEntityId;
 
   /**
    * Static cache of visible steps.
