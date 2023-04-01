@@ -1,0 +1,29 @@
+uuid: 3debb1f0-fc19-49bd-b50a-f2acf8b0ba22
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.sidebar-menu
+  module:
+    - system
+  theme:
+    - bartik
+id: sidebarmenu
+theme: bartik
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:sidebar-menu'
+settings:
+  id: 'system_menu_block:sidebar-menu'
+  label: 'Sidebar Menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "<front>\r\n/user/login\r\n/node/10"

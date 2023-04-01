@@ -10,9 +10,16 @@ dependencies:
     - field.storage.commerce_product.field_product_scientific_name
     - field.storage.commerce_product.field_select_category
     - user.role.administrator
+    - user.role.anonymous
+    - user.role.authenticated
+    - user.role.content_editor
+    - user.role.customer
+    - user.role.vendor
   module:
     - commerce
     - commerce_product
+    - rest
+    - serialization
     - user
 id: product_catalogue
 label: 'Product Catalogue'
@@ -432,7 +439,12 @@ display:
         type: role
         options:
           role:
+            anonymous: anonymous
+            authenticated: authenticated
+            content_editor: content_editor
             administrator: administrator
+            vendor: vendor
+            customer: customer
       cache:
         type: tag
         options: {  }
@@ -465,56 +477,6 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        field_select_category_target_id:
-          id: field_select_category_target_id
-          table: commerce_product__field_select_category
-          field: field_select_category_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: numeric
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_select_category_target_id_op
-            label: 'Choose Category '
-            description: ''
-            use_operator: false
-            operator: field_select_category_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_select_category_target_id
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: 'Select Category (field_select_category)'
-            description: null
-            identifier: field_select_category_target_id
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1: {  }
-              2: {  }
-              3: {  }
       style:
         type: table
       row:
@@ -539,7 +501,27 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
+        - url.query_args
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_hs'
+        - 'config:field.storage.commerce_product.field_pro'
+        - 'config:field.storage.commerce_product.field_product_id'
+        - 'config:field.storage.commerce_product.field_product_scientific_name'
+        - 'config:field.storage.commerce_product.field_select_category'
+  block_1:
+    id: block_1
+    display_title: Block
+    display_plugin: block
+    position: 4
+    display_options:
+      display_extenders: {  }
+      block_description: 'All Products'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
         - url.query_args
         - user.roles
       tags:
@@ -561,8 +543,144 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_hs'
+        - 'config:field.storage.commerce_product.field_pro'
+        - 'config:field.storage.commerce_product.field_product_id'
+        - 'config:field.storage.commerce_product.field_product_scientific_name'
+        - 'config:field.storage.commerce_product.field_select_category'
+  rest_export_1:
+    id: rest_export_1
+    display_title: Access_Multiple_Products
+    display_plugin: rest_export
+    position: 2
+    display_options:
+      style:
+        type: serializer
+        options:
+          formats:
+            json: json
+      row:
+        type: data_field
+        options:
+          field_options:
+            field_product_id:
+              alias: ''
+              raw_output: true
+            field_pro:
+              alias: ''
+              raw_output: true
+            field_product_scientific_name:
+              alias: ''
+              raw_output: true
+            field_hs:
+              alias: ''
+              raw_output: true
+            field_select_category:
+              alias: ''
+              raw_output: true
+            view_commerce_product:
+              alias: ''
+              raw_output: true
+      display_description: ''
+      display_extenders: {  }
+      path: api/product_catelogue
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_hs'
+        - 'config:field.storage.commerce_product.field_pro'
+        - 'config:field.storage.commerce_product.field_product_id'
+        - 'config:field.storage.commerce_product.field_product_scientific_name'
+        - 'config:field.storage.commerce_product.field_select_category'
+  rest_export_2:
+    id: rest_export_2
+    display_title: Access_single_product
+    display_plugin: rest_export
+    position: 1
+    display_options:
+      arguments:
+        field_product_id_value:
+          id: field_product_id_value
+          table: commerce_product__field_product_id
+          field: field_product_id_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: product
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+      style:
+        type: serializer
+        options:
+          uses_fields: false
+          formats:
+            json: json
+      row:
+        type: data_field
+        options:
+          field_options:
+            field_product_id:
+              alias: ''
+              raw_output: true
+            field_pro:
+              alias: ''
+              raw_output: true
+            field_product_scientific_name:
+              alias: ''
+              raw_output: true
+            field_hs:
+              alias: ''
+              raw_output: true
+            field_select_category:
+              alias: ''
+              raw_output: true
+            view_commerce_product:
+              alias: ''
+              raw_output: true
+      defaults:
+        arguments: false
+      display_description: ''
+      display_extenders: {  }
+      path: api/product-catalogue/%
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - url
         - user.roles
       tags:
         - 'config:field.storage.commerce_product.field_hs'

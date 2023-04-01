@@ -1,0 +1,25 @@
+uuid: 4e9899de-e544-4e42-8b35-7270f47528f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.social-media-sites
+  module:
+    - system
+  theme:
+    - olivero
+id: socialmediasites
+theme: olivero
+region: footer_top
+weight: -8
+provider: null
+plugin: 'system_menu_block:social-media-sites'
+settings:
+  id: 'system_menu_block:social-media-sites'
+  label: 'Social Media Sites'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

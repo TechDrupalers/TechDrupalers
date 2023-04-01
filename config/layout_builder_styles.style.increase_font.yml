@@ -1,0 +1,12 @@
+uuid: ef9462c8-0a49-47d4-ae0f-24fbd7ca685a
+langcode: en
+status: true
+dependencies: {  }
+id: increase_font
+label: increase_font
+classes: increase_font
+type: component
+group: default
+block_restrictions: {  }
+layout_restrictions: {  }
+weight: 0

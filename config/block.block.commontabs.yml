@@ -1,0 +1,25 @@
+uuid: 1c85dd34-2bc9-41a4-9122-e95d744bc2c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.common-a
+  module:
+    - system
+  theme:
+    - olivero
+id: commontabs
+theme: olivero
+region: footer_top
+weight: 0
+provider: null
+plugin: 'system_menu_block:common-a'
+settings:
+  id: 'system_menu_block:common-a'
+  label: 'Common Tabs'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

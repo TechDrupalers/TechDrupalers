@@ -1,0 +1,8 @@
+uuid: 562cc855-3123-4ca6-ba83-48b4872118e0
+langcode: en
+status: true
+dependencies: {  }
+id: social-media-sites
+label: 'Social Media Sites'
+description: ''
+locked: false

@@ -1,0 +1,15 @@
+uuid: 6f698b8d-8919-4756-b0d3-216c7b69af94
+langcode: en
+status: true
+dependencies: {  }
+id: font_50px
+label: font_28px
+code: |-
+  .font_28px p {
+  	font-size: 28px;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

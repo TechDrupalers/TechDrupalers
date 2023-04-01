@@ -1,0 +1,16 @@
+uuid: 17c67f54-545e-4453-b3c3-0d58054e27a6
+langcode: en
+status: true
+dependencies: {  }
+id: table_head_color
+label: table_head_color
+code: |-
+  .table_head_color table thead
+  {
+  	background-color:  #0F52BA;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

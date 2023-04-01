@@ -1,0 +1,29 @@
+uuid: 16481346-74f1-4ee6-9b54-67b2d4f5a3ab
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: increase_font
+label: increase_font
+code: |-
+  .increase_font{
+  	font-size:20px;
+  }
+media: all
+preprocess: true
+conditions:
+  node_type:
+    id: node_type
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      article: article
+      category: category
+      certificate: certificate
+      page: page
+      vendor: vendor
+      wishlist: wishlist
+contexts: {  }
+conditions_require_all: true

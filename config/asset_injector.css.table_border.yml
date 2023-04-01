@@ -1,0 +1,15 @@
+uuid: 59787f7b-a48a-40db-bf0b-c8acfa6cbdc4
+langcode: en
+status: true
+dependencies: {  }
+id: table_border
+label: table_border
+code: |-
+  .table_border table thead th {
+  	border:2px solid black;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

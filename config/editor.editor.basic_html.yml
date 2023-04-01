@@ -13,11 +13,16 @@ editor: ckeditor5
 settings:
   toolbar:
     items:
+      - undo
+      - redo
+      - '|'
       - bold
       - italic
+      - underline
       - '|'
       - link
       - '|'
+      - alignment
       - bulletedList
       - numberedList
       - '|'
@@ -54,6 +59,12 @@ settings:
     ckeditor5_list:
       reversed: false
       startIndex: true
+    ckeditor5_alignment:
+      enabled_alignments:
+        - left
+        - center
+        - right
+        - justify
     ckeditor5_imageResize:
       allow_resize: true
 image_upload:

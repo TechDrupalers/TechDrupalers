@@ -1,0 +1,18 @@
+uuid: 69b3b802-4f39-4adc-8e1b-11688add57d2
+langcode: en
+status: true
+dependencies:
+  theme:
+    - breeze
+id: primaryadminactions
+theme: breeze
+region: navigation
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

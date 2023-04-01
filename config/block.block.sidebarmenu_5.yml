@@ -1,0 +1,25 @@
+uuid: 42701e15-7df3-4df1-ad13-04b862e410c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.sidebar-menu
+  module:
+    - system
+  theme:
+    - tara
+id: sidebarmenu_5
+theme: tara
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:sidebar-menu'
+settings:
+  id: 'system_menu_block:sidebar-menu'
+  label: 'Sidebar Menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

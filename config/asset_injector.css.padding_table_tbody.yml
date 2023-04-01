@@ -1,0 +1,16 @@
+uuid: d6891f12-624b-4158-b599-dba073de97e4
+langcode: en
+status: true
+dependencies: {  }
+id: padding_table_tbody
+label: padding_table_tbody
+code: |-
+  .padding_table_tbody table tbody tr td{
+  	padding-top: 10px;
+  	padding-bottom: 10px;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

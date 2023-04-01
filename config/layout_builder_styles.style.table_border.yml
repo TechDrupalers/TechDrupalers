@@ -1,0 +1,12 @@
+uuid: 471a18d5-5032-4667-8f95-3b745db20680
+langcode: en
+status: true
+dependencies: {  }
+id: table_border
+label: table_border
+classes: table_border
+type: component
+group: default
+block_restrictions: {  }
+layout_restrictions: {  }
+weight: 0

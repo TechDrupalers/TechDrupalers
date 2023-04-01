@@ -1,0 +1,12 @@
+uuid: e3738464-51bb-454c-a6d4-d5607131d001
+langcode: en
+status: true
+dependencies: {  }
+id: font_50px
+label: font_28px
+classes: font_28px
+type: component
+group: default
+block_restrictions: {  }
+layout_restrictions: {  }
+weight: 0

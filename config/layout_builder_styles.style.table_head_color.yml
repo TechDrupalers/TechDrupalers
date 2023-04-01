@@ -1,0 +1,12 @@
+uuid: a48acb0d-190d-48af-ad1b-8c37c2caeaeb
+langcode: en
+status: true
+dependencies: {  }
+id: table_head_color
+label: table_head_color
+classes: table_head_color
+type: component
+group: default
+block_restrictions: {  }
+layout_restrictions: {  }
+weight: 0

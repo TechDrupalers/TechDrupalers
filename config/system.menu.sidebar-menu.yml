@@ -1,0 +1,8 @@
+uuid: 4ce3a311-889d-4a1d-ac45-071a62df709f
+langcode: en
+status: true
+dependencies: {  }
+id: sidebar-menu
+label: 'Sidebar Menu'
+description: 'It will display all tabs'
+locked: false

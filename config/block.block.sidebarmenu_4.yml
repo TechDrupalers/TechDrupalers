@@ -1,0 +1,25 @@
+uuid: 4bb0d59d-651e-488e-8fdb-b32b5a586309
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.sidebar-menu
+  module:
+    - system
+  theme:
+    - breeze
+id: sidebarmenu_4
+theme: breeze
+region: navigation
+weight: 0
+provider: null
+plugin: 'system_menu_block:sidebar-menu'
+settings:
+  id: 'system_menu_block:sidebar-menu'
+  label: 'Sidebar Menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

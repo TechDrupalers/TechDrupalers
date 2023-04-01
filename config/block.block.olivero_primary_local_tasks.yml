@@ -2,6 +2,8 @@ uuid: 4b302152-ff5f-466e-955d-167fbd9e4ff0
 langcode: en
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - olivero
 _core:
@@ -19,4 +21,8 @@ settings:
   provider: core
   primary: true
   secondary: false
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: /node/10

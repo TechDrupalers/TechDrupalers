@@ -6,6 +6,7 @@ dependencies:
     - filter.format.basic_html
   module:
     - comment
+    - commerce_checkout
     - commerce_payment
     - commerce_product
     - commerce_wishlist
@@ -32,3 +33,4 @@ permissions:
   - 'skip comment approval'
   - 'use text format basic_html'
   - 'view commerce_product'
+  - 'access checkout'

@@ -1,0 +1,22 @@
+uuid: 685430ff-734f-4570-8747-81d416d9099b
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - breeze
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: breeze_help
+theme: breeze
+region: help
+weight: -7
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

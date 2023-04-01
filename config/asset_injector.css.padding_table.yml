@@ -1,0 +1,17 @@
+uuid: c06fe791-38a9-41da-bf0a-159451db7d29
+langcode: en
+status: true
+dependencies: {  }
+id: padding_table
+label: padding_table_thead
+code: |-
+  .padding_table_thead table thead th{
+  	padding-top: 10px;
+  	padding-bottom: 10px;
+  	padding-left: 20px;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

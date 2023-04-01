@@ -1,0 +1,12 @@
+uuid: f176022f-9e4c-426e-8c10-dba06dbc896f
+langcode: en
+status: true
+dependencies: {  }
+id: padding_table
+label: padding_table_thead
+classes: padding_table_thead
+type: component
+group: default
+block_restrictions: {  }
+layout_restrictions: {  }
+weight: 0

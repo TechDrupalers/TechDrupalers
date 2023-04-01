@@ -1,0 +1,23 @@
+uuid: c9b1137c-b963-4ce7-99f4-4d218c7f4ae2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+  theme:
+    - breeze
+_core:
+  default_config_hash: 0gq3VPg-_UM69FCCWurLFIrrnIjC2HLKhwo9iQNtcUo
+id: breeze_syndicate
+theme: breeze
+region: highlighted
+weight: -5
+provider: null
+plugin: node_syndicate_block
+settings:
+  id: node_syndicate_block
+  label: 'RSS feed'
+  label_display: '0'
+  provider: node
+  block_count: 10
+visibility: {  }

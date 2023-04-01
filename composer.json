@@ -15,6 +15,8 @@
     "require": {
         "composer/installers": "^1.9",
         "drupal/admin_toolbar": "3.3",
+        "drupal/asset_injector": "2.16",
+        "drupal/breeze": "3.0.x-dev@dev",
         "drupal/commerce": "2.33",
         "drupal/commerce_wishlist": "^3.0@beta",
         "drupal/core-composer-scaffold": "^9.5",
@@ -22,7 +24,14 @@
         "drupal/core-recommended": "^9.5",
         "drupal/field_group": "3.4",
         "drupal/field_permissions": "1.2",
+        "drupal/gin": "3.x-dev@dev",
         "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/layout_builder_styles": "2.0",
+        "drupal/rest_export": "8.0",
+        "drupal/restui": "1.21",
+        "drupal/structure_sync": "2.0",
+        "drupal/tara": "10.0",
+        "drupal/views_entity_form_field": "^1.0@beta",
         "drush/drush": "^11.5"
     },
     "conflict": {

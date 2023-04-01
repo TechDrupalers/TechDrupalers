@@ -1,0 +1,19 @@
+uuid: 991d1a0f-5452-4484-92a9-0e1e2b858d22
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - layout_builder
+id: commerce_product_attribute_value.layout_builder__layout
+field_name: layout_builder__layout
+entity_type: commerce_product_attribute_value
+type: layout_section
+settings: {  }
+module: layout_builder
+locked: true
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

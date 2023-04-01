@@ -1,0 +1,12 @@
+uuid: a13f7115-2d52-43fd-ac9e-76a2e1bdd43e
+langcode: en
+status: true
+dependencies: {  }
+id: padding_table_tbody
+label: padding_table_tbody
+classes: padding_table_tbody
+type: component
+group: default
+block_restrictions: {  }
+layout_restrictions: {  }
+weight: 0

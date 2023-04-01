@@ -1,0 +1,8 @@
+uuid: 131817cb-f2bf-41df-9738-f454b1dff145
+langcode: en
+status: true
+dependencies: {  }
+id: common-a
+label: 'Common Tabs'
+description: ''
+locked: false

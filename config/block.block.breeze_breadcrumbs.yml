@@ -1,17 +1,17 @@
-uuid: f8ba44a2-42ad-4f65-8713-97bc4bd65919
+uuid: b6d7f57e-5e41-4d22-9e36-78486f834648
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - bartik
+    - breeze
 _core:
-  default_config_hash: y0bXRvKYQQKkf_RVxA3aOPGpIfKKsDOzzrWYCgjxJ9Y
-id: bartik_breadcrumbs
-theme: bartik
-region: breadcrumb
-weight: 0
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: breeze_breadcrumbs
+theme: breeze
+region: header
+weight: -5
 provider: null
 plugin: system_breadcrumb_block
 settings:

@@ -1,0 +1,22 @@
+uuid: f084b013-26bc-4c10-bf59-efdb8e76fc59
+langcode: en
+status: true
+dependencies:
+  theme:
+    - breeze
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: breeze_primary_local_tasks
+theme: breeze
+region: highlighted
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }
