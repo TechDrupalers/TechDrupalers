@@ -1,0 +1,25 @@
+uuid: 340167de-f61e-442f-b1b7-d1dbbb08497d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.social-media-sites
+  module:
+    - system
+  theme:
+    - magazine_lite
+id: socialmediasites_2
+theme: magazine_lite
+region: footer_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:social-media-sites'
+settings:
+  id: 'system_menu_block:social-media-sites'
+  label: 'Social Media Sites'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

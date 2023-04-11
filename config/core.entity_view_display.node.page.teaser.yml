@@ -47,6 +47,32 @@ third_party_settings:
                 entity: layout_builder.entity
             weight: 1
             additional: {  }
+          732b99d8-0f35-4e94-b36b-371f46961ebd:
+            uuid: 732b99d8-0f35-4e94-b36b-371f46961ebd
+            region: content
+            configuration:
+              id: 'field_block:node:page:body'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_summary_or_trimmed
+                label: hidden
+                settings:
+                  trim_length: 600
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          2f0c1a1a-fbb3-4872-ac86-a5d042063249:
+            uuid: 2f0c1a1a-fbb3-4872-ac86-a5d042063249
+            region: content
+            configuration:
+              id: 'extra_field_block:node:page:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 3
+            additional: {  }
         third_party_settings: {  }
 _core:
   default_config_hash: 8BgdRtLbtQ0F__o0FHSH0Mx5fvXOra9tfT1GmNKbRYw

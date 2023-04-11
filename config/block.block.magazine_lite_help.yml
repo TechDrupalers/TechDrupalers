@@ -1,0 +1,22 @@
+uuid: 6e79a5b9-a9f7-4896-bc7a-c94398f99f5d
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - magazine_lite
+_core:
+  default_config_hash: c-82JqxD5ZsmgIO06pfUe-jKli4ic6W93P883TSMdHQ
+id: magazine_lite_help
+theme: magazine_lite
+region: content
+weight: -7
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

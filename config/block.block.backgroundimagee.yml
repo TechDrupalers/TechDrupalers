@@ -1,0 +1,25 @@
+uuid: 7c9bebe9-0407-4534-950a-6d17a89edab1
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d20307f7-2c3f-422a-84e0-d49f37b25f2e'
+  module:
+    - block_content
+  theme:
+    - magazine_lite
+id: backgroundimagee
+theme: magazine_lite
+region: highlighted_top
+weight: 0
+provider: null
+plugin: 'block_content:d20307f7-2c3f-422a-84e0-d49f37b25f2e'
+settings:
+  id: 'block_content:d20307f7-2c3f-422a-84e0-d49f37b25f2e'
+  label: 'Background Image'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -31,6 +31,12 @@ dependencies:
   module:
     - commerce_product
     - commerce_wishlist
+    - layout_builder
+    - layout_discovery
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
 _core:
   default_config_hash: 10qgl6V_HwkrJufzsNCV75OpqOeMzzKDJb3BhaogmzQ
 id: commerce_product.default.default
@@ -279,6 +285,9 @@ content:
     region: content
 hidden:
   created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
   stores: true
   title: true
   uid: true

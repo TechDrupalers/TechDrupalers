@@ -1,0 +1,8 @@
+uuid: 9f59da77-13d9-4772-9508-d9c2eb66df39
+langcode: en
+status: true
+dependencies: {  }
+id: s
+label: 'Sidebar Menu (Buyer)'
+description: ''
+locked: false

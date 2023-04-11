@@ -1,0 +1,22 @@
+uuid: a9ae9fd5-9a0f-46ec-878d-997d92617498
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - magazine_lite
+_core:
+  default_config_hash: uWou0ogGB197oPgPCg4RbfmTcZpG8pNckVTq6-z_6YA
+id: magazine_lite_powered
+theme: magazine_lite
+region: sub_footer_first
+weight: -6
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

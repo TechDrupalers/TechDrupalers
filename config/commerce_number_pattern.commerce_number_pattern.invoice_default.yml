@@ -1,0 +1,18 @@
+uuid: 2bca51b1-8e0e-4c9f-88df-1bcf18f7deba
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - commerce_invoice
+_core:
+  default_config_hash: hp6r3xzLGwrIIC_hKth1N8BqtO9EasSw-VWXGQkkwO4
+id: invoice_default
+label: Invoice
+targetEntityType: commerce_invoice
+plugin: infinite
+configuration:
+  pattern: '[pattern:number]'
+  initial_number: 1
+  padding: 0
+  per_store_sequence: true

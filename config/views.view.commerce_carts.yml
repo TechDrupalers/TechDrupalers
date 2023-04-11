@@ -2,6 +2,9 @@ uuid: 708bb74d-6430-4825-8446-03454df296f0
 langcode: en
 status: true
 dependencies:
+  config:
+    - user.role.administrator
+    - user.role.customer
   module:
     - commerce
     - commerce_order
@@ -758,6 +761,31 @@ display:
         - user.permissions
       tags: {  }
       cacheable: false
+  block_1:
+    id: block_1
+    display_title: Block
+    display_plugin: block
+    position: 2
+    display_options:
+      access:
+        type: role
+        options:
+          role:
+            administrator: administrator
+            customer: customer
+      defaults:
+        access: false
+      display_extenders: {  }
+      block_description: 'My Cart'
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.roles
+      tags: {  }
   page_1:
     id: page_1
     display_title: Page

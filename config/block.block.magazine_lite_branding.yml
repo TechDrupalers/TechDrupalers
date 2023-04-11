@@ -1,0 +1,25 @@
+uuid: 21d7690d-6f84-49ff-aee0-a4987b131e06
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - magazine_lite
+_core:
+  default_config_hash: XO_psecRmsezqGfuVS5PI2jL8tNbN51KaKkknbKHyZY
+id: magazine_lite_branding
+theme: magazine_lite
+region: header_top_first
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

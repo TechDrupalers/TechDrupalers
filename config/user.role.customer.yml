@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   module:
+    - commerce_invoice
+    - commerce_order
     - commerce_product
     - commerce_wishlist
     - profile
@@ -11,10 +13,21 @@ label: customer
 weight: 5
 is_admin: null
 permissions:
+  - 'access commerce_invoice overview'
+  - 'access commerce_order overview'
+  - 'access commerce_product_attribute overview'
+  - 'administer commerce_invoice'
+  - 'administer commerce_order'
+  - 'administer commerce_product'
   - 'create default commerce_wishlist'
   - 'delete own default commerce_wishlist'
   - 'update own default commerce_wishlist'
+  - 'view credit_memo commerce_invoice'
+  - 'view default commerce_invoice'
+  - 'view default commerce_order'
   - 'view default commerce_product'
+  - 'view own commerce_invoice'
+  - 'view own commerce_order'
   - 'view own commerce_wishlist'
   - 'view own customer profile'
   - 'view own default commerce_wishlist'

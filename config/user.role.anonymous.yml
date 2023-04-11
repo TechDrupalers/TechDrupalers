@@ -2,15 +2,9 @@ uuid: 79aa1343-73b8-4ef6-a346-cbe6225d4fed
 langcode: en
 status: true
 dependencies:
-  config:
-    - filter.format.restricted_html
   module:
     - comment
-    - commerce_checkout
     - commerce_product
-    - commerce_wishlist
-    - contact
-    - filter
     - search
     - system
 _core:
@@ -22,9 +16,5 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
-  - 'access site-wide contact form'
   - 'search content'
-  - 'use text format restricted_html'
   - 'view commerce_product'
-  - 'access wishlist'
-  - 'access checkout'

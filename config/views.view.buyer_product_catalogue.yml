@@ -9,6 +9,7 @@ dependencies:
     - field.storage.commerce_product.field_product_id
     - field.storage.commerce_product.field_product_scientific_name
     - field.storage.commerce_product.field_select_category
+    - user.role.admin
     - user.role.administrator
     - user.role.customer
   module:
@@ -500,6 +501,7 @@ display:
           role:
             administrator: administrator
             customer: customer
+            admin: admin
       cache:
         type: tag
         options: {  }
@@ -611,6 +613,28 @@ display:
       header: {  }
       footer: {  }
       display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_hs'
+        - 'config:field.storage.commerce_product.field_pro'
+        - 'config:field.storage.commerce_product.field_product_id'
+        - 'config:field.storage.commerce_product.field_product_scientific_name'
+        - 'config:field.storage.commerce_product.field_select_category'
+  block_1:
+    id: block_1
+    display_title: Block
+    display_plugin: block
+    position: 2
+    display_options:
+      display_extenders: {  }
+      block_description: 'Buyer Product Catalog'
     cache_metadata:
       max-age: -1
       contexts:

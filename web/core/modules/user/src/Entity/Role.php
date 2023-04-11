@@ -169,7 +169,7 @@ class Role extends ConfigEntityBase implements RoleInterface {
     parent::postLoad($storage, $entities);
     // Sort the queried roles by their weight.
     // See \Drupal\Core\Config\Entity\ConfigEntityBase::sort().
-    uasort($entities, [static::class, 'sort']);
+    uasort($entities, 'static::sort');
   }
 
   /**
@@ -184,6 +184,13 @@ class Role extends ConfigEntityBase implements RoleInterface {
         return $max > $role->weight ? $max : $role->weight;
       });
       $this->weight = $max + 1;
+    }
+
+    if (!$this->isSyncing() && $this->hasTrustedData()) {
+      // Permissions are always ordered alphabetically to avoid conflicts in the
+      // exported configuration. If the save is not trusted then the
+      // configuration will be sorted by StorableConfigBase.
+      sort($this->permissions);
     }
   }
 

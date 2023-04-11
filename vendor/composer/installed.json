@@ -1486,6 +1486,71 @@
             "install-path": "../doctrine/reflection"
         },
         {
+            "name": "dompdf/dompdf",
+            "version": "v2.0.3",
+            "version_normalized": "2.0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dompdf/dompdf.git",
+                "reference": "e8d2d5e37e8b0b30f0732a011295ab80680d7e85"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/e8d2d5e37e8b0b30f0732a011295ab80680d7e85",
+                "reference": "e8d2d5e37e8b0b30f0732a011295ab80680d7e85",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-mbstring": "*",
+                "masterminds/html5": "^2.0",
+                "phenx/php-font-lib": ">=0.5.4 <1.0.0",
+                "phenx/php-svg-lib": ">=0.3.3 <1.0.0",
+                "php": "^7.1 || ^8.0"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "ext-zip": "*",
+                "mockery/mockery": "^1.3",
+                "phpunit/phpunit": "^7.5 || ^8 || ^9",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "suggest": {
+                "ext-gd": "Needed to process images",
+                "ext-gmagick": "Improves image processing performance",
+                "ext-imagick": "Improves image processing performance",
+                "ext-zlib": "Needed for pdf stream compression"
+            },
+            "time": "2023-02-07T12:51:48+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Dompdf\\": "src/"
+                },
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "The Dompdf Community",
+                    "homepage": "https://github.com/dompdf/dompdf/blob/master/AUTHORS.md"
+                }
+            ],
+            "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
+            "homepage": "https://github.com/dompdf/dompdf",
+            "support": {
+                "issues": "https://github.com/dompdf/dompdf/issues",
+                "source": "https://github.com/dompdf/dompdf/tree/v2.0.3"
+            },
+            "install-path": "../dompdf/dompdf"
+        },
+        {
             "name": "drupal/address",
             "version": "1.11.0",
             "version_normalized": "1.11.0.0",
@@ -1699,28 +1764,27 @@
         },
         {
             "name": "drupal/bootstrap",
-            "version": "3.27.0",
-            "version_normalized": "3.27.0.0",
+            "version": "3.26.0",
+            "version_normalized": "3.26.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/bootstrap.git",
-                "reference": "8.x-3.27"
+                "reference": "8.x-3.26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bootstrap-8.x-3.27.zip",
-                "reference": "8.x-3.27",
-                "shasum": "3994dbbfe4b39126a324fd2e450b9f67ace23a1c"
+                "url": "https://ftp.drupal.org/files/projects/bootstrap-8.x-3.26.zip",
+                "reference": "8.x-3.26",
+                "shasum": "3d8fae75929ff3d8de52785fce71a236b0c4bc26"
             },
             "require": {
-                "drupal/core": "^9.5 || ^10",
-                "php": ">=8.1.0"
+                "drupal/core": "^9.3 || ^10"
             },
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.27",
-                    "datestamp": "1677031723",
+                    "version": "8.x-3.26",
+                    "datestamp": "1676066874",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1901,8 +1965,8 @@
         },
         {
             "name": "drupal/commerce_cart",
-            "version": "2.33.0",
-            "version_normalized": "2.33.0.0",
+            "version": "2.35.0",
+            "version_normalized": "2.35.0.0",
             "require": {
                 "drupal/commerce": "*",
                 "drupal/commerce_order": "*",
@@ -1912,8 +1976,8 @@
             "type": "metapackage",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.33",
-                    "datestamp": "1674478172",
+                    "version": "8.x-2.35",
+                    "datestamp": "1680276957",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1954,9 +2018,89 @@
             "install-path": null
         },
         {
+            "name": "drupal/commerce_invoice",
+            "version": "2.0.0-rc3",
+            "version_normalized": "2.0.0.0-RC3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/commerce_invoice.git",
+                "reference": "8.x-2.0-rc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/commerce_invoice-8.x-2.0-rc3.zip",
+                "reference": "8.x-2.0-rc3",
+                "shasum": "f631ba394c1bfc5e365e6fb451adbba90bfca1b5"
+            },
+            "require": {
+                "drupal/commerce": "^2.25",
+                "drupal/commerce_number_pattern": "*",
+                "drupal/commerce_order": "*",
+                "drupal/commerce_price": "*",
+                "drupal/commerce_store": "*",
+                "drupal/core": "^9.2 || ^10",
+                "drupal/entity_print": "^2.0",
+                "drupal/profile": "*",
+                "drupal/state_machine": "*",
+                "drupal/token": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.0-rc3",
+                    "datestamp": "1675077383",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "amateescu",
+                    "homepage": "https://www.drupal.org/user/729614"
+                },
+                {
+                    "name": "bbujisic",
+                    "homepage": "https://www.drupal.org/user/52799"
+                },
+                {
+                    "name": "bojanz",
+                    "homepage": "https://www.drupal.org/user/86106"
+                },
+                {
+                    "name": "Centarro",
+                    "homepage": "https://www.drupal.org/user/3661446"
+                },
+                {
+                    "name": "jsacksick",
+                    "homepage": "https://www.drupal.org/user/972218"
+                },
+                {
+                    "name": "mglaman",
+                    "homepage": "https://www.drupal.org/user/2416470"
+                },
+                {
+                    "name": "rszrama",
+                    "homepage": "https://www.drupal.org/user/49344"
+                }
+            ],
+            "description": "Defines the Invoice entity and associated features.",
+            "homepage": "https://drupal.org/project/commerce_invoice",
+            "support": {
+                "source": "https://git.drupalcode.org/project/commerce_invoice"
+            },
+            "install-path": "../../web/modules/contrib/commerce_invoice"
+        },
+        {
             "name": "drupal/commerce_number_pattern",
-            "version": "2.33.0",
-            "version_normalized": "2.33.0.0",
+            "version": "2.35.0",
+            "version_normalized": "2.35.0.0",
             "require": {
                 "drupal/commerce": "*",
                 "drupal/commerce_store": "*",
@@ -1965,8 +2109,8 @@
             "type": "metapackage",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.33",
-                    "datestamp": "1674478172",
+                    "version": "8.x-2.35",
+                    "datestamp": "1680276957",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2008,8 +2152,8 @@
         },
         {
             "name": "drupal/commerce_order",
-            "version": "2.33.0",
-            "version_normalized": "2.33.0.0",
+            "version": "2.35.0",
+            "version_normalized": "2.35.0.0",
             "require": {
                 "drupal/commerce": "*",
                 "drupal/commerce_number_pattern": "*",
@@ -2023,8 +2167,8 @@
             "type": "metapackage",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.33",
-                    "datestamp": "1674478172",
+                    "version": "8.x-2.35",
+                    "datestamp": "1680276957",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2066,8 +2210,8 @@
         },
         {
             "name": "drupal/commerce_price",
-            "version": "2.33.0",
-            "version_normalized": "2.33.0.0",
+            "version": "2.35.0",
+            "version_normalized": "2.35.0.0",
             "require": {
                 "drupal/commerce": "*",
                 "drupal/core": "^9.3 || ^10"
@@ -2075,8 +2219,8 @@
             "type": "metapackage",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.33",
-                    "datestamp": "1674478172",
+                    "version": "8.x-2.35",
+                    "datestamp": "1680276957",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2118,8 +2262,8 @@
         },
         {
             "name": "drupal/commerce_product",
-            "version": "2.33.0",
-            "version_normalized": "2.33.0.0",
+            "version": "2.35.0",
+            "version_normalized": "2.35.0.0",
             "require": {
                 "drupal/commerce": "*",
                 "drupal/commerce_price": "*",
@@ -2129,8 +2273,8 @@
             "type": "metapackage",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.33",
-                    "datestamp": "1674478172",
+                    "version": "8.x-2.35",
+                    "datestamp": "1680276957",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2172,8 +2316,8 @@
         },
         {
             "name": "drupal/commerce_store",
-            "version": "2.33.0",
-            "version_normalized": "2.33.0.0",
+            "version": "2.35.0",
+            "version_normalized": "2.35.0.0",
             "require": {
                 "drupal/commerce": "*",
                 "drupal/commerce_price": "*",
@@ -2182,8 +2326,8 @@
             "type": "metapackage",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.33",
-                    "datestamp": "1674478172",
+                    "version": "8.x-2.35",
+                    "datestamp": "1680276957",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2305,17 +2449,17 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.5.5",
-            "version_normalized": "9.5.5.0",
+            "version": "9.5.7",
+            "version_normalized": "9.5.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "eae5e76a8b403cbd42b3465f567313b52d78b0dc"
+                "reference": "bf51aa8ed6ab733fcaf60d0860aefd3918140fe3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/eae5e76a8b403cbd42b3465f567313b52d78b0dc",
-                "reference": "eae5e76a8b403cbd42b3465f567313b52d78b0dc",
+                "url": "https://api.github.com/repos/drupal/core/zipball/bf51aa8ed6ab733fcaf60d0860aefd3918140fe3",
+                "reference": "bf51aa8ed6ab733fcaf60d0860aefd3918140fe3",
                 "shasum": ""
             },
             "require": {
@@ -2395,7 +2539,7 @@
                 "drupal/core-uuid": "self.version",
                 "drupal/core-version": "self.version"
             },
-            "time": "2023-03-15T14:30:25+00:00",
+            "time": "2023-03-24T16:54:38+00:00",
             "type": "drupal-core",
             "extra": {
                 "drupal-scaffold": {
@@ -2469,14 +2613,14 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.5.5"
+                "source": "https://github.com/drupal/core/tree/9.5.7"
             },
             "install-path": "../../web/core"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "9.5.5",
-            "version_normalized": "9.5.5.0",
+            "version": "9.5.7",
+            "version_normalized": "9.5.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2522,14 +2666,14 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.5.5"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.5.7"
             },
             "install-path": "../drupal/core-composer-scaffold"
         },
         {
             "name": "drupal/core-project-message",
-            "version": "9.5.5",
-            "version_normalized": "9.5.5.0",
+            "version": "9.5.7",
+            "version_normalized": "9.5.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-project-message.git",
@@ -2566,23 +2710,23 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-project-message/tree/9.5.5"
+                "source": "https://github.com/drupal/core-project-message/tree/9.5.7"
             },
             "install-path": "../drupal/core-project-message"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "9.5.5",
-            "version_normalized": "9.5.5.0",
+            "version": "9.5.7",
+            "version_normalized": "9.5.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "3c1d205349407e706cc89f56aa34448742fe81b4"
+                "reference": "4b63b8220b166ad9eca7b5ea05e485cbe1f2b4a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/3c1d205349407e706cc89f56aa34448742fe81b4",
-                "reference": "3c1d205349407e706cc89f56aa34448742fe81b4",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/4b63b8220b166ad9eca7b5ea05e485cbe1f2b4a7",
+                "reference": "4b63b8220b166ad9eca7b5ea05e485cbe1f2b4a7",
                 "shasum": ""
             },
             "require": {
@@ -2591,7 +2735,7 @@
                 "doctrine/annotations": "~1.13.3",
                 "doctrine/lexer": "~1.2.3",
                 "doctrine/reflection": "~1.2.3",
-                "drupal/core": "9.5.5",
+                "drupal/core": "9.5.7",
                 "egulias/email-validator": "~3.2.1",
                 "guzzlehttp/guzzle": "~6.5.8",
                 "guzzlehttp/promises": "~1.5.2",
@@ -2646,7 +2790,7 @@
             "conflict": {
                 "webflo/drupal-core-strict": "*"
             },
-            "time": "2023-03-15T14:30:25+00:00",
+            "time": "2023-03-24T16:54:38+00:00",
             "type": "metapackage",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2654,7 +2798,7 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/9.5.5"
+                "source": "https://github.com/drupal/core-recommended/tree/9.5.7"
             },
             "install-path": null
         },
@@ -2729,6 +2873,83 @@
                 "issues": "https://www.drupal.org/project/issues/entity"
             },
             "install-path": "../../web/modules/contrib/entity"
+        },
+        {
+            "name": "drupal/entity_print",
+            "version": "2.11.0",
+            "version_normalized": "2.11.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/entity_print.git",
+                "reference": "8.x-2.11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entity_print-8.x-2.11.zip",
+                "reference": "8.x-2.11",
+                "shasum": "306178f6f5de5ea6a77976ee860d8400f905cf40"
+            },
+            "require": {
+                "dompdf/dompdf": "^2.0.0",
+                "drupal/core": "^9.4 || ^10.0"
+            },
+            "suggest": {
+                "mikehaertl/phpwkhtmltopdf": "PhpWkhtmlToPdf provides the PHP library to use Wkhtmltopdf"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.11",
+                    "datestamp": "1673558064",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Dougherty",
+                    "homepage": "https://www.drupal.org/u/benjy"
+                },
+                {
+                    "name": "benjy",
+                    "homepage": "https://www.drupal.org/user/1852732"
+                },
+                {
+                    "name": "larowlan",
+                    "homepage": "https://www.drupal.org/user/395439"
+                },
+                {
+                    "name": "pameeela",
+                    "homepage": "https://www.drupal.org/user/1431110"
+                },
+                {
+                    "name": "Sam152",
+                    "homepage": "https://www.drupal.org/user/1485048"
+                },
+                {
+                    "name": "VladimirAus",
+                    "homepage": "https://www.drupal.org/user/673120"
+                }
+            ],
+            "description": "PDF print solution for any Drupal entity.",
+            "homepage": "http://drupal.org/project/entity_print",
+            "keywords": [
+                "PDF",
+                "drupal",
+                "print",
+                "web"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/entity_print"
+            },
+            "install-path": "../../web/modules/contrib/entity_print"
         },
         {
             "name": "drupal/entity_reference_revisions",
@@ -3213,6 +3434,146 @@
                 "source": "https://git.drupalcode.org/project/layout_builder_styles"
             },
             "install-path": "../../web/modules/contrib/layout_builder_styles"
+        },
+        {
+            "name": "drupal/magazine_lite",
+            "version": "1.3.0",
+            "version_normalized": "1.3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/magazine_lite.git",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/magazine_lite-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "2b001d3cb9e2505864550a383f5beae0af58bee0"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1606891543",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Stavros Kounis (skounis)",
+                    "homepage": "https://www.drupal.org/u/skounis",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Soukri Kechagia (skechagia)",
+                    "homepage": "https://www.drupal.org/u/skech",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Vasilis Kechagias (vkech)",
+                    "homepage": "https://www.drupal.org/u/vkech",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Giorgos Konispoliatis (Geokon)",
+                    "homepage": "https://www.drupal.org/u/geokon",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "vkech",
+                    "homepage": "https://www.drupal.org/user/1451830"
+                }
+            ],
+            "description": "A free version of Magazine+, our stylish mega-theme for news and magazine Drupal sites.",
+            "homepage": "https://www.drupal.org/project/magazine_lite",
+            "support": {
+                "source": "https://git.drupalcode.org/project/magazine_lite",
+                "issues": "https://www.drupal.org/project/issues/magazine_lite"
+            },
+            "install-path": "../../web/themes/contrib/magazine_lite"
+        },
+        {
+            "name": "drupal/newsplus_lite",
+            "version": "1.3.0",
+            "version_normalized": "1.3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/newsplus_lite.git",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/newsplus_lite-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "ac64c1021ee4784ea3110c845dd99bd0094e42b8"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1607409848",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Stavros Kounis (skounis)",
+                    "homepage": "https://www.drupal.org/u/skounis",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Soukri Kechagia (skechagia)",
+                    "homepage": "https://www.drupal.org/u/skech",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Vasilis Kechagias (vkech)",
+                    "homepage": "https://www.drupal.org/u/vkech",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Giorgos Konispoliatis (Geokon)",
+                    "homepage": "https://www.drupal.org/u/geokon",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "skounis",
+                    "homepage": "https://www.drupal.org/user/877552"
+                },
+                {
+                    "name": "vkech",
+                    "homepage": "https://www.drupal.org/user/1451830"
+                }
+            ],
+            "description": "A free Drupal theme for your news, blog or magazine site.",
+            "homepage": "https://www.drupal.org/project/newsplus_lite",
+            "support": {
+                "source": "https://git.drupalcode.org/project/newsplus_lite",
+                "issues": "https://www.drupal.org/project/issues/newsplus_lite"
+            },
+            "install-path": "../../web/themes/contrib/newsplus_lite"
         },
         {
             "name": "drupal/profile",
@@ -5499,6 +5860,102 @@
             "install-path": "../pear/pear_exception"
         },
         {
+            "name": "phenx/php-font-lib",
+            "version": "0.5.4",
+            "version_normalized": "0.5.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dompdf/php-font-lib.git",
+                "reference": "dd448ad1ce34c63d09baccd05415e361300c35b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dompdf/php-font-lib/zipball/dd448ad1ce34c63d09baccd05415e361300c35b4",
+                "reference": "dd448ad1ce34c63d09baccd05415e361300c35b4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^3 || ^4 || ^5"
+            },
+            "time": "2021-12-17T19:44:54+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "FontLib\\": "src/FontLib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse, export and make subsets of different types of font files.",
+            "homepage": "https://github.com/PhenX/php-font-lib",
+            "support": {
+                "issues": "https://github.com/dompdf/php-font-lib/issues",
+                "source": "https://github.com/dompdf/php-font-lib/tree/0.5.4"
+            },
+            "install-path": "../phenx/php-font-lib"
+        },
+        {
+            "name": "phenx/php-svg-lib",
+            "version": "0.5.0",
+            "version_normalized": "0.5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dompdf/php-svg-lib.git",
+                "reference": "76876c6cf3080bcb6f249d7d59705108166a6685"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dompdf/php-svg-lib/zipball/76876c6cf3080bcb6f249d7d59705108166a6685",
+                "reference": "76876c6cf3080bcb6f249d7d59705108166a6685",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^7.1 || ^8.0",
+                "sabberworm/php-css-parser": "^8.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5"
+            },
+            "time": "2022-09-06T12:16:56+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Svg\\": "src/Svg"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse and export to PDF SVG files.",
+            "homepage": "https://github.com/PhenX/php-svg-lib",
+            "support": {
+                "issues": "https://github.com/dompdf/php-svg-lib/issues",
+                "source": "https://github.com/dompdf/php-svg-lib/tree/0.5.0"
+            },
+            "install-path": "../phenx/php-svg-lib"
+        },
+        {
             "name": "phpoffice/phpspreadsheet",
             "version": "1.28.0",
             "version_normalized": "1.28.0.0",
@@ -5987,17 +6444,17 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.11.13",
-            "version_normalized": "0.11.13.0",
+            "version": "v0.11.14",
+            "version_normalized": "0.11.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "722317c9f5627e588788e340f29b923e58f92f54"
+                "reference": "8c2e264def7a8263a68ef6f0b55ce90b77d41e17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/722317c9f5627e588788e340f29b923e58f92f54",
-                "reference": "722317c9f5627e588788e340f29b923e58f92f54",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/8c2e264def7a8263a68ef6f0b55ce90b77d41e17",
+                "reference": "8c2e264def7a8263a68ef6f0b55ce90b77d41e17",
                 "shasum": ""
             },
             "require": {
@@ -6020,7 +6477,7 @@
                 "ext-posix": "If you have PCNTL, you'll want the POSIX extension as well.",
                 "ext-readline": "Enables support for arrow-key history navigation, and showing and manipulating command history."
             },
-            "time": "2023-03-21T14:22:44+00:00",
+            "time": "2023-03-28T03:41:01+00:00",
             "bin": [
                 "bin/psysh"
             ],
@@ -6060,7 +6517,7 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.11.13"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.11.14"
             },
             "install-path": "../psy/psysh"
         },
@@ -6110,6 +6567,62 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "install-path": "../ralouphie/getallheaders"
+        },
+        {
+            "name": "sabberworm/php-css-parser",
+            "version": "8.4.0",
+            "version_normalized": "8.4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sabberworm/PHP-CSS-Parser.git",
+                "reference": "e41d2140031d533348b2192a83f02d8dd8a71d30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/e41d2140031d533348b2192a83f02d8dd8a71d30",
+                "reference": "e41d2140031d533348b2192a83f02d8dd8a71d30",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "php": ">=5.6.20"
+            },
+            "require-dev": {
+                "codacy/coverage": "^1.4",
+                "phpunit/phpunit": "^4.8.36"
+            },
+            "suggest": {
+                "ext-mbstring": "for parsing UTF-8 CSS"
+            },
+            "time": "2021-12-11T13:40:54+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Sabberworm\\CSS\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raphael Schweikert"
+                }
+            ],
+            "description": "Parser for CSS Files written in PHP",
+            "homepage": "https://www.sabberworm.com/blog/2010/6/10/php-css-parser",
+            "keywords": [
+                "css",
+                "parser",
+                "stylesheet"
+            ],
+            "support": {
+                "issues": "https://github.com/sabberworm/PHP-CSS-Parser/issues",
+                "source": "https://github.com/sabberworm/PHP-CSS-Parser/tree/8.4.0"
+            },
+            "install-path": "../sabberworm/php-css-parser"
         },
         {
             "name": "stack/builder",
@@ -8842,17 +9355,17 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v5.4.21",
-            "version_normalized": "5.4.21.0",
+            "version": "v5.4.22",
+            "version_normalized": "5.4.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "6c5ac3a1be8b849d59a1a77877ee110e1b55eb74"
+                "reference": "e2edac9ce47e6df07e38143c7cfa6bdbc1a6dcc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/6c5ac3a1be8b849d59a1a77877ee110e1b55eb74",
-                "reference": "6c5ac3a1be8b849d59a1a77877ee110e1b55eb74",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/e2edac9ce47e6df07e38143c7cfa6bdbc1a6dcc4",
+                "reference": "e2edac9ce47e6df07e38143c7cfa6bdbc1a6dcc4",
                 "shasum": ""
             },
             "require": {
@@ -8876,7 +9389,7 @@
                 "ext-intl": "To show region name in time zone dump",
                 "symfony/console": "To use the ServerDumpCommand and/or the bin/var-dump-server script"
             },
-            "time": "2023-02-23T10:00:28+00:00",
+            "time": "2023-03-25T09:27:28+00:00",
             "bin": [
                 "Resources/bin/var-dump-server"
             ],
@@ -8914,7 +9427,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v5.4.21"
+                "source": "https://github.com/symfony/var-dumper/tree/v5.4.22"
             },
             "funding": [
                 {

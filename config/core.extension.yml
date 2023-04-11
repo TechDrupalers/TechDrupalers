@@ -18,9 +18,12 @@ module:
   commerce: 0
   commerce_cart: 0
   commerce_checkout: 0
+  commerce_invoice: 0
+  commerce_log: 0
   commerce_number_pattern: 0
   commerce_order: 0
   commerce_payment: 0
+  commerce_payment_example: 0
   commerce_price: 0
   commerce_product: 0
   commerce_promotion: 0
@@ -35,6 +38,8 @@ module:
   dynamic_page_cache: 0
   editor: 0
   entity: 0
+  entity_print: 0
+  entity_print_views: 0
   entity_reference_revisions: 0
   field: 0
   field_group: 0
@@ -91,4 +96,8 @@ theme:
   breeze: 0
   stable9: 0
   tara: 0
+  stable: 0
+  classy: 0
+  newsplus_lite: 0
+  magazine_lite: 0
 profile: standard

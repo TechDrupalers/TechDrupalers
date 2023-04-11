@@ -1,0 +1,17 @@
+uuid: 53b6e128-5cb0-4348-b5b1-862f05c5dd78
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: iswHHsQHYcOMRngM9CAcOy-Gjs62tJtrpVm6AxgklkQ
+label: 'Credit memo'
+id: credit_memo
+numberPattern: invoice_credit_memo
+logo: null
+dueDays: null
+paymentTerms: ''
+footerText: ''
+traits: {  }
+workflow: invoice_default
+sendConfirmation: false
+confirmationBcc: ''

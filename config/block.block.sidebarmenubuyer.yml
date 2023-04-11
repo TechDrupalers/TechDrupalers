@@ -1,0 +1,29 @@
+uuid: 3bf33742-4354-47a3-a3db-36cf0e02e115
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.s
+  module:
+    - system
+  theme:
+    - magazine_lite
+id: sidebarmenubuyer
+theme: magazine_lite
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:s'
+settings:
+  id: 'system_menu_block:s'
+  label: 'Sidebar Menu (Buyer)'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node/17

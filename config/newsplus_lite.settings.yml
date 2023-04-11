@@ -1,0 +1,5 @@
+_core:
+  default_config_hash: 5Ba57QD7msoZrStw11sVxvzj7eFrCVkNCmOJmTKQe10
+fixed_header: true
+scrolltop_display: true
+bootstrap_remote_type: cdn

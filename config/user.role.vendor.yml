@@ -3,6 +3,9 @@ langcode: en
 status: true
 dependencies:
   module:
+    - commerce_checkout
+    - commerce_invoice
+    - commerce_order
     - commerce_price
     - commerce_product
     - commerce_store
@@ -13,13 +16,43 @@ label: vendor
 weight: 4
 is_admin: null
 permissions:
+  - 'access commerce_invoice overview'
+  - 'access commerce_order overview'
+  - 'access commerce_product overview'
+  - 'access commerce_product_attribute overview'
   - 'access profile overview'
+  - 'add commerce_log commerce_invoice admin comment'
+  - 'administer commerce_checkout_flow'
   - 'administer commerce_currency'
+  - 'administer commerce_invoice'
+  - 'administer commerce_invoice_type'
+  - 'administer commerce_order'
+  - 'administer commerce_order_type'
+  - 'administer commerce_product'
+  - 'administer commerce_product_attribute'
+  - 'administer commerce_product_type'
   - 'administer users'
   - 'change own username'
-  - 'update own default commerce_product'
+  - 'create credit_memo commerce_invoice'
+  - 'create default commerce_invoice'
+  - 'create default commerce_order'
+  - 'delete credit_memo commerce_invoice'
+  - 'delete default commerce_invoice'
+  - 'delete default commerce_order'
+  - 'manage default commerce_order_item'
+  - 'update credit_memo commerce_invoice'
+  - 'update default commerce_invoice'
+  - 'update default commerce_order'
   - 'update own online commerce_store'
   - 'view any default commerce_wishlist'
+  - 'view commerce_invoice'
+  - 'view commerce_order'
+  - 'view credit_memo commerce_invoice'
+  - 'view default commerce_invoice'
+  - 'view default commerce_order'
   - 'view default commerce_product'
   - 'view online commerce_store'
+  - 'view own commerce_invoice'
+  - 'view own commerce_order'
   - 'view own customer profile'
+  - 'view own profile'

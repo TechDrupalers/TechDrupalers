@@ -1,0 +1,22 @@
+uuid: d07eb294-1e6a-4c4f-9f8b-8f48a5225601
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - magazine_lite
+_core:
+  default_config_hash: rLk9D-2D7B5q4WrI_NKcZ3-Wc5WiPwc0EP1iJnZmqtU
+id: magazine_lite_content
+theme: magazine_lite
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

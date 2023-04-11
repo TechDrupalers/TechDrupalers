@@ -1,0 +1,8 @@
+uuid: b398fb2d-ac8c-44b9-84fc-a98814bab99b
+langcode: en
+status: true
+dependencies: {  }
+id: svendor
+label: 'Sidebar Menu (Vendor)'
+description: ''
+locked: false

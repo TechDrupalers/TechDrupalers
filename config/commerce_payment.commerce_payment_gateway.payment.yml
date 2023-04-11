@@ -1,0 +1,19 @@
+uuid: 47a43980-de2d-418c-b68c-7600220e7fdb
+langcode: en
+status: true
+dependencies: {  }
+id: payment
+label: Payment
+weight: null
+plugin: manual
+configuration:
+  display_label: Manual
+  mode: n/a
+  payment_method_types:
+    - credit_card
+  collect_billing_information: true
+  instructions:
+    value: 'Thank You for the order...!!!'
+    format: plain_text
+conditions: {  }
+conditionOperator: AND

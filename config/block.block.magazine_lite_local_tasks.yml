@@ -1,0 +1,22 @@
+uuid: af052ac1-cb57-4949-a9d9-ca2df4787d54
+langcode: en
+status: true
+dependencies:
+  theme:
+    - magazine_lite
+_core:
+  default_config_hash: NLzVQ2XmNDCEV98i3H6Iz_q92aofkLOb1LurHyhvXzs
+id: magazine_lite_local_tasks
+theme: magazine_lite
+region: content
+weight: -7
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

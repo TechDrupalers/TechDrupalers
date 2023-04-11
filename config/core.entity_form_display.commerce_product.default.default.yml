@@ -312,7 +312,7 @@ content:
     third_party_settings: {  }
   stores:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 1
     region: content
     settings:
       match_operator: CONTAINS
@@ -322,7 +322,7 @@ content:
     third_party_settings: {  }
   variations:
     type: commerce_product_single_variation
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }

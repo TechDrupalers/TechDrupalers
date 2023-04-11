@@ -1,0 +1,25 @@
+uuid: af61544e-c9bd-482a-848a-70f7a31cede5
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - magazine_lite
+id: useraccountmenu_4
+theme: magazine_lite
+region: footer_second
+weight: 0
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

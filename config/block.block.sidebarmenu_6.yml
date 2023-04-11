@@ -1,0 +1,29 @@
+uuid: 43de2e5d-0a55-4165-bef3-91b65b9921ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.sidebar-menu
+  module:
+    - system
+  theme:
+    - magazine_lite
+id: sidebarmenu_6
+theme: magazine_lite
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:sidebar-menu'
+settings:
+  id: 'system_menu_block:sidebar-menu'
+  label: 'Sidebar Menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node/18

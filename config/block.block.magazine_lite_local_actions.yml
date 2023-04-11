@@ -1,0 +1,20 @@
+uuid: fe7813e7-e7bd-4fcd-848b-c99c1ac146df
+langcode: en
+status: true
+dependencies:
+  theme:
+    - magazine_lite
+_core:
+  default_config_hash: L7-Eq132PFY4kQPu55joPvGhHX3Ht1U2MDae3lrsYEk
+id: magazine_lite_local_actions
+theme: magazine_lite
+region: content
+weight: -7
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }
