@@ -1,0 +1,52 @@
+.sub-main-login{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 300px;
+    margin-left: 900px;
+    background-image: url('back_2.png');
+    background-size: 300px 400px;
+    margin-top: 200px;
+}
+
+.main-login .sub-main-login .form-login{
+    padding-left: 30px;
+    padding-top: 50px;
+    padding-right: 40px;
+  }
+  
+  .main-login .sub-main-login .form-login h1{
+    color: rgb(31, 148, 225);
+  }
+  
+  .main-login .sub-main-login .form-login label{
+    font-size: 18px;
+  }
+  
+  .main-login .sub-main-login .form-login input{
+    height: 25px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-top: 1px solid black;
+  }
+  
+  
+  .main-login .sub-main-login .form-login button{
+    margin-top: 30px;
+    background-color: rgb(0, 124, 207);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+  }
+  
+  .main-login .sub-main-login .form-login button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  
+  
