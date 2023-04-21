@@ -1,0 +1,50 @@
+.products-pagetitle h2{
+  font-size: 40px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+#vendors-products-table{
+  font-size: 18px;
+  margin-top: 50px;
+  margin-left: 20px;
+
+}
+
+#vendors-products-table thead tr{
+  background-color: #0F52BA;
+  color: white;
+}
+
+#vendors-products-table thead tr td{
+  font-size: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+
+}
+
+#vendors-products-table tbody tr td{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
+}
+
+
+
+#vendors-products-table tbody tr:hover {background-color: #D3D3D3;}
+
+.vendors-products-search{
+  margin-top: 50px;
+  margin-left: 20px;
+  font-size: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid black;
+}

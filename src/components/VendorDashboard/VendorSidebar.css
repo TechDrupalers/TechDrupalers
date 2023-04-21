@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.ven-container{
+  display: flex;
+}
+
+.main{
+  width: 100%;
+  padding: 20px;
+}
+
+.ven-sidebar{
+  background: #D3D3D3;
+  color: #000;
+  height: 80vh;
+  width: 200px;
+  transition: all 0.5s;
+}
+
+.ven-top_section{
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+}
+
+.ven-logo{
+  font-size: 30px;
+}
+
+.ven-bars{
+  display: flex;
+  font-size: 25px;
+  margin-left: 50px;
+}
+
+.ven-link{
+  display: flex;
+  color: #000;
+  padding: 10px 15px;
+  gap:15px;
+  transition: all 0.5s;
+
+}
+
+.ven-link:hover{
+  background: #0F52BA;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.active{
+  background: #0F52BA;
+  color: #fff;
+}
+
+.ven-icon .ven-link_text{
+  font-size: 50px;
+}
+
+
+
+
+
+

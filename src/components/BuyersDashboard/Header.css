@@ -1,0 +1,22 @@
+.header{
+    background-color: #0F52BA;
+    width: 100%;
+    height: 70px;
+    color:#fff;
+    display: flex;
+}
+
+.header .sitelogo h1{
+    font-size: 30px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.header .tabs{
+    display: flex;
+    gap: 20px;
+    padding-left: 1250px;
+    font-size: 25px;
+    padding-top: 20px;
+    cursor: pointer;
+}

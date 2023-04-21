@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.ad-container{
+  display: flex;
+}
+
+.main{
+  width: 100%;
+  padding: 20px;
+}
+
+.ad-sidebar{
+  background: #D3D3D3;
+  color: #000;
+  height: 80vh;
+  width: 500px;
+  transition: all 0.5s;
+}
+
+.ad-top_section{
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+}
+
+.ad-logo{
+  font-size: 30px;
+}
+
+.ad-bars{
+  display: flex;
+  font-size: 25px;
+  margin-left: 50px;
+}
+
+.ad-link{
+  display: flex;
+  color: #000;
+  padding: 10px 15px;
+  gap:15px;
+  transition: all 0.5s;
+
+}
+
+.ad-link:hover{
+  background: #0F52BA;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.active{
+  background: #0F52BA;
+  color: #fff;
+}
+
+.ad-icon .ad-link_text{
+  font-size: 100px;
+}
+
+
+
