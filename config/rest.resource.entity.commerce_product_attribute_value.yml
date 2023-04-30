@@ -1,16 +1,13 @@
-uuid: d33a8682-bed6-4e5d-aaf0-ce7acc890334
+uuid: 6323ca0e-fe31-4bb6-bd68-00517f8b9091
 langcode: en
 status: true
 dependencies:
   module:
-    - hal
-    - node
+    - commerce_product
     - serialization
     - user
-_core:
-  default_config_hash: t_jfECmZhJqBOJuSOFn87EOi_TWi-_fRYTuJgd19vgg
-id: entity.node
-plugin_id: 'entity:node'
+id: entity.commerce_product_attribute_value
+plugin_id: 'entity:commerce_product_attribute_value'
 granularity: resource
 configuration:
   methods:
@@ -19,7 +16,6 @@ configuration:
     - DELETE
     - PATCH
   formats:
-    - hal_json
     - json
   authentication:
     - cookie

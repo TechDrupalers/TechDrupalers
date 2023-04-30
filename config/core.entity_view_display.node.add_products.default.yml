@@ -1,0 +1,45 @@
+uuid: f51444b1-6735-4938-9b51-748bc461f666
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.add_products.body
+    - field.field.node.add_products.field_addproduct
+    - node.type.add_products
+  module:
+    - link
+    - text
+    - user
+id: node.add_products.default
+targetEntityType: node
+bundle: add_products
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_addproduct:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

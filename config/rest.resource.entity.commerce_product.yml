@@ -1,16 +1,14 @@
-uuid: d33a8682-bed6-4e5d-aaf0-ce7acc890334
+uuid: fb408821-0502-47d7-94d2-0db24fa8e5a3
 langcode: en
 status: true
 dependencies:
   module:
+    - commerce_product
     - hal
-    - node
     - serialization
     - user
-_core:
-  default_config_hash: t_jfECmZhJqBOJuSOFn87EOi_TWi-_fRYTuJgd19vgg
-id: entity.node
-plugin_id: 'entity:node'
+id: entity.commerce_product
+plugin_id: 'entity:commerce_product'
 granularity: resource
 configuration:
   methods:

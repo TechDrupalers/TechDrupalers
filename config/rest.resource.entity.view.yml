@@ -1,23 +1,18 @@
-uuid: d33a8682-bed6-4e5d-aaf0-ce7acc890334
+uuid: c9df18a3-29ea-418c-9b87-747ea214c77e
 langcode: en
 status: true
 dependencies:
   module:
     - hal
-    - node
     - serialization
     - user
-_core:
-  default_config_hash: t_jfECmZhJqBOJuSOFn87EOi_TWi-_fRYTuJgd19vgg
-id: entity.node
-plugin_id: 'entity:node'
+    - views
+id: entity.view
+plugin_id: 'entity:view'
 granularity: resource
 configuration:
   methods:
     - GET
-    - POST
-    - DELETE
-    - PATCH
   formats:
     - hal_json
     - json

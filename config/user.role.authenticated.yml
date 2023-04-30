@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - rest.resource.user_registration
   module:
     - comment
     - commerce_checkout
@@ -11,7 +12,10 @@ dependencies:
     - commerce_product
     - commerce_wishlist
     - contact
+    - cors_ui
     - filter
+    - profile
+    - rest
     - search
     - shortcut
     - system
@@ -28,8 +32,16 @@ permissions:
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'access wishlist'
+  - 'administer account settings'
+  - 'administer commerce_product'
+  - 'administer cors'
+  - 'administer rest resources'
+  - 'administer users'
+  - 'create customer profile'
+  - 'create default commerce_product'
   - 'manage own commerce_payment_method'
   - 'post comments'
+  - 'restful post user_registration'
   - 'search content'
   - 'skip comment approval'
   - 'use text format basic_html'

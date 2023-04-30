@@ -1,0 +1,35 @@
+uuid: 4b7c3202-1ef0-448e-9667-f13effb25cc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.add_products.body
+    - field.field.node.add_products.field_addproduct
+    - node.type.add_products
+  module:
+    - text
+    - user
+id: node.add_products.teaser
+targetEntityType: node
+bundle: add_products
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_addproduct: true

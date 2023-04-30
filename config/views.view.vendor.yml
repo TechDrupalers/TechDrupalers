@@ -440,3 +440,42 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.user.field_company_name'
+  rest_export_2:
+    id: rest_export_2
+    display_title: 'REST export 2'
+    display_plugin: rest_export
+    position: 1
+    display_options:
+      access:
+        type: none
+        options: {  }
+      row:
+        type: data_field
+        options:
+          field_options:
+            name:
+              alias: ''
+              raw_output: true
+            field_company_name:
+              alias: ''
+              raw_output: true
+            mail:
+              alias: ''
+              raw_output: true
+            operations:
+              alias: ''
+              raw_output: true
+      defaults:
+        access: false
+      display_extenders: {  }
+      path: api/vendors
+      auth:
+        - cookie
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+      tags:
+        - 'config:field.storage.user.field_company_name'
