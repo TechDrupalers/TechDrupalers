@@ -1,0 +1,18 @@
+uuid: fdf72f3e-8831-4630-b4d5-27d750228a0a
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Add Products'
+type: add_products
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

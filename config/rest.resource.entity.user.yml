@@ -1,16 +1,13 @@
-uuid: d33a8682-bed6-4e5d-aaf0-ce7acc890334
+uuid: 94417bb4-cfef-4034-b4c4-7a7ed4a098f5
 langcode: en
 status: true
 dependencies:
   module:
     - hal
-    - node
     - serialization
     - user
-_core:
-  default_config_hash: t_jfECmZhJqBOJuSOFn87EOi_TWi-_fRYTuJgd19vgg
-id: entity.node
-plugin_id: 'entity:node'
+id: entity.user
+plugin_id: 'entity:user'
 granularity: resource
 configuration:
   methods:

@@ -2,9 +2,14 @@ uuid: 79aa1343-73b8-4ef6-a346-cbe6225d4fed
 langcode: en
 status: true
 dependencies:
+  config:
+    - rest.resource.user_registration
   module:
     - comment
     - commerce_product
+    - cors_ui
+    - profile
+    - rest
     - search
     - system
 _core:
@@ -16,5 +21,13 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'administer account settings'
+  - 'administer commerce_product'
+  - 'administer cors'
+  - 'administer rest resources'
+  - 'administer users'
+  - 'create customer profile'
+  - 'create default commerce_product'
+  - 'restful post user_registration'
   - 'search content'
   - 'view commerce_product'
