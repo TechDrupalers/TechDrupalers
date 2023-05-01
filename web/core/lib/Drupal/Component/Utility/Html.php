@@ -216,7 +216,6 @@ class Html {
    * @see self::getUniqueId()
    */
   public static function getId($id) {
-    
     $id = str_replace([' ', '_', '[', ']'], ['-', '-', '-', ''], mb_strtolower($id));
 
     // As defined in http://www.w3.org/TR/html4/types.html#type-name, HTML IDs can
