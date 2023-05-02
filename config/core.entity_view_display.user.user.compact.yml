@@ -33,6 +33,9 @@ content:
 hidden:
   commerce_remote_id: true
   customer_profiles: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
   field_address: true
   field_company_name: true
   member_for: true

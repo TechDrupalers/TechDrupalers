@@ -35,6 +35,11 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  entity_print_view_pdf:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
   mail:
     type: basic_string
     label: inline
@@ -84,6 +89,8 @@ content:
 hidden:
   balance: true
   changed: true
+  entity_print_view_epub: true
+  entity_print_view_word_docx: true
   ip_address: true
   store_id: true
   total_paid: true

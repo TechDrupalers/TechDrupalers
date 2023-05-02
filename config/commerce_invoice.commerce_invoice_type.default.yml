@@ -4,14 +4,14 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: ccmJnYDefjjUJ1_S8QUpDMgN41yZcLULtiTOdR1sJmo
-label: Invoice
 id: default
+label: Invoice
+traits: {  }
 numberPattern: invoice_default
 logo: null
 dueDays: null
 paymentTerms: ''
 footerText: ''
-traits: {  }
 workflow: invoice_default
 sendConfirmation: false
 confirmationBcc: ''

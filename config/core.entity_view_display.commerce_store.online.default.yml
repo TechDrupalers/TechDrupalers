@@ -24,6 +24,9 @@ hidden:
   billing_countries: true
   created: true
   default_currency: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
   is_default: true
   mail: true
   name: true
