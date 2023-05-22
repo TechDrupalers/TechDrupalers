@@ -32,3 +32,4 @@ permissions:
   - 'view own customer profile'
   - 'view own default commerce_wishlist'
   - 'view own profile'
+  - 'view user email addresses'

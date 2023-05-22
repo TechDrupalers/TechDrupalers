@@ -33,11 +33,16 @@ module:
   commerce_tax: 0
   commerce_wishlist: 0
   config: 0
+  consumers: 0
   contact: 0
   contextual: 0
   cors_ui: 0
+  createnode: 0
   datetime: 0
   dblog: 0
+  devel: 0
+  devel_generate: 0
+  devel_php: 0
   dynamic_page_cache: 0
   editor: 0
   entity: 0
@@ -79,6 +84,7 @@ module:
   search: 0
   serialization: 0
   shortcut: 0
+  simple_oauth: 0
   state_machine: 0
   structure_sync: 0
   system: 0

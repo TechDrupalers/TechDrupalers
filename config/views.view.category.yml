@@ -6,7 +6,10 @@ dependencies:
     - node.type.category
     - user.role.administrator
   module:
+    - hal
     - node
+    - rest
+    - serialization
     - user
 id: category
 label: Category
@@ -211,4 +214,41 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.roles
+      tags: {  }
+  rest_export_1:
+    id: rest_export_1
+    display_title: 'REST export'
+    display_plugin: rest_export
+    position: 2
+    display_options:
+      access:
+        type: none
+        options: {  }
+      style:
+        type: serializer
+        options:
+          uses_fields: false
+          formats:
+            hal_json: hal_json
+            json: json
+      row:
+        type: data_field
+        options:
+          field_options:
+            title:
+              alias: ''
+              raw_output: true
+      defaults:
+        access: false
+      display_extenders: {  }
+      path: api/category
+      auth:
+        - cookie
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - 'user.node_grants:view'
       tags: {  }

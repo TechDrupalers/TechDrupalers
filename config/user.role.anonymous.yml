@@ -6,7 +6,9 @@ dependencies:
     - rest.resource.user_registration
   module:
     - comment
+    - commerce_order
     - commerce_product
+    - commerce_wishlist
     - cors_ui
     - profile
     - rest
@@ -30,4 +32,7 @@ permissions:
   - 'create default commerce_product'
   - 'restful post user_registration'
   - 'search content'
+  - 'view any commerce_wishlist'
+  - 'view commerce_order'
   - 'view commerce_product'
+  - 'view user email addresses'

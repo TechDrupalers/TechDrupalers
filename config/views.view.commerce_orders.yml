@@ -2,15 +2,14 @@ uuid: c42c1d68-c84c-4e37-bff4-2490a5f6f6a9
 langcode: en
 status: true
 dependencies:
-  config:
-    - user.role.administrator
-    - user.role.customer
   module:
     - commerce_order
     - commerce_price
     - commerce_store
+    - hal
     - options
-    - user
+    - rest
+    - serialization
 id: commerce_orders
 label: Orders
 module: views
@@ -628,11 +627,8 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: role
-        options:
-          role:
-            administrator: administrator
-            customer: customer
+        type: none
+        options: {  }
       cache:
         type: tag
         options: {  }
@@ -700,7 +696,6 @@ display:
         - url
         - url.query_args
         - user
-        - user.roles
       tags: {  }
   block_1:
     id: block_1
@@ -718,7 +713,6 @@ display:
         - url
         - url.query_args
         - user
-        - user.roles
       tags: {  }
   page_1:
     id: page_1
@@ -736,5 +730,61 @@ display:
         - url
         - url.query_args
         - user
-        - user.roles
+      tags: {  }
+  rest_export_1:
+    id: rest_export_1
+    display_title: 'REST export'
+    display_plugin: rest_export
+    position: 3
+    display_options:
+      style:
+        type: serializer
+        options:
+          uses_fields: false
+          formats:
+            hal_json: hal_json
+            json: json
+      row:
+        type: data_field
+        options:
+          field_options:
+            order_number:
+              alias: ''
+              raw_output: true
+            mail:
+              alias: ''
+              raw_output: true
+            uid:
+              alias: ''
+              raw_output: true
+            operations:
+              alias: ''
+              raw_output: true
+            order_number_1:
+              alias: ''
+              raw_output: true
+            placed:
+              alias: ''
+              raw_output: true
+            state:
+              alias: ''
+              raw_output: true
+            store_id:
+              alias: ''
+              raw_output: true
+            total_price__number:
+              alias: ''
+              raw_output: true
+      display_extenders: {  }
+      path: api/buyer-orders
+      auth:
+        - cookie
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - url
+        - user
       tags: {  }

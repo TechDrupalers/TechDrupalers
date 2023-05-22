@@ -121,7 +121,10 @@ class ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a
         ),
         'L' => 
         array (
+            'League\\OAuth2\\Server\\' => 21,
+            'League\\Event\\' => 13,
             'League\\Container\\' => 17,
+            'Lcobucci\\JWT\\' => 13,
             'Laminas\\Stdlib\\' => 15,
             'Laminas\\Feed\\' => 13,
             'Laminas\\Escaper\\' => 16,
@@ -161,12 +164,14 @@ class ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a
             'Drupal\\Component\\' => 17,
             'DrupalCodeGenerator\\' => 20,
             'Dompdf\\' => 7,
+            'Doctrine\\Persistence\\' => 21,
             'Doctrine\\Deprecations\\' => 22,
             'Doctrine\\Common\\Lexer\\' => 22,
             'Doctrine\\Common\\Collections\\' => 28,
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
             'Dflydev\\DotAccessData\\' => 22,
+            'Defuse\\Crypto\\' => 14,
         ),
         'C' => 
         array (
@@ -407,9 +412,21 @@ class ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
         ),
+        'League\\OAuth2\\Server\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/oauth2-server/src',
+        ),
+        'League\\Event\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/event/src',
+        ),
         'League\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/container/src',
+        ),
+        'Lcobucci\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lcobucci/jwt/src',
         ),
         'Laminas\\Stdlib\\' => 
         array (
@@ -495,6 +512,10 @@ class ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a
         array (
             0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
         ),
+        'Doctrine\\Persistence\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/persistence/src/Persistence',
+        ),
         'Doctrine\\Deprecations\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations',
@@ -513,11 +534,17 @@ class ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a
         ),
         'Doctrine\\Common\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
+            0 => __DIR__ . '/..' . '/doctrine/common/src',
+            1 => __DIR__ . '/..' . '/doctrine/event-manager/src',
+            2 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
         ),
         'Dflydev\\DotAccessData\\' => 
         array (
             0 => __DIR__ . '/..' . '/dflydev/dot-access-data/src',
+        ),
+        'Defuse\\Crypto\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/defuse/php-encryption/src',
         ),
         'Consolidation\\SiteProcess\\' => 
         array (

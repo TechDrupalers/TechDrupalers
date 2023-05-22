@@ -3,14 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.commerce_product.default.field_actual_rate
     - field.storage.commerce_product.field_pro
     - field.storage.commerce_product.field_product_id
-    - user.role.administrator
-    - user.role.vendor
   module:
     - commerce_product
     - commerce_wishlist
+    - hal
+    - rest
+    - serialization
     - user
+    - views_entity_form_field
 id: v_wishlist
 label: 'Vendor wishlist'
 module: views
@@ -287,6 +290,70 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        form_field_field_actual_rate:
+          id: form_field_field_actual_rate
+          table: commerce_product_field_data
+          field: form_field_field_actual_rate
+          relationship: product_id
+          group_type: group
+          admin_label: ''
+          entity_type: commerce_product
+          plugin_id: entity_form_field
+          label: 'Form field: Actual Rate'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin:
+            hide_title: 1
+            hide_description: 1
+            type: number
+            settings:
+              placeholder: ''
+            third_party_settings: {  }
+        uid_1:
+          id: uid_1
+          table: commerce_wishlist
+          field: uid
+          entity_type: commerce_wishlist
+          entity_field: uid
+          plugin_id: field
       pager:
         type: mini
         options:
@@ -316,11 +383,8 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: role
-        options:
-          role:
-            administrator: administrator
-            vendor: vendor
+        type: none
+        options: {  }
       cache:
         type: tag
         options: {  }
@@ -339,7 +403,43 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
-      arguments: {  }
+      arguments:
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          entity_field: uid
+          plugin_id: user_uid
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: current_user
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
       filters: {  }
       style:
         type: table
@@ -406,9 +506,12 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
-        - user.roles
+        - user
       tags:
+        - 'config:field.field.commerce_product.default.field_actual_rate'
+        - 'config:field.storage.commerce_product.field_actual_rate'
         - 'config:field.storage.commerce_product.field_pro'
         - 'config:field.storage.commerce_product.field_product_id'
   page_1:
@@ -417,6 +520,45 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      arguments:
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          entity_field: uid
+          plugin_id: user_uid
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: current_user
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+      defaults:
+        arguments: false
       display_extenders: {  }
       path: vendor-wishlist
     cache_metadata:
@@ -424,8 +566,449 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
-        - user.roles
+        - user
       tags:
+        - 'config:field.field.commerce_product.default.field_actual_rate'
+        - 'config:field.storage.commerce_product.field_actual_rate'
+        - 'config:field.storage.commerce_product.field_pro'
+        - 'config:field.storage.commerce_product.field_product_id'
+  rest_export_1:
+    id: rest_export_1
+    display_title: 'REST export'
+    display_plugin: rest_export
+    position: 2
+    display_options:
+      fields:
+        uid:
+          id: uid
+          table: commerce_wishlist
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: commerce_wishlist
+          entity_field: uid
+          plugin_id: field
+          label: Owner
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_product_id:
+          id: field_product_id
+          table: commerce_product__field_product_id
+          field: field_product_id
+          relationship: product_id
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Product ID'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_pro:
+          id: field_pro
+          table: commerce_product__field_pro
+          field: field_pro
+          relationship: product_id
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Product Name'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        quantity:
+          id: quantity
+          table: commerce_wishlist_item
+          field: quantity
+          relationship: wishlist_items_target_id
+          group_type: group
+          admin_label: ''
+          entity_type: commerce_wishlist_item
+          entity_field: quantity
+          plugin_id: field
+          label: Quantity
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_decimal
+          settings:
+            thousand_separator: ''
+            decimal_separator: .
+            scale: 2
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        form_field_field_actual_rate:
+          id: form_field_field_actual_rate
+          table: commerce_product_field_data
+          field: form_field_field_actual_rate
+          relationship: product_id
+          group_type: group
+          admin_label: ''
+          entity_type: commerce_product
+          plugin_id: entity_form_field
+          label: 'Form field: Actual Rate'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin:
+            hide_title: 1
+            hide_description: 1
+            type: number
+            settings:
+              placeholder: ''
+            third_party_settings: {  }
+        uid_1:
+          id: uid_1
+          table: commerce_wishlist
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: commerce_wishlist
+          entity_field: uid
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      access:
+        type: none
+        options: {  }
+      style:
+        type: serializer
+        options:
+          uses_fields: false
+          formats:
+            hal_json: hal_json
+            json: json
+      row:
+        type: data_field
+        options:
+          field_options:
+            uid:
+              alias: ''
+              raw_output: true
+            field_product_id:
+              alias: ''
+              raw_output: true
+            field_pro:
+              alias: ''
+              raw_output: true
+            quantity:
+              alias: ''
+              raw_output: true
+            form_field_field_actual_rate:
+              alias: ''
+              raw_output: true
+      defaults:
+        access: false
+        fields: false
+      display_extenders: {  }
+      path: api/quotation
+      auth:
+        - cookie
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - url
+        - user
+      tags:
+        - 'config:field.field.commerce_product.default.field_actual_rate'
+        - 'config:field.storage.commerce_product.field_actual_rate'
         - 'config:field.storage.commerce_product.field_pro'
         - 'config:field.storage.commerce_product.field_product_id'

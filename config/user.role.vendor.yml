@@ -56,3 +56,4 @@ permissions:
   - 'view own commerce_order'
   - 'view own customer profile'
   - 'view own profile'
+  - 'view user email addresses'
