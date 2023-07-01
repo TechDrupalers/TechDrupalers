@@ -3,7 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.add_products
     - node.type.article
+    - node.type.category
+    - node.type.certificate
     - node.type.page
     - taxonomy.vocabulary.tags
   module:
@@ -30,10 +33,15 @@ permissions:
   - 'access toolbar'
   - 'access tour'
   - 'administer url aliases'
+  - 'create add_products content'
   - 'create article content'
+  - 'create category content'
+  - 'create certificate content'
   - 'create page content'
   - 'create terms in tags'
   - 'create url aliases'
+  - 'delete any article content'
+  - 'delete any page content'
   - 'delete article revisions'
   - 'delete own article content'
   - 'delete own page content'

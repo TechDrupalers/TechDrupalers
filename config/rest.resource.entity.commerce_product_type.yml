@@ -1,0 +1,22 @@
+uuid: 07875e83-e267-4671-9558-f2ec9086afe4
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - commerce_product
+    - hal
+    - serialization
+    - user
+id: entity.commerce_product_type
+plugin_id: 'entity:commerce_product_type'
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - hal_json
+    - json
+  authentication:
+    - basic_auth
+    - cookie

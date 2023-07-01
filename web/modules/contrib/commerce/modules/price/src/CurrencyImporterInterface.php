@@ -39,7 +39,7 @@ interface CurrencyImporterInterface {
    *   The saved currency entity or NULL if the given country's currency
    *   isn't known.
    *
-   * @throws \CommerceGuys\Intl\Exception\UnknownCountryException
+   * @throws \CommerceGuys\Addressing\Exception\UnknownCountryException
    *   Thrown when the country couldn't be found in the library definitions.
    */
   public function importByCountry($country_code);

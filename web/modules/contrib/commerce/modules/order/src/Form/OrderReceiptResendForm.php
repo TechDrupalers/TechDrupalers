@@ -81,7 +81,7 @@ class OrderReceiptResendForm extends ContentEntityConfirmFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
     $order = $this->entity;
-    $result = $this->orderReceiptMail->send($order);
+    $result = $this->orderReceiptMail->send($order, NULL, NULL, TRUE);
     // Drupal's MailManager sets an error message itself, if the sending failed.
     if ($result) {
       $this->messenger()->addMessage($this->t('Order receipt resent.'));

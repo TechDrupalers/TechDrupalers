@@ -196,7 +196,7 @@ class CustomerProfileTest extends OrderWebDriverTestBase {
     $this->getSession()->reload();
     $this->getSession()->getPage()->pressButton('billing_edit');
     $this->assertSession()->assertWaitOnAjaxRequest();
-    $this->assertSession()->pageTextContains('An illegal choice has been detected.');
+    $this->assertSession()->pageTextMatches('/An illegal choice has been detected\.|The submitted value (.*) in the (.*) element is not allowed\./');
     $this->assertSession()->pageTextContains($this->usAddress['postal_code']);
     $this->assertSession()->pageTextNotContains('29617');
     \Drupal::state()->delete('commerce_order_forge_profile_selection');

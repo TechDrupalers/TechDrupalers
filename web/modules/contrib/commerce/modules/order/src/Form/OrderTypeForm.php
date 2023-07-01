@@ -161,6 +161,24 @@ class OrderTypeForm extends CommerceBundleEntityFormBase {
         ],
       ],
     ];
+    $default_subject = $this->t('Order #@number confirmed', [
+      '@number' => '[commerce_order:order_number]',
+    ]);
+    $form['emails']['receiptSubject'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Subject for the order receipt email:'),
+      '#description' => $this->t('Leave blank to use default value: @default_subject', [
+        '@default_subject' => $default_subject,
+      ]),
+      '#default_value' => $order_type->isNew() ? '' : $order_type->getReceiptSubject(),
+      '#element_validate' => ['token_element_validate'],
+      '#token_types' => ['commerce_order'],
+    ];
+    $form['emails']['receiptSubject_help'] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => ['commerce_order'],
+      '#global_types' => FALSE,
+    ];
 
     return $form;
   }

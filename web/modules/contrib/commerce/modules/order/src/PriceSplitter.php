@@ -56,10 +56,19 @@ class PriceSplitter implements PriceSplitterInterface {
       if (!$order_item->getTotalPrice()->isZero()) {
         $individual_amount = $order_item->getTotalPrice()->multiply($percentage);
         $individual_amount = $this->rounder->round($individual_amount, PHP_ROUND_HALF_DOWN);
-        // Due to rounding it is possible for the last calculated
-        // per-order-item amount to be larger than the total remaining amount.
-        if ($individual_amount->greaterThan($amount)) {
-          $individual_amount = $amount;
+        if ($amount->isNegative()) {
+          // Due to rounding, it is possible for the last calculated
+          // per-order-item amount to be smaller than the remaining amount.
+          if ($individual_amount->lessThan($amount)) {
+            $individual_amount = $amount;
+          }
+        }
+        else {
+          // Due to rounding it is possible for the last calculated
+          // per-order-item amount to be larger than the remaining amount.
+          if ($individual_amount->greaterThan($amount)) {
+            $individual_amount = $amount;
+          }
         }
         $amounts[$order_item->id()] = $individual_amount;
 
@@ -74,8 +83,11 @@ class PriceSplitter implements PriceSplitterInterface {
       $currency = $this->currencyStorage->load($amount->getCurrencyCode());
       $precision = $currency->getFractionDigits();
       // Use the smallest rounded currency amount (e.g. '0.01' for USD).
-      $smallest_number = Calculator::divide('1', pow(10, $precision), $precision);
+      $smallest_number = Calculator::divide('1', 10 ** $precision, $precision);
       $smallest_amount = new Price($smallest_number, $amount->getCurrencyCode());
+      if ($amount->isNegative()) {
+        $smallest_amount = $smallest_amount->multiply(-1);
+      }
       while (!$amount->isZero()) {
         foreach ($amounts as $order_item_id => $individual_amount) {
           $amounts[$order_item_id] = $individual_amount->add($smallest_amount);

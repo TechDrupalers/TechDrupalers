@@ -9,6 +9,7 @@ use Drupal\commerce_payment\Exception\PaymentGatewayException;
 use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\OffsitePaymentGatewayInterface;
 use Drupal\Core\Access\AccessException;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
@@ -43,6 +44,13 @@ class PaymentCheckoutController implements ContainerInjectionInterface {
   protected $logger;
 
   /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected EntityTypeManagerInterface $entityTypeManager;
+
+  /**
    * Constructs a new PaymentCheckoutController object.
    *
    * @param \Drupal\commerce_checkout\CheckoutOrderManagerInterface $checkout_order_manager
@@ -51,11 +59,14 @@ class PaymentCheckoutController implements ContainerInjectionInterface {
    *   The messenger.
    * @param \Psr\Log\LoggerInterface $logger
    *   The logger.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager.
    */
-  public function __construct(CheckoutOrderManagerInterface $checkout_order_manager, MessengerInterface $messenger, LoggerInterface $logger) {
+  public function __construct(CheckoutOrderManagerInterface $checkout_order_manager, MessengerInterface $messenger, LoggerInterface $logger, EntityTypeManagerInterface $entity_type_manager) {
     $this->checkoutOrderManager = $checkout_order_manager;
     $this->messenger = $messenger;
     $this->logger = $logger;
+    $this->entityTypeManager = $entity_type_manager;
   }
 
   /**
@@ -65,7 +76,8 @@ class PaymentCheckoutController implements ContainerInjectionInterface {
     return new static(
       $container->get('commerce_checkout.checkout_order_manager'),
       $container->get('messenger'),
-      $container->get('logger.channel.commerce_payment')
+      $container->get('logger.channel.commerce_payment'),
+      $container->get('entity_type.manager')
     );
   }
 
@@ -84,6 +96,18 @@ class PaymentCheckoutController implements ContainerInjectionInterface {
     $order = $route_match->getParameter('commerce_order');
     $step_id = $route_match->getParameter('step');
     $this->validateStepId($step_id, $order);
+
+    // Reload the order and mark it for updating, redirecting to step below
+    // will save it and free the lock. This must be done before the checkout
+    // flow plugin is initiated to make sure that it has the reloaded order
+    // object. Additionally, the checkout flow plugin gets the order from
+    // the route match object, so update the order there as well with. The
+    // passed in route match object is created on-demand in
+    // \Drupal\Core\Controller\ArgumentResolver\RouteMatchValueResolver and is
+    // not the same object as the current route match service.
+    $order = $this->entityTypeManager->getStorage('commerce_order')->loadForUpdate($order->id());
+    \Drupal::routeMatch()->getParameters()->set('commerce_order', $order);
+
     /** @var \Drupal\commerce_payment\Entity\PaymentGatewayInterface $payment_gateway */
     $payment_gateway = $order->get('payment_gateway')->entity;
     $payment_gateway_plugin = $payment_gateway->getPlugin();

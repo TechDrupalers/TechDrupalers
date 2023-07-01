@@ -9,12 +9,16 @@ dependencies:
     - field.storage.commerce_product.field_product_id
     - field.storage.commerce_product.field_product_scientific_name
     - field.storage.commerce_product.field_select_category
+    - user.role.anonymous
+    - user.role.authenticated
+    - user.role.customer
   module:
     - commerce
     - commerce_product
     - hal
     - rest
     - serialization
+    - user
 id: buyer_product_catalogue
 label: 'Buyer Product Catalogue'
 module: views
@@ -529,6 +533,70 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        uuid:
+          id: uuid
+          table: commerce_product_variation
+          field: uuid
+          relationship: reverse__commerce_product_variation__product_id
+          group_type: group
+          admin_label: ''
+          entity_type: commerce_product_variation
+          entity_field: uuid
+          plugin_id: field
+          label: Product_Variation_UUID
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: mini
         options:
@@ -732,6 +800,13 @@ display:
     display_plugin: rest_export
     position: 3
     display_options:
+      access:
+        type: role
+        options:
+          role:
+            anonymous: anonymous
+            authenticated: authenticated
+            customer: customer
       style:
         type: serializer
         options:
@@ -764,6 +839,8 @@ display:
             variations_target_id:
               alias: ''
               raw_output: true
+      defaults:
+        access: false
       display_extenders: {  }
       path: api/buyer/product-catelog
       auth:
@@ -775,6 +852,7 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
+        - user.roles
       tags:
         - 'config:field.storage.commerce_product.field_hs'
         - 'config:field.storage.commerce_product.field_pro'

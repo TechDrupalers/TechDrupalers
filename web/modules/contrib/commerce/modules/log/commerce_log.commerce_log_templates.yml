@@ -64,3 +64,27 @@ commerce_order_admin_comment:
   category: commerce_order
   label: 'Admin comment'
   template: '<p><strong>Admin comment:</strong><br /> {{ comment }}</p>'
+payment_added:
+  category: commerce_payment
+  label: 'Payment added'
+  template: '<p>Payment added via <em>{{ gateway }}</em> for {{ amount|commerce_price_format }}{% if method %} using <em>{{ method }}</em>{% endif %}. State: {{ state }}.{% if remote_id %}<br /> Transaction ID: {{ remote_id }}.{% endif %}</p>'
+payment_authorized:
+  category: commerce_payment
+  label: 'Payment authorized'
+  template: '<p>Payment authorized via <em>{{ gateway }}</em> for {{ amount|commerce_price_format }}{% if method %} using <em>{{ method }}</em>{% endif %}.{% if remote_id %}<br /> Transaction ID: {{ remote_id }}.{% endif %}</p>'
+payment_manual_received:
+  category: commerce_payment
+  label: 'Manual payment received'
+  template: '<p>Payment received via <em>{{ gateway }}</em> for {{ amount|commerce_price_format }}.</p>'
+payment_completed:
+  category: commerce_payment
+  label: 'Payment captured'
+  template: '<p>Payment captured via <em>{{ gateway }}</em> for {{ amount|commerce_price_format }}{% if method %} using <em>{{ method }}</em>{% endif %}.{% if remote_id %}<br /> Transaction ID: {{ remote_id }}.{% endif %}</p>'
+payment_updated:
+  category: commerce_payment
+  label: 'Payment updated'
+  template: '<p>Payment updated. Payment balance: {{ amount|commerce_price_format }}. State: {{ state }}.{% if remote_id %}<br /> Transaction ID: {{ remote_id }}.{% endif %}</p>'
+payment_deleted:
+  category: commerce_payment
+  label: 'Payment deleted'
+  template: '<p>Payment deleted: {{ amount|commerce_price_format }}.{% if method %} [{{ method }}].{% endif %}{% if remote_id %}<br /> Transaction ID: {{ remote_id }}.{% endif %}</p>'

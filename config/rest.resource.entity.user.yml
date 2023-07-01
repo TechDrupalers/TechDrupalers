@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - hal
+    - basic_auth
     - serialization
     - user
 id: entity.user
@@ -16,7 +16,7 @@ configuration:
     - DELETE
     - PATCH
   formats:
-    - hal_json
     - json
   authentication:
+    - basic_auth
     - cookie

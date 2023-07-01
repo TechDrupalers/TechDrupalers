@@ -5,6 +5,15 @@ namespace Drupal\commerce_promotion\Event;
 final class PromotionEvents {
 
   /**
+   * Name of the event fired when available promotions are loaded for an order.
+   *
+   * @Event
+   *
+   * @see \Drupal\commerce_promotion\Event\FilterPromotionsEvent
+   */
+  const FILTER_PROMOTIONS = 'commerce_promotion.filter_promotions';
+
+  /**
    * Name of the event fired after loading a promotion.
    *
    * @Event

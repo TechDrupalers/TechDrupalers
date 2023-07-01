@@ -1,0 +1,25 @@
+uuid: 1cd3a162-b653-4f29-951b-49f4ca28f392
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - hal
+    - path_alias
+    - serialization
+    - user
+id: entity.path_alias
+plugin_id: 'entity:path_alias'
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+    - DELETE
+    - PATCH
+  formats:
+    - hal_json
+    - json
+  authentication:
+    - basic_auth
+    - cookie

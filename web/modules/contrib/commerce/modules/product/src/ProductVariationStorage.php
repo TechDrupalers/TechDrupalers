@@ -76,6 +76,10 @@ class ProductVariationStorage extends CommerceContentEntityStorage implements Pr
     foreach ($product->variations as $variation) {
       $ids[$variation->target_id] = $variation->target_id;
     }
+    if (empty($ids)) {
+      $this->enabledVariations[$product->id()] = [];
+      return [];
+    }
     // Speed up loading by filtering out the IDs of disabled variations.
     $query = $this->getQuery()
       ->accessCheck(TRUE)

@@ -3,12 +3,14 @@
 namespace Drupal\Tests\commerce_promotion\Kernel;
 
 use Drupal\commerce_order\Entity\Order;
+use Drupal\commerce_order\Entity\OrderInterface;
 use Drupal\commerce_order\Entity\OrderItem;
 use Drupal\commerce_price\Price;
 use Drupal\commerce_promotion\Entity\Coupon;
 use Drupal\commerce_promotion\Entity\Promotion;
 use Drupal\language\Entity\ConfigurableLanguage;
 use Drupal\Tests\commerce_order\Kernel\OrderKernelTestBase;
+use Drupal\user\UserInterface;
 
 /**
  * Tests the promotion order processor.
@@ -22,7 +24,14 @@ class PromotionOrderProcessorTest extends OrderKernelTestBase {
    *
    * @var \Drupal\commerce_order\Entity\OrderInterface
    */
-  protected $order;
+  protected OrderInterface $order;
+
+  /**
+   * A sample user.
+   *
+   * @var \Drupal\user\UserInterface
+   */
+  protected UserInterface $user;
 
   /**
    * Modules to enable.

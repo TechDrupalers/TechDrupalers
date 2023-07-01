@@ -135,4 +135,24 @@ interface OrderTypeInterface extends CommerceBundleEntityInterface {
    */
   public function setReceiptBcc($receipt_bcc);
 
+  /**
+   * Gets the receipt subject.
+   *
+   * If provided, this value will be used for the receipt email subject.
+   *
+   * @return string
+   *   The receipt subject.
+   */
+  public function getReceiptSubject(): string;
+
+  /**
+   * Sets the receipt subject.
+   *
+   * @param string $receipt_subject
+   *   The receipt subject.
+   *
+   * @return $this
+   */
+  public function setReceiptSubject(string $receipt_subject);
+
 }

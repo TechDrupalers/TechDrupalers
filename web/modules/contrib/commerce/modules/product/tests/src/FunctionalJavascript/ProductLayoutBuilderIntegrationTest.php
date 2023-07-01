@@ -263,7 +263,6 @@ class ProductLayoutBuilderIntegrationTest extends ProductWebDriverTestBase {
     $this->assertSession()->pageTextNotContains('$9.99');
 
     $this->addBlockToLayout('Price', function () {
-      $this->assertSession()->pageTextContainsOnce('Currency display');
       $this->getSession()->getPage()->checkField('Strip trailing zeroes after the decimal point.');
     });
 

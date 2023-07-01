@@ -27,7 +27,7 @@ services:
 
   commerce_cart.cart_subscriber:
     class: Drupal\commerce_cart\EventSubscriber\CartEventSubscriber
-    arguments: ['@messenger', '@string_translation']
+    arguments: ['@messenger', '@string_translation', '@entity_type.manager']
     tags:
       - { name: event_subscriber }
 

@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - hal
+    - basic_auth
     - serialization
     - system
     - user
@@ -14,7 +14,7 @@ configuration:
   methods:
     - GET
   formats:
-    - hal_json
     - json
   authentication:
+    - basic_auth
     - cookie

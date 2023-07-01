@@ -1,0 +1,25 @@
+uuid: 6a67f683-b65a-429f-a64d-83147ff60fbc
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - commerce_order
+    - hal
+    - serialization
+    - user
+id: entity.commerce_order
+plugin_id: 'entity:commerce_order'
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+    - DELETE
+    - PATCH
+  formats:
+    - hal_json
+    - json
+  authentication:
+    - basic_auth
+    - cookie

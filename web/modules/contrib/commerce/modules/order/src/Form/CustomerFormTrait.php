@@ -21,6 +21,13 @@ trait CustomerFormTrait {
   protected $userStorage;
 
   /**
+   * The password generator.
+   *
+   * @var \Drupal\Core\Password\PasswordGeneratorInterface
+   */
+  protected $passwordGenerator;
+
+  /**
    * Builds the customer form.
    *
    * @param array $form
@@ -143,7 +150,7 @@ trait CustomerFormTrait {
       $user = $this->userStorage->create([
         'name' => $values['mail'],
         'mail' => $values['mail'],
-        'pass' => ($values['generate']) ? user_password() : $values['pass'],
+        'pass' => ($values['generate']) ? $this->passwordGenerator->generate() : $values['pass'],
         'status' => TRUE,
       ]);
       $form_state->set('customer', $user);

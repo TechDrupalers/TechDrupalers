@@ -209,7 +209,7 @@ class Onsite extends OnsitePaymentGatewayBase implements OnsiteInterface {
 
     // If the remote API needs a remote customer to be created.
     $owner = $payment_method->getOwner();
-    if ($owner && $owner->isAuthenticated()) {
+    if ($owner && !$owner->isAnonymous()) {
       $customer_id = $this->getRemoteCustomerId($owner);
       // If $customer_id is empty, create the customer remotely and then do
       // $this->setRemoteCustomerId($owner, $customer_id);

@@ -3,6 +3,7 @@
 namespace Drupal\Tests\commerce_cart\Functional;
 
 use Drupal\commerce_order\Entity\Order;
+use Drupal\commerce_order\Entity\OrderType;
 use Drupal\commerce_product\Entity\ProductAttribute;
 use Drupal\commerce_product\Entity\ProductVariation;
 use Drupal\commerce_product\Entity\ProductVariationType;
@@ -275,6 +276,27 @@ class AddToCartFormTest extends CartBrowserTestBase {
     $this->drupalGet($product->toUrl());
     $this->assertSession()->fieldExists('purchased_entity[0][attributes][attribute_size]');
     $this->assertSession()->fieldNotExists('purchased_entity[0][attributes][attribute_color]');
+  }
+
+  /**
+   * Tests the add-to-cart message behavior.
+   */
+  public function testAddToCartMessageBehavior() {
+    $this->drupalGet('product/' . $this->variation->getProductId());
+    $this->submitForm([], 'Add to cart');
+    $this->assertSession()->statusCodeEquals(200);
+
+    $product = $this->variation->getProduct();
+    $this->assertSession()->pageTextContains(sprintf('%s added to your cart.', $product->label()));
+
+    $orderType = OrderType::load('default');
+    $orderType->setThirdPartySetting('commerce_cart', 'enable_cart_message', FALSE);
+    $orderType->save();
+
+    $this->drupalGet('product/' . $this->variation->getProductId());
+    $this->submitForm([], 'Add to cart');
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->pageTextNotContains('added to your cart.');
   }
 
 }

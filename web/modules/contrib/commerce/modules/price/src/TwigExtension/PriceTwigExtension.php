@@ -12,7 +12,7 @@ use Twig\TwigFilter;
 class PriceTwigExtension extends AbstractExtension {
 
   /**
-   * @inheritdoc
+   * {@inheritdoc}
    */
   public function getFilters() {
     return [
@@ -21,7 +21,7 @@ class PriceTwigExtension extends AbstractExtension {
   }
 
   /**
-   * @inheritdoc
+   * {@inheritdoc}
    */
   public function getName() {
     return 'commerce_price.twig_extension';

@@ -41,7 +41,7 @@ class CurrencyRepository extends ExternalCurrencyRepository implements CurrencyR
   /**
    * {@inheritdoc}
    */
-  public function get($currency_code, $locale = NULL) {
+  public function get($currency_code, $locale = NULL): Currency {
     /** @var \Drupal\commerce_price\Entity\CurrencyInterface $currency */
     $currency = $this->currencyStorage->load($currency_code);
     if (!$currency) {
@@ -54,7 +54,7 @@ class CurrencyRepository extends ExternalCurrencyRepository implements CurrencyR
   /**
    * {@inheritdoc}
    */
-  public function getAll($locale = NULL) {
+  public function getAll($locale = NULL): array {
     $all = [];
     /** @var \Drupal\commerce_price\Entity\CurrencyInterface[] $currencies */
     $currencies = $this->currencyStorage->loadMultiple();
@@ -68,7 +68,7 @@ class CurrencyRepository extends ExternalCurrencyRepository implements CurrencyR
   /**
    * {@inheritdoc}
    */
-  public function getList($locale = NULL) {
+  public function getList($locale = NULL): array {
     $list = [];
     /** @var \Drupal\commerce_price\Entity\CurrencyInterface[] $entities */
     $currencies = $this->currencyStorage->loadMultiple();
@@ -88,7 +88,7 @@ class CurrencyRepository extends ExternalCurrencyRepository implements CurrencyR
    * @return \CommerceGuys\Intl\Currency\Currency
    *   The currency value object.
    */
-  protected function createValueObjectFromEntity(CurrencyInterface $currency) {
+  protected function createValueObjectFromEntity(CurrencyInterface $currency): Currency {
     return new Currency([
       'currency_code' => $currency->getCurrencyCode(),
       'name' => $currency->getName(),

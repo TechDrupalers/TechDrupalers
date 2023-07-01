@@ -3,17 +3,26 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.add_products
+    - node.type.article
+    - node.type.category
+    - node.type.certificate
+    - node.type.page
     - rest.resource.user_registration
   module:
     - comment
     - commerce_order
     - commerce_product
+    - commerce_store
     - commerce_wishlist
     - cors_ui
+    - node
     - profile
     - rest
+    - rest_export
     - search
     - system
+    - views_ui
 _core:
   default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
 id: anonymous
@@ -22,17 +31,44 @@ weight: 0
 is_admin: false
 permissions:
   - 'access comments'
+  - 'access commerce_product overview'
+  - 'access commerce_product_attribute overview'
   - 'access content'
   - 'administer account settings'
   - 'administer commerce_product'
+  - 'administer commerce_product_attribute'
+  - 'administer commerce_product_type'
   - 'administer cors'
   - 'administer rest resources'
+  - 'administer rest spreadsheet'
   - 'administer users'
+  - 'administer views'
+  - 'create add_products content'
+  - 'create article content'
+  - 'create category content'
+  - 'create certificate content'
+  - 'create commerce_product_attribute'
   - 'create customer profile'
   - 'create default commerce_product'
+  - 'create page content'
+  - 'delete any default commerce_product'
+  - 'delete commerce_product_attribute'
+  - 'delete own default commerce_product'
+  - 'manage default commerce_product_variation'
   - 'restful post user_registration'
   - 'search content'
+  - 'update any default commerce_product'
+  - 'update commerce_product_attribute'
+  - 'update own default commerce_product'
   - 'view any commerce_wishlist'
+  - 'view any default commerce_wishlist'
   - 'view commerce_order'
   - 'view commerce_product'
+  - 'view commerce_product_attribute'
+  - 'view commerce_store'
+  - 'view default commerce_product'
+  - 'view online commerce_store'
+  - 'view own commerce_wishlist'
+  - 'view own default commerce_wishlist'
+  - 'view own unpublished commerce_product'
   - 'view user email addresses'

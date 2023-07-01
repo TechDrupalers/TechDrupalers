@@ -11,3 +11,26 @@ commerce_order_test.customer_profile_test_form:
         type: 'entity:profile'
   requirements:
     _access: 'TRUE'
+
+commerce_order_test.save_no_lock:
+  path: '/commerce/test/resave-no-lock/{commerce_order}'
+  defaults:
+    _controller: '\Drupal\commerce_order_test\Controller\CommerceOrderTestController::testSaveNoLock'
+    _title: 'Order save test'
+  requirements:
+    _access: 'TRUE'
+  options:
+    parameters:
+      profile:
+        type: 'entity:commerce_order'
+commerce_order_test.save_lock:
+  path: '/commerce/test/resave-lock/{commerce_order}'
+  defaults:
+    _controller: '\Drupal\commerce_order_test\Controller\CommerceOrderTestController::testSaveLock'
+    _title: 'Order save test'
+  requirements:
+    _access: 'TRUE'
+  options:
+    parameters:
+      profile:
+        type: 'entity:commerce_order'

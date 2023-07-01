@@ -224,6 +224,7 @@ function commerce_cart_form_commerce_order_type_form_alter(array &$form, FormSta
   $cart_form_view = $order_type->getThirdPartySetting('commerce_cart', 'cart_form_view', 'commerce_cart_form');
   $cart_block_view = $order_type->getThirdPartySetting('commerce_cart', 'cart_block_view', 'commerce_cart_block');
   $cart_expiration = $order_type->getThirdPartySetting('commerce_cart', 'cart_expiration');
+  $enable_cart_message = $order_type->getThirdPartySetting('commerce_cart', 'enable_cart_message', TRUE);
   $view_storage = \Drupal::entityTypeManager()->getStorage('view');
   $available_form_views = [];
   $available_block_views = [];
@@ -295,6 +296,11 @@ function commerce_cart_form_commerce_order_type_form_alter(array &$form, FormSta
     ],
     '#required' => TRUE,
   ];
+  $form['commerce_cart']['enable_cart_message'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Display a message when an item is added to the cart.'),
+    '#default_value' => $enable_cart_message,
+  ];
 
   $form['actions']['submit']['#submit'][] = 'commerce_cart_order_type_form_submit';
 }
@@ -317,6 +323,7 @@ function commerce_cart_order_type_form_submit($form, FormStateInterface $form_st
     ];
   }
   $order_type->setThirdPartySetting('commerce_cart', 'cart_expiration', $cart_expiration);
+  $order_type->setThirdPartySetting('commerce_cart', 'enable_cart_message', $settings['enable_cart_message']);
   $order_type->save();
 }
 

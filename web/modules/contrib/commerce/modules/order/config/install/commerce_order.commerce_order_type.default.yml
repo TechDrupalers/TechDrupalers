@@ -8,5 +8,6 @@ refresh_mode: customer
 refresh_frequency: 300
 sendReceipt: true
 receiptBcc: ''
+receiptSubject: ''
 traits: {  }
 locked: false

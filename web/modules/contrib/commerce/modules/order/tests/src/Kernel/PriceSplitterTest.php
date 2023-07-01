@@ -102,7 +102,7 @@ class PriceSplitterTest extends OrderKernelTestBase {
     $this->assertEquals($first_expected_amount, $amounts[0]);
     $this->assertEquals($second_expected_amount, $amounts[1]);
 
-    // Split an amount that has a reminder.
+    // Split an amount that has a remainder.
     $unit_price = new Price('69.99', 'USD');
     $order_items = $this->buildOrderItems([$unit_price, $unit_price]);
     $this->order->setItems($order_items);
@@ -116,6 +116,27 @@ class PriceSplitterTest extends OrderKernelTestBase {
     $amounts = array_values($amounts);
     $this->assertEquals($first_expected_amount, $amounts[0]);
     $this->assertEquals($second_expected_amount, $amounts[1]);
+
+    // Split a negative amount that has a negative remainder.
+    $unit_price = new Price('100.00', 'USD');
+    $order_items = $this->buildOrderItems([
+      $unit_price,
+      $unit_price,
+      $unit_price,
+    ]);
+    $this->order->setItems($order_items);
+    $this->order->save();
+
+    $amount = new Price('-10.00', 'USD');
+    $amounts = $this->splitter->split($this->order, $amount);
+    $first_expected_amount = new Price('-3.34', 'USD');
+    $second_expected_amount = new Price('-3.33', 'USD');
+    $third_expected_amount = new Price('-3.33', 'USD');
+    $this->assertEquals($first_expected_amount->add($second_expected_amount)->add($third_expected_amount), $amount);
+    $amounts = array_values($amounts);
+    $this->assertEquals($first_expected_amount, $amounts[0]);
+    $this->assertEquals($second_expected_amount, $amounts[1]);
+    $this->assertEquals($third_expected_amount, $amounts[2]);
   }
 
   /**

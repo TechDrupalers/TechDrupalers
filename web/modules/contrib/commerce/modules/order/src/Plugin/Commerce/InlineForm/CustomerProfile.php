@@ -164,7 +164,7 @@ class CustomerProfile extends EntityInlineFormBase {
     $customer = $this->loadUser($this->configuration['address_book_uid']);
     $available_countries = $this->configuration['available_countries'];
     $address_book_profile = NULL;
-    if ($customer->isAuthenticated() && $allows_multiple) {
+    if (!$customer->isAnonymous() && $allows_multiple) {
       // Multiple address book profiles are allowed, prepare the dropdown.
       $address_book_profiles = $this->addressBook->loadAll($customer, $profile_type_id, $available_countries);
       if ($address_book_profiles) {
@@ -209,7 +209,7 @@ class CustomerProfile extends EntityInlineFormBase {
         '#weight' => -999,
       ];
     }
-    elseif ($customer->isAuthenticated() && $this->entity->isNew()) {
+    elseif (!$customer->isAnonymous() && $this->entity->isNew()) {
       // A single address book profile is allowed.
       // The customer profile form is being rendered for the first time.
       // Use the default profile to pre-fill the profile form.
@@ -293,7 +293,7 @@ class CustomerProfile extends EntityInlineFormBase {
         '#weight' => 999,
         // Anonymous customers don't have an address book until they register
         // or log in, so the checkbox is not shown to them, to avoid confusion.
-        '#access' => $customer->isAuthenticated() && $visible,
+        '#access' => !$customer->isAnonymous() && $visible,
       ];
     }
 

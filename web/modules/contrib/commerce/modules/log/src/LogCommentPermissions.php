@@ -60,7 +60,7 @@ class LogCommentPermissions implements ContainerInjectionInterface {
       $entity_type_id = $entity_type->id();
       $log_template_id = "{$entity_type_id}_admin_comment";
       if ($this->logTemplateManager->hasDefinition($log_template_id)) {
-        $permissions["add commerce_log ${entity_type_id} admin comment"] = [
+        $permissions["add commerce_log {$entity_type_id} admin comment"] = [
           'title' => $this->t('Add admin comments to @label', ['@label' => $entity_type->getSingularLabel()]),
           'description' => $this->t('Provides the ability to add admin comments to @label.', ['@label' => $entity_type->getPluralLabel()]),
           'restrict access' => TRUE,

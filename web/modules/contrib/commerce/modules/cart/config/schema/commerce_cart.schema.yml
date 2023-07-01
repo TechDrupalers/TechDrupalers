@@ -18,6 +18,9 @@ commerce_order.commerce_order_type.*.third_party.commerce_cart:
         unit:
           type: string
           label: 'Unit'
+    enable_cart_message:
+      type: boolean
+      label: 'Display a message when an item is added to the cart'
 
 block.settings.commerce_cart:
   type: block_settings

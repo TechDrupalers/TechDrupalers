@@ -3,6 +3,8 @@
 namespace Drupal\Tests\commerce_cart\FunctionalJavascript;
 
 use Drupal\commerce_price\Entity\Currency;
+use Drupal\commerce_product\Entity\ProductInterface;
+use Drupal\commerce_product\Entity\ProductVariationInterface;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
 use Drupal\Core\Entity\Entity\EntityViewDisplay;
 use Drupal\Core\Entity\Entity\EntityViewMode;
@@ -19,16 +21,23 @@ class AddToCartFieldReplacementTest extends CartWebDriverTestBase {
   /**
    * The first product variation.
    *
-   * @var \Drupal\commerce_product\Entity\ProductVariation
+   * @var \Drupal\commerce_product\Entity\ProductVariationInterface
    */
-  protected $firstVariation;
+  protected ProductVariationInterface $firstVariation;
 
   /**
    * The second product variation.
    *
-   * @var \Drupal\commerce_product\Entity\ProductVariation
+   * @var \Drupal\commerce_product\Entity\ProductVariationInterface
    */
-  protected $secondVariation;
+  protected ProductVariationInterface $secondVariation;
+
+  /**
+   * A test product.
+   *
+   * @var \Drupal\commerce_product\Entity\ProductInterface
+   */
+  protected ProductInterface $product;
 
   /**
    * Modules to enable.

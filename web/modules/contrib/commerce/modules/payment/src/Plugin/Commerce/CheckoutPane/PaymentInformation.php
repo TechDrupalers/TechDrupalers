@@ -335,7 +335,6 @@ class PaymentInformation extends CheckoutPaneBase {
     if ($triggering_element_name == 'payment_method') {
       $user_input = &$form_state->getUserInput();
       $pane_input = NestedArray::getValue($user_input, $element['#parents']);
-      unset($pane_input['billing_information']);
       unset($pane_input['add_payment_method']);
       NestedArray::setValue($user_input, $element['#parents'], $pane_input);
     }

@@ -17,22 +17,13 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 class NumberFormatRepository extends ExternalNumberFormatRepository implements NumberFormatRepositoryInterface {
 
   /**
-   * The event dispatcher.
-   *
-   * @var \Symfony\Component\EventDispatcher\EventDispatcherInterface
-   */
-  protected $eventDispatcher;
-
-  /**
    * Creates a NumberFormatRepository instance.
    *
-   * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $event_dispatcher
+   * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $eventDispatcher
    *   The event dispatcher.
    */
-  public function __construct(EventDispatcherInterface $event_dispatcher) {
+  public function __construct(protected EventDispatcherInterface $eventDispatcher) {
     parent::__construct();
-
-    $this->eventDispatcher = $event_dispatcher;
   }
 
   /**

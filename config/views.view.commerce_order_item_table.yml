@@ -9,7 +9,7 @@ id: commerce_order_item_table
 label: 'Order Items'
 module: views
 description: ''
-tag: ''
+tag: commerce_order_item_table
 base_table: commerce_order_item
 base_field: order_item_id
 display:

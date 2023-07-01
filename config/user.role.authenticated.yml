@@ -4,21 +4,31 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - node.type.add_products
+    - node.type.article
+    - node.type.category
+    - node.type.certificate
+    - node.type.page
     - rest.resource.user_registration
   module:
     - comment
     - commerce_checkout
+    - commerce_order
     - commerce_payment
     - commerce_product
+    - commerce_store
     - commerce_wishlist
     - contact
     - cors_ui
     - filter
+    - node
     - profile
     - rest
+    - rest_export
     - search
     - shortcut
     - system
+    - views_ui
 _core:
   default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
 id: authenticated
@@ -28,21 +38,50 @@ is_admin: false
 permissions:
   - 'access checkout'
   - 'access comments'
+  - 'access commerce_product overview'
+  - 'access commerce_product_attribute overview'
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'access wishlist'
   - 'administer account settings'
   - 'administer commerce_product'
+  - 'administer commerce_product_attribute'
+  - 'administer commerce_product_type'
   - 'administer cors'
   - 'administer rest resources'
+  - 'administer rest spreadsheet'
   - 'administer users'
+  - 'administer views'
+  - 'create add_products content'
+  - 'create article content'
+  - 'create category content'
+  - 'create certificate content'
+  - 'create commerce_product_attribute'
   - 'create customer profile'
   - 'create default commerce_product'
+  - 'create default commerce_wishlist'
+  - 'create page content'
+  - 'delete any default commerce_product'
+  - 'delete commerce_product_attribute'
+  - 'delete default commerce_order'
+  - 'delete own default commerce_product'
+  - 'manage default commerce_product_variation'
   - 'manage own commerce_payment_method'
   - 'post comments'
   - 'restful post user_registration'
   - 'search content'
   - 'skip comment approval'
+  - 'update any default commerce_product'
+  - 'update commerce_product_attribute'
+  - 'update own default commerce_product'
   - 'use text format basic_html'
+  - 'view any default commerce_wishlist'
   - 'view commerce_product'
+  - 'view commerce_product_attribute'
+  - 'view commerce_store'
+  - 'view default commerce_product'
+  - 'view online commerce_store'
+  - 'view own commerce_wishlist'
+  - 'view own default commerce_wishlist'
+  - 'view own unpublished commerce_product'

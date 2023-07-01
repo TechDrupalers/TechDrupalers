@@ -164,6 +164,11 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
    * {@inheritdoc}
    */
   public function getOrder() {
+    if (!$this->order && $this->_orderId) {
+      $order_storage = $this->entityTypeManager->getStorage('commerce_order');
+      $this->order = $order_storage->load($this->_orderId);
+    }
+
     return $this->order;
   }
 
@@ -209,12 +214,13 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
       throw new \InvalidArgumentException(sprintf('Invalid step ID "%s" passed to redirectToStep().', $step_id));
     }
 
-    $this->order->set('checkout_step', $step_id);
+    $order = $this->getOrder();
+    $order->set('checkout_step', $step_id);
     $this->onStepChange($step_id);
-    $this->order->save();
+    $order->save();
 
     throw new NeedsRedirectException(Url::fromRoute('commerce_checkout.form', [
-      'commerce_order' => $this->order->id(),
+      'commerce_order' => $order->id(),
       'step' => $step_id,
     ])->toString());
   }
@@ -224,7 +230,7 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
    */
   public function getStepId($requested_step_id = NULL) {
     // Customers can't edit orders that have already been placed.
-    if ($this->order->getState()->getId() != 'draft') {
+    if ($this->getOrder()->getState()->getId() != 'draft') {
       return 'complete';
     }
   }
@@ -310,6 +316,9 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
     return [
       'display_checkout_progress' => TRUE,
       'display_checkout_progress_breadcrumb_links' => FALSE,
+      'guest_order_assign' => FALSE,
+      'guest_new_account' => FALSE,
+      'guest_new_account_notify' => FALSE,
     ];
   }
 
@@ -329,6 +338,29 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
       '#description' => $this->t('Let the checkout progress block render the breadcrumb as links.'),
       '#default_value' => $this->configuration['display_checkout_progress_breadcrumb_links'],
     ];
+    $form['guest_order_assign'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Assign an anonymous order to a pre-existing user'),
+      '#description' => $this->t('If the email associated with the order matches an existing user account, the order will be assigned to that account.'),
+      '#default_value' => $this->configuration['guest_order_assign'],
+    ];
+    $form['guest_new_account'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Create a new account for an anonymous order'),
+      '#description' => $this->t('Creates a new user account on checkout completion if the customer specified a non-existent e-mail address.'),
+      '#default_value' => $this->configuration['guest_new_account'],
+    ];
+    $form['guest_new_account_notify'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Notify customer of their new account'),
+      '#description' => $this->t('Sends an email alerting the customer of their new account, with a password reset link to access their account.'),
+      '#default_value' => $this->configuration['guest_new_account_notify'],
+      '#states' => [
+        'visible' => [
+          ':input[name="configuration[guest_new_account]"]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
 
     return $form;
   }
@@ -347,6 +379,9 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
       $this->configuration = [];
       $this->configuration['display_checkout_progress'] = $values['display_checkout_progress'];
       $this->configuration['display_checkout_progress_breadcrumb_links'] = $values['display_checkout_progress_breadcrumb_links'];
+      $this->configuration['guest_order_assign'] = $values['guest_order_assign'];
+      $this->configuration['guest_new_account'] = $values['guest_new_account'];
+      $this->configuration['guest_new_account_notify'] = $values['guest_new_account_notify'];
     }
   }
 
@@ -376,7 +411,7 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
     if ($form_state->isRebuilding()) {
       // Ensure a fresh order, in case an ajax submit has modified it.
       $order_storage = $this->entityTypeManager->getStorage('commerce_order');
-      $this->order = $order_storage->load($this->order->id());
+      $this->order = $order_storage->load($this->getOrder()->id());
     }
 
     $steps = $this->getSteps();
@@ -390,7 +425,7 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
     if ($this->hasSidebar($step_id)) {
       $form['sidebar']['order_summary'] = [
         '#theme' => 'commerce_checkout_order_summary',
-        '#order_entity' => $this->order,
+        '#order_entity' => $this->getOrder(),
         '#checkout_step' => $step_id,
       ];
     }
@@ -399,7 +434,7 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
     // Make sure the cache is removed if the parent entity or the order change.
     CacheableMetadata::createFromRenderArray($form)
       ->addCacheableDependency($this->parentEntity)
-      ->addCacheableDependency($this->order)
+      ->addCacheableDependency($this->getOrder())
       ->applyTo($form);
 
     return $form;
@@ -414,17 +449,18 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    $order = $this->getOrder();
     if ($next_step_id = $this->getNextStepId($form['#step_id'])) {
-      $this->order->set('checkout_step', $next_step_id);
+      $order->set('checkout_step', $next_step_id);
       $this->onStepChange($next_step_id);
 
       $form_state->setRedirect('commerce_checkout.form', [
-        'commerce_order' => $this->order->id(),
+        'commerce_order' => $order->id(),
         'step' => $next_step_id,
       ]);
     }
 
-    $this->order->save();
+    $order->save();
   }
 
   /**
@@ -441,19 +477,21 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
    *   The new step ID.
    */
   protected function onStepChange($step_id) {
+    $order = $this->getOrder();
+
     // Lock the order while on the 'payment' checkout step. Unlock elsewhere.
     if ($step_id == 'payment') {
-      $this->order->lock();
+      $order->lock();
     }
     elseif ($step_id != 'payment') {
-      $this->order->unlock();
+      $order->unlock();
     }
     // Place the order.
-    if ($step_id == 'complete' && $this->order->getState()->getId() == 'draft') {
+    if ($step_id == 'complete' && $order->getState()->getId() == 'draft') {
       // Notify other modules.
-      $event = new OrderEvent($this->order);
+      $event = new OrderEvent($order);
       $this->eventDispatcher->dispatch($event, CheckoutEvents::COMPLETION);
-      $this->order->getState()->applyTransitionById('place');
+      $order->getState()->applyTransitionById('place');
     }
   }
 
@@ -508,7 +546,7 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
           ],
         ];
         $actions['next']['#suffix'] = Link::createFromRoute($label, 'commerce_checkout.form', [
-          'commerce_order' => $this->order->id(),
+          'commerce_order' => $this->getOrder()->id(),
           'step' => $previous_step_id,
         ], $options)->toString();
       }

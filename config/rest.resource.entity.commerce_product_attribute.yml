@@ -1,0 +1,20 @@
+uuid: 6c750198-3b17-4e90-b534-6b471828618a
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - commerce_product
+    - serialization
+    - user
+id: entity.commerce_product_attribute
+plugin_id: 'entity:commerce_product_attribute'
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - basic_auth
+    - cookie

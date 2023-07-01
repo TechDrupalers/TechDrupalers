@@ -14,6 +14,7 @@
     }],
     "require": {
         "composer/installers": "^1.9",
+        "doctrine/collections": "^2.1",
         "drupal/admin_toolbar": "3.3",
         "drupal/advanced_cors": "1.4",
         "drupal/asset_injector": "2.16",
@@ -40,7 +41,7 @@
         "drupal/rest_api_authentication": "^2.0",
         "drupal/rest_export": "8.0",
         "drupal/restui": "1.21",
-        "drupal/simple_oauth": "^5.1",
+        "drupal/simple_oauth": "5.1",
         "drupal/structure_sync": "2.0",
         "drupal/tara": "10.0",
         "drupal/token": "^1.9",

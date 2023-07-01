@@ -1,0 +1,33 @@
+uuid: 6b8f9027-11ef-4a76-bf55-03b0213858de
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.sidebar-menu-admin-
+  module:
+    - system
+    - user
+  theme:
+    - olivero
+id: sidebarmenuadmin
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: 'system_menu_block:sidebar-menu-admin-'
+settings:
+  id: 'system_menu_block:sidebar-menu-admin-'
+  label: 'Sidebar Menu ( Admin )'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator

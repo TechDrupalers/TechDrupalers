@@ -28,6 +28,18 @@ commerce_checkout.commerce_checkout_flow.plugin.*:
     display_checkout_progress:
       type: boolean
       label: 'Display checkout progress'
+    display_checkout_progress_breadcrumb_links:
+      type: boolean
+      label: 'Display checkout progress breadcrumb links'
+    guest_order_assign:
+      type: boolean
+      label: 'Assign an anonymous order to a pre-existing user'
+    guest_new_account:
+      type: boolean
+      label: 'Create a new account for an anonymous order'
+    guest_new_account_notify:
+      type: boolean
+      label: 'Notify customer of their new account'
 
 commerce_checkout.commerce_checkout_flow.plugin.multistep_default:
   type: commerce_checkout_flow_with_panes_configuration
@@ -41,6 +53,15 @@ commerce_checkout_flow_with_panes_configuration:
     display_checkout_progress_breadcrumb_links:
       type: boolean
       label: 'Display checkout progress breadcrumb links'
+    guest_order_assign:
+      type: boolean
+      label: 'Assign an anonymous order to a pre-existing user'
+    guest_new_account:
+      type: boolean
+      label: 'Create a new account for an anonymous order'
+    guest_new_account_notify:
+      type: boolean
+      label: 'Notify customer of their new account'
     order_summary_view:
       type: string
       label: 'Order summary view'

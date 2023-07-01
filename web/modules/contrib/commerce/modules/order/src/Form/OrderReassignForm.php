@@ -6,6 +6,7 @@ use Drupal\commerce_order\OrderAssignmentInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Password\PasswordGeneratorInterface;
 use Drupal\Core\Routing\CurrentRouteMatch;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -39,11 +40,18 @@ class OrderReassignForm extends FormBase {
    *   The order assignment service.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
+   * @param \Drupal\Core\Password\PasswordGeneratorInterface|null $password_generator
+   *   The password generator.
    */
-  public function __construct(CurrentRouteMatch $current_route_match, OrderAssignmentInterface $order_assignment, EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct(CurrentRouteMatch $current_route_match, OrderAssignmentInterface $order_assignment, EntityTypeManagerInterface $entity_type_manager, PasswordGeneratorInterface $password_generator = NULL) {
     $this->order = $current_route_match->getParameter('commerce_order');
     $this->orderAssignment = $order_assignment;
     $this->userStorage = $entity_type_manager->getStorage('user');
+    if (!$password_generator) {
+      @trigger_error('Calling ' . __METHOD__ . '() without the $password_generator argument is deprecated in commerce:8.x-2.34 and is removed from commerce:3.x.');
+      $password_generator = \Drupal::service('password_generator');
+    }
+    $this->passwordGenerator = $password_generator;
   }
 
   /**
@@ -53,7 +61,8 @@ class OrderReassignForm extends FormBase {
     return new static(
       $container->get('current_route_match'),
       $container->get('commerce_order.order_assignment'),
-      $container->get('entity_type.manager')
+      $container->get('entity_type.manager'),
+      $container->get('password_generator')
     );
   }
 
@@ -129,7 +138,7 @@ class OrderReassignForm extends FormBase {
       '%label' => $this->order->label(),
       '%customer' => $this->order->getCustomer()->label(),
     ]));
-    $form_state->setRedirectUrl($this->order->toUrl('collection'));
+    $form_state->setRedirectUrl($this->order->toUrl());
   }
 
 }

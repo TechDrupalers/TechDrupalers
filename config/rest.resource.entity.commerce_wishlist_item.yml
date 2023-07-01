@@ -1,0 +1,25 @@
+uuid: ff97903a-8538-4f37-8244-06df6c9fdf8f
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - commerce_wishlist
+    - hal
+    - serialization
+    - user
+id: entity.commerce_wishlist_item
+plugin_id: 'entity:commerce_wishlist_item'
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+    - DELETE
+    - PATCH
+  formats:
+    - hal_json
+    - json
+  authentication:
+    - basic_auth
+    - cookie

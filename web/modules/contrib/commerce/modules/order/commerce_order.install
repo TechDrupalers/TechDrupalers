@@ -296,3 +296,29 @@ function commerce_order_update_8215() {
   $definition_update_manager = \Drupal::entityDefinitionUpdateManager();
   $definition_update_manager->updateFieldStorageDefinition($definition_update_manager->getFieldStorageDefinition('state', 'commerce_order'));
 }
+
+/**
+ * Update the order form displays to ensure order items are removed by IEF.
+ */
+function commerce_order_update_8216() {
+  // In case the "order_items" field is using the IEF - complex widget, make
+  // sure it is configured to delete order items instead of leaving them
+  // orphaned order items in the DB after deletion from the form.
+  $order_type_storage = \Drupal::entityTypeManager()->getStorage('commerce_order_type');
+  $order_types = $order_type_storage->loadMultiple();
+  /** @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface $entity_display_repository */
+  $entity_display_repository = \Drupal::service('entity_display.repository');
+  foreach ($order_types as $order_type) {
+    $form_display = $entity_display_repository->getFormDisplay('commerce_order', $order_type->id());
+    if ($form_display->isNew()) {
+      continue;
+    }
+    $content = $form_display->get('content');
+    if (isset($content['order_items']) &&
+      $content['order_items']['type'] === 'inline_entity_form_complex') {
+      $content['order_items']['settings']['removed_reference'] = 'delete';
+      $form_display->set('content', $content);
+      $form_display->save();
+    }
+  }
+}

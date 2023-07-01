@@ -72,6 +72,9 @@ commerce.commerce_condition.plugin.order_total_price:
     amount:
       type: field.value.commerce_price
       label: 'Amount'
+    type:
+      type: string
+      label: 'Total to compare against'
 
 commerce.commerce_condition.plugin.order_type:
   type: commerce.commerce_condition.plugin.entity_bundle
@@ -112,6 +115,9 @@ commerce_order.commerce_order_type.*:
     receiptBcc:
       type: string
       label: 'The receipt BCC email'
+    receiptSubject:
+      type: string
+      label: 'The receipt subject'
 
 commerce_order.commerce_order_item_type.*:
   type: commerce_config_entity_bundle
@@ -150,3 +156,10 @@ profile.type.*.third_party.commerce_order:
     customer_profile_type:
       type: boolean
       label: 'Profiles of this type represent Commerce customer profiles'
+
+field.formatter.settings.commerce_order_item_table:
+  type: mapping
+  mapping:
+    view:
+      type: string
+      label: 'Order item table view'

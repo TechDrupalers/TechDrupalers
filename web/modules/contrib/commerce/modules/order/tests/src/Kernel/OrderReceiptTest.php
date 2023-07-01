@@ -59,6 +59,7 @@ class OrderReceiptTest extends OrderKernelTestBase {
     'language',
     'locale',
     'content_translation',
+    'token',
   ];
 
   /**
@@ -67,7 +68,7 @@ class OrderReceiptTest extends OrderKernelTestBase {
   protected function setUp(): void {
     parent::setUp();
 
-    $this->installConfig(['language']);
+    $this->installConfig(['system', 'language']);
     $this->installSchema('locale', ['locales_source', 'locales_target', 'locales_location']);
     $user = $this->createUser(['mail' => $this->randomString() . '@example.com']);
 
@@ -261,6 +262,22 @@ class OrderReceiptTest extends OrderKernelTestBase {
       ['fr', 'fr', 'U$D12.00'],
       ['en', 'en', '$12.00'],
     ];
+  }
+
+  /**
+   * Test custom order receipt subject with a token value.
+   */
+  public function testOrderReceiptSubject() {
+    $order_type = OrderType::load($this->order->bundle());
+    $order_type->setReceiptSubject('Order receipt for your purchase at [commerce_order:store_id:entity:name]');
+    $order_type->save();
+
+    $this->order->getState()->applyTransitionById('place');
+    $this->order->save();
+
+    $emails = $this->getMails();
+    $email = reset($emails);
+    $this->assertEquals('Order receipt for your purchase at Default store', $email['subject']);
   }
 
 }

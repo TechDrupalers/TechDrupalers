@@ -34,6 +34,7 @@ content:
       match_operator: CONTAINS
       allow_existing: false
       form_mode: default
+      removed_reference: 'delete'
     third_party_settings: {  }
     region: content
 hidden:

@@ -243,3 +243,19 @@ function commerce_order_post_update_15(&$sandbox) {
   $config->set('log_version_mismatch', TRUE);
   $config->save();
 }
+
+/**
+ * Add a tag to the commerce_order_item_table view.
+ */
+function commerce_order_post_update_16() {
+  $config_factory = \Drupal::configFactory();
+  $view = $config_factory->getEditable('views.view.commerce_order_item_table');
+  if (!str_contains($view->get('tag'), 'commerce_order_item_table')) {
+    $tags = $view->get('tag');
+    $view->set('tag', empty($tags)
+      ? 'commerce_order_item_table'
+      : 'commerce_order_item_table, ' . $tags
+    );
+    $view->save(TRUE);
+  }
+}

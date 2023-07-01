@@ -1,0 +1,33 @@
+uuid: df754a31-f4d2-48d6-85f5-c2422d25b530
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.s
+  module:
+    - system
+    - user
+  theme:
+    - olivero
+id: sidebarmenubuyer_2
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: 'system_menu_block:s'
+settings:
+  id: 'system_menu_block:s'
+  label: 'Sidebar Menu (Buyer)'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      customer: customer

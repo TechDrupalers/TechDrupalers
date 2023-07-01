@@ -92,7 +92,7 @@ class ProductVariationContext implements ContextProviderInterface {
       }
       // @todo Simplify this logic once EntityTargetInterface is available
       // @see https://www.drupal.org/project/drupal/issues/3054490
-      elseif (strpos($this->routeMatch->getRouteName(), 'layout_builder') !== FALSE) {
+      elseif (strpos((string) $this->routeMatch->getRouteName(), 'layout_builder') !== FALSE) {
         /** @var \Drupal\layout_builder\SectionStorageInterface $section_storage */
         $section_storage = $this->routeMatch->getParameter('section_storage');
         if ($section_storage instanceof DefaultsSectionStorageInterface) {

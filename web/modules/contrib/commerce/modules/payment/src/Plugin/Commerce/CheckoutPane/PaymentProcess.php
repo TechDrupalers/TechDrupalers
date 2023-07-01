@@ -142,7 +142,7 @@ class PaymentProcess extends CheckoutPaneBase {
    * {@inheritdoc}
    */
   public function isVisible() {
-    if ($this->order->isPaid() || $this->order->getTotalPrice()->isZero()) {
+    if ($this->order->isPaid() || !$this->order->getTotalPrice() || $this->order->getTotalPrice()->isZero()) {
       // No payment is needed if the order is free or has already been paid.
       return FALSE;
     }

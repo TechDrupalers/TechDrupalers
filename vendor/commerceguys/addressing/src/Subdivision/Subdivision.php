@@ -5,6 +5,7 @@ namespace CommerceGuys\Addressing\Subdivision;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
+
 /**
  * Represents a country subdivision.
  *

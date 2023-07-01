@@ -3,6 +3,7 @@
 namespace Drupal\commerce_product;
 
 use Drupal\commerce\EntityHelper;
+use Drupal\commerce_product\Entity\ProductInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
 use Drupal\Core\Entity\EntityRepositoryInterface;
@@ -76,8 +77,9 @@ class ProductVariationListBuilder extends EntityListBuilder implements FormInter
     $this->entityTypeManager = $entity_type_manager;
     $this->product = $route_match->getParameter('commerce_product');
     // The product might not be available when the list builder is
-    // instantiated by Views to build the list of operations.
-    if (!empty($this->product)) {
+    // instantiated by Views to build the list of operations. Or just the id
+    // might be available in case of contextual filters.
+    if ($this->product instanceof ProductInterface) {
       $this->product = $entity_repository->getTranslationFromContext($this->product);
     }
   }

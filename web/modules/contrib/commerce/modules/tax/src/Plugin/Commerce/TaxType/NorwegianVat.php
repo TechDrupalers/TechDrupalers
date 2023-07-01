@@ -59,7 +59,18 @@ class NorwegianVat extends LocalTaxTypeBase {
           'id' => 'reduced',
           'label' => $this->t('Reduced'),
           'percentages' => [
-            ['number' => '0.08', 'start_date' => '2012-01-01'],
+            ['number' => '0.08', 'start_date' => '2012-01-01', 'end_date' => '2015-12-31'],
+            ['number' => '0.1', 'start_date' => '2016-01-01', 'end_date' => '2017-12-31'],
+            ['number' => '0.12', 'start_date' => '2018-01-01', 'end_date' => '2020-03-31'],
+            ['number' => '0.06', 'start_date' => '2020-04-01', 'end_date' => '2021-09-30'],
+            ['number' => '0.12', 'start_date' => '2021-10-01'],
+          ],
+        ],
+        [
+          'id' => 'second_reduced',
+          'label' => $this->t('Second Reduced'),
+          'percentages' => [
+            ['number' => '0.111', 'start_date' => '2014-01-01'],
           ],
         ],
         [

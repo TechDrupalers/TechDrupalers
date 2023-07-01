@@ -226,10 +226,12 @@ function commerce_order_views_data_alter(array &$data) {
  * Referenced in commerce_order.routing.yml.
  */
 function commerce_order_entity_type_build(array &$entity_types) {
-  /** @var \Drupal\Core\Entity\EntityTypeInterface[] $entity_types */
-  $entity_types['profile']->setFormClass('address-book-add', 'Drupal\commerce_order\Form\ProfileAddressBookForm');
-  $entity_types['profile']->setFormClass('address-book-edit', 'Drupal\commerce_order\Form\ProfileAddressBookForm');
-  $entity_types['profile']->setFormClass('address-book-delete', 'Drupal\commerce_order\Form\ProfileAddressBookDeleteForm');
+  if (isset($entity_types['profile'])) {
+    /** @var \Drupal\Core\Entity\EntityTypeInterface[] $entity_types */
+    $entity_types['profile']->setFormClass('address-book-add', 'Drupal\commerce_order\Form\ProfileAddressBookForm');
+    $entity_types['profile']->setFormClass('address-book-edit', 'Drupal\commerce_order\Form\ProfileAddressBookForm');
+    $entity_types['profile']->setFormClass('address-book-delete', 'Drupal\commerce_order\Form\ProfileAddressBookDeleteForm');
+  }
 }
 
 /**

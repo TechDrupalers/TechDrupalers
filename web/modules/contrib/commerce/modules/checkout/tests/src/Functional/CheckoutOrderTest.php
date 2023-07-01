@@ -3,6 +3,7 @@
 namespace Drupal\Tests\commerce_checkout\Functional;
 
 use Drupal\commerce_order\Entity\Order;
+use Drupal\Core\Test\AssertMailTrait;
 use Drupal\Core\Url;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
@@ -16,6 +17,8 @@ use Drupal\Tests\commerce\Functional\CommerceBrowserTestBase;
  * @group commerce
  */
 class CheckoutOrderTest extends CommerceBrowserTestBase {
+
+  use AssertMailTrait;
 
   /**
    * The current user.
@@ -869,12 +872,129 @@ class CheckoutOrderTest extends CommerceBrowserTestBase {
   }
 
   /**
+   * Tests guest_new_account.
+   */
+  public function testGuestNewAccountNoNotify() {
+    \Drupal::configFactory()
+      ->getEditable('commerce_checkout.commerce_checkout_flow.default')
+      ->set('configuration.guest_new_account', TRUE)
+      ->set('configuration.guest_new_account_notify', FALSE)
+      ->save();
+
+    $this->drupalLogout();
+    $this->drupalGet($this->product->toUrl());
+    $this->submitForm([], 'Add to cart');
+    $cart_link = $this->getSession()->getPage()->findLink('your cart');
+    $cart_link->click();
+    $this->submitForm([], 'Checkout');
+
+    $this->submitForm([], 'Continue as Guest');
+    $this->submitForm([
+      'contact_information[email]' => 'guest@example.com',
+      'contact_information[email_confirm]' => 'guest@example.com',
+      'billing_information[profile][address][0][address][given_name]' => 'John',
+      'billing_information[profile][address][0][address][family_name]' => 'Smith',
+      'billing_information[profile][address][0][address][organization]' => 'Centarro',
+      'billing_information[profile][address][0][address][address_line1]' => '9 Drupal Ave',
+      'billing_information[profile][address][0][address][postal_code]' => '94043',
+      'billing_information[profile][address][0][address][locality]' => 'Mountain View',
+      'billing_information[profile][address][0][address][administrative_area]' => 'CA',
+    ], 'Continue to review');
+    $this->submitForm([], 'Complete checkout');
+
+    $order = Order::load(1);
+    $customer = $order->getCustomer();
+    $this->assertNotNull($customer);
+    $this->assertEquals('guest@example.com', $customer->getEmail());
+  }
+
+  /**
+   * Tests guest_new_account_notify.
+   */
+  public function testGuestNewAccountWithNotify() {
+    \Drupal::configFactory()->getEditable('commerce_checkout.commerce_checkout_flow.default')
+      ->set('configuration.guest_new_account', TRUE)
+      ->set('configuration.guest_new_account_notify', TRUE)
+      ->save();
+
+    $this->drupalLogout();
+    $this->drupalGet($this->product->toUrl());
+    $this->submitForm([], 'Add to cart');
+    $cart_link = $this->getSession()->getPage()->findLink('your cart');
+    $cart_link->click();
+    $this->submitForm([], 'Checkout');
+
+    $this->submitForm([], 'Continue as Guest');
+    $this->submitForm([
+      'contact_information[email]' => 'guest@example.com',
+      'contact_information[email_confirm]' => 'guest@example.com',
+      'billing_information[profile][address][0][address][given_name]' => 'John',
+      'billing_information[profile][address][0][address][family_name]' => 'Smith',
+      'billing_information[profile][address][0][address][organization]' => 'Centarro',
+      'billing_information[profile][address][0][address][address_line1]' => '9 Drupal Ave',
+      'billing_information[profile][address][0][address][postal_code]' => '94043',
+      'billing_information[profile][address][0][address][locality]' => 'Mountain View',
+      'billing_information[profile][address][0][address][administrative_area]' => 'CA',
+    ], 'Continue to review');
+    $this->submitForm([], 'Complete checkout');
+
+    $order = Order::load(1);
+    $customer = $order->getCustomer();
+    $this->assertNotNull($customer);
+    $this->assertEquals('guest@example.com', $customer->getEmail());
+
+    // Assert that the register_admin_created email was sent for the user.
+    $filter = ['key' => 'register_admin_created'];
+    $mail = $this->getMails($filter);
+    $this->assertCount(1, $mail);
+    $this->assertEquals('guest@example.com', $mail[0]['to']);
+  }
+
+  /**
+   * Tests guest_order_assign.
+   */
+  public function testGuestOrderConvert() {
+    $test_user = $this->createUser();
+
+    \Drupal::configFactory()->getEditable('commerce_checkout.commerce_checkout_flow.default')
+      ->set('configuration.guest_order_assign', TRUE)
+      ->save();
+
+    $this->drupalLogout();
+    $this->drupalGet($this->product->toUrl());
+    $this->submitForm([], 'Add to cart');
+    $cart_link = $this->getSession()->getPage()->findLink('your cart');
+    $cart_link->click();
+    $this->submitForm([], 'Checkout');
+
+    $this->submitForm([], 'Continue as Guest');
+    $this->submitForm([
+      'contact_information[email]' => $test_user->getEmail(),
+      'contact_information[email_confirm]' => $test_user->getEmail(),
+      'billing_information[profile][address][0][address][given_name]' => 'John',
+      'billing_information[profile][address][0][address][family_name]' => 'Smith',
+      'billing_information[profile][address][0][address][organization]' => 'Centarro',
+      'billing_information[profile][address][0][address][address_line1]' => '9 Drupal Ave',
+      'billing_information[profile][address][0][address][postal_code]' => '94043',
+      'billing_information[profile][address][0][address][locality]' => 'Mountain View',
+      'billing_information[profile][address][0][address][administrative_area]' => 'CA',
+    ], 'Continue to review');
+    $this->submitForm([], 'Complete checkout');
+
+    $order = Order::load(1);
+    $customer = $order->getCustomer();
+    $this->assertNotNull($customer);
+    $this->assertEquals($test_user->getEmail(), $customer->getEmail());
+    $this->assertEquals($test_user->id(), $customer->id());
+  }
+
+  /**
    * Asserts the current step in the checkout progress block.
    *
    * @param string $expected
    *   The expected value.
    */
-  protected function assertCheckoutProgressStep($expected) {
+  protected function assertCheckoutProgressStep(string $expected) {
     $current_step = $this->getSession()->getPage()->find('css', '.checkout-progress--step__current')->getText();
     $this->assertEquals($expected, $current_step);
   }

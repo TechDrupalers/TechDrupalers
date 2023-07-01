@@ -1,0 +1,8 @@
+uuid: c4af50a6-e624-4677-bb5f-c2369fb59c5b
+langcode: en
+status: true
+dependencies: {  }
+id: sidebar-menu-admin-
+label: 'Sidebar Menu ( Admin )'
+description: ''
+locked: false

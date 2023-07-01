@@ -34,6 +34,8 @@ interface MailHandlerInterface {
    *     - bcc: The BCC address or addresses (separated by a comma). No default.
    *     - langcode: The email langcode. Every translatable string and entity
    *       will be rendered in this language. Defaults to the current language.
+   *     - resend: The indicator to define whether the receipt mail is being
+   *       resent by an administrator. Defaults to FALSE.
    *
    * @return bool
    *   TRUE if the email was sent successfully, FALSE otherwise.

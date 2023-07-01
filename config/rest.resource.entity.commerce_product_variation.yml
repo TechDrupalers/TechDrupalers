@@ -1,0 +1,25 @@
+uuid: c5efc09c-39ee-40ec-969f-5fef5d37f319
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - commerce_product
+    - hal
+    - serialization
+    - user
+id: entity.commerce_product_variation
+plugin_id: 'entity:commerce_product_variation'
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+    - DELETE
+    - PATCH
+  formats:
+    - hal_json
+    - json
+  authentication:
+    - basic_auth
+    - cookie

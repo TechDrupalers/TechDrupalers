@@ -2,10 +2,7 @@ uuid: ec14590f-c29f-4cee-b015-0840b34c29e4
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:fef27855-76a2-45d6-8c51-98e3a82e95dc'
   module:
-    - block_content
     - system
   theme:
     - olivero

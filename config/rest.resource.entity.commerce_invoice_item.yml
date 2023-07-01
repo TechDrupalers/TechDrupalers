@@ -1,0 +1,25 @@
+uuid: 1935f609-9ed5-4093-92c8-882fb0580e73
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - commerce_invoice
+    - hal
+    - serialization
+    - user
+id: entity.commerce_invoice_item
+plugin_id: 'entity:commerce_invoice_item'
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+    - DELETE
+    - PATCH
+  formats:
+    - hal_json
+    - json
+  authentication:
+    - basic_auth
+    - cookie

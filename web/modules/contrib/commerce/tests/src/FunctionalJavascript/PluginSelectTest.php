@@ -147,6 +147,7 @@ class PluginSelectTest extends CommerceWebDriverTestBase {
         'number' => '6.67',
         'currency_code' => 'USD',
       ],
+      'type' => 'total',
     ], $entity->test_plugin->target_plugin_configuration);
   }
 

@@ -3,6 +3,7 @@
 namespace Drupal\commerce\Entity;
 
 use Drupal\Core\Entity\ContentEntityBase;
+use Drupal\Core\Entity\TranslatableInterface;
 use Drupal\Core\Language\LanguageInterface;
 
 /**
@@ -45,7 +46,9 @@ class CommerceContentEntityBase extends ContentEntityBase implements CommerceCon
     }
     foreach ($entities as $index => $entity) {
       /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
-      $entities[$index] = ($entity->hasTranslation($langcode)) ? $entity->getTranslation($langcode) : $entity;
+      $entities[$index] = (($entity instanceof TranslatableInterface) && $entity->hasTranslation($langcode))
+        ? $entity->getTranslation($langcode)
+        : $entity;
     }
 
     return $entities;
