@@ -1,0 +1,19 @@
+uuid: 31776897-99eb-4b32-ae87-bbd1b29da25d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_margin
+    - node.type.final_rates
+id: node.final_rates.field_margin
+field_name: field_margin
+entity_type: node
+bundle: final_rates
+label: Margin
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

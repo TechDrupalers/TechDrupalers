@@ -1,0 +1,19 @@
+uuid: 6b7fb9cb-d6ac-4214-96d7-c7aef10b6ae1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rate_product_name
+    - node.type.vendor_quoted_rate_
+id: node.vendor_quoted_rate_.field_rate_product_name
+field_name: field_rate_product_name
+entity_type: node
+bundle: vendor_quoted_rate_
+label: 'Product Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

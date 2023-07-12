@@ -13,6 +13,9 @@ plugin: multistep_default
 configuration:
   display_checkout_progress: true
   display_checkout_progress_breadcrumb_links: false
+  guest_order_assign: false
+  guest_new_account: false
+  guest_new_account_notify: false
   panes:
     login:
       step: login
@@ -33,13 +36,17 @@ configuration:
       message:
         value: "Your order number is [commerce_order:order_number].\r\nYou can view your order on your account page when logged in."
         format: plain_text
+    completion_register:
+      step: complete
+      weight: 4
     order_summary:
       step: _sidebar
       weight: 5
       view: null
-    completion_register:
-      step: complete
-      weight: 4
+    coupon_redemption:
+      step: _sidebar
+      weight: 6
+      allow_multiple: false
     payment_information:
       step: _disabled
       weight: 7
@@ -47,7 +54,3 @@ configuration:
       step: _disabled
       weight: 8
       capture: true
-    coupon_redemption:
-      step: _sidebar
-      weight: 6
-      allow_multiple: false

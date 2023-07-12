@@ -1,0 +1,37 @@
+uuid: 16b8af9c-787c-4e7b-af71-96039a568174
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.final_rates.field_actual_rate
+    - field.field.node.final_rates.field_add
+    - field.field.node.final_rates.field_margin
+    - field.field.node.final_rates.field_prod
+    - field.field.node.final_rates.field_product_id
+    - field.field.node.final_rates.field_to
+    - field.field.node.final_rates.field_wishlist_quantity
+    - node.type.final_rates
+  module:
+    - user
+id: node.final_rates.teaser
+targetEntityType: node
+bundle: final_rates
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_actual_rate: true
+  field_add: true
+  field_margin: true
+  field_prod: true
+  field_product_id: true
+  field_to: true
+  field_wishlist_quantity: true

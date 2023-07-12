@@ -156,6 +156,7 @@ permissions:
   - 'delete any commerce_promotion'
   - 'delete any customer profile'
   - 'delete any default commerce_product'
+  - 'delete any default commerce_wishlist'
   - 'delete any online commerce_store'
   - 'delete any page content'
   - 'delete commerce_product_attribute'

@@ -1,0 +1,23 @@
+uuid: a82f7037-fc6b-4b80-b34c-303a157e8cd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wishlist_quantity
+    - node.type.final_rates
+id: node.final_rates.field_wishlist_quantity
+field_name: field_wishlist_quantity
+entity_type: node
+bundle: final_rates
+label: Quantity
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

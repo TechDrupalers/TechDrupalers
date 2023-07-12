@@ -1,0 +1,20 @@
+uuid: 131bfd71-4aec-4a0c-8cda-67bb9853d57a
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_cart_api
+    - serialization
+    - user
+_core:
+  default_config_hash: 4nYqayd8aO5e2acUdQAIbm5_cWyLV2Z5pdVB9eM_L-U
+id: commerce_cart_canonical
+plugin_id: commerce_cart_canonical
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

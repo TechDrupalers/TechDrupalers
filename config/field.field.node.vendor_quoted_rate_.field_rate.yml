@@ -1,0 +1,23 @@
+uuid: 3d73237e-ba78-40a4-a81a-247403a636ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rate
+    - node.type.vendor_quoted_rate_
+id: node.vendor_quoted_rate_.field_rate
+field_name: field_rate
+entity_type: node
+bundle: vendor_quoted_rate_
+label: Rate
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

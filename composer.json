@@ -21,6 +21,7 @@
         "drupal/breeze": "3.0.x-dev@dev",
         "drupal/commerce": "2.33",
         "drupal/commerce_api": "^1.0@RC",
+        "drupal/commerce_cart_api": "^1.6",
         "drupal/commerce_invoice": "^2.0@RC",
         "drupal/commerce_wishlist": "^3.0@beta",
         "drupal/core-composer-scaffold": "^9.5",

@@ -1,0 +1,20 @@
+uuid: baa22607-cf4c-47ac-85c1-10f151777a55
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_wishlist_quantity
+field_name: field_wishlist_quantity
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

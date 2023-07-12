@@ -1,0 +1,20 @@
+uuid: 36da92b7-b6a5-40d4-8494-2ba8abbb9dbd
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - node
+id: node.field_actual_rate
+field_name: field_actual_rate
+entity_type: node
+type: entity_reference
+settings:
+  target_type: commerce_product
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

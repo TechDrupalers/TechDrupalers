@@ -7,10 +7,13 @@ dependencies:
     - node.type.article
     - node.type.category
     - node.type.certificate
+    - node.type.final_rates
     - node.type.page
+    - node.type.vendor_quoted_rate_
     - rest.resource.user_registration
   module:
     - comment
+    - commerce_checkout
     - commerce_order
     - commerce_product
     - commerce_store
@@ -30,11 +33,13 @@ label: 'Anonymous user'
 weight: 0
 is_admin: false
 permissions:
+  - 'access checkout'
   - 'access comments'
   - 'access commerce_product overview'
   - 'access commerce_product_attribute overview'
   - 'access content'
   - 'administer account settings'
+  - 'administer commerce_checkout_flow'
   - 'administer commerce_product'
   - 'administer commerce_product_attribute'
   - 'administer commerce_product_type'
@@ -49,25 +54,43 @@ permissions:
   - 'create certificate content'
   - 'create commerce_product_attribute'
   - 'create customer profile'
+  - 'create default commerce_order'
   - 'create default commerce_product'
+  - 'create final_rates content'
   - 'create page content'
+  - 'create vendor_quoted_rate_ content'
   - 'delete any default commerce_product'
+  - 'delete any final_rates content'
+  - 'delete any vendor_quoted_rate_ content'
   - 'delete commerce_product_attribute'
+  - 'delete default commerce_order'
   - 'delete own default commerce_product'
+  - 'delete own final_rates content'
+  - 'delete own vendor_quoted_rate_ content'
+  - 'edit any final_rates content'
+  - 'edit own final_rates content'
+  - 'edit own vendor_quoted_rate_ content'
+  - 'manage commerce_product_variation commerce_wishlist_item'
+  - 'manage default commerce_order_item'
   - 'manage default commerce_product_variation'
   - 'restful post user_registration'
   - 'search content'
   - 'update any default commerce_product'
+  - 'update any default commerce_wishlist'
   - 'update commerce_product_attribute'
+  - 'update default commerce_order'
   - 'update own default commerce_product'
+  - 'update own default commerce_wishlist'
   - 'view any commerce_wishlist'
   - 'view any default commerce_wishlist'
   - 'view commerce_order'
   - 'view commerce_product'
   - 'view commerce_product_attribute'
   - 'view commerce_store'
+  - 'view default commerce_order'
   - 'view default commerce_product'
   - 'view online commerce_store'
+  - 'view own commerce_order'
   - 'view own commerce_wishlist'
   - 'view own default commerce_wishlist'
   - 'view own unpublished commerce_product'

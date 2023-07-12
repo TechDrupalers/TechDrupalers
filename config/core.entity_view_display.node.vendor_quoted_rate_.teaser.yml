@@ -1,0 +1,31 @@
+uuid: b2d5a048-0a38-4372-90d3-ccd4c12024bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.vendor_quoted_rate_.field_p
+    - field.field.node.vendor_quoted_rate_.field_rate
+    - field.field.node.vendor_quoted_rate_.field_rate_product_name
+    - field.field.node.vendor_quoted_rate_.field_venodr
+    - node.type.vendor_quoted_rate_
+  module:
+    - user
+id: node.vendor_quoted_rate_.teaser
+targetEntityType: node
+bundle: vendor_quoted_rate_
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_p: true
+  field_rate: true
+  field_rate_product_name: true
+  field_venodr: true

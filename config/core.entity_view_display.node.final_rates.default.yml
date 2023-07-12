@@ -1,0 +1,91 @@
+uuid: 735fd0f2-3bf4-4686-a2ec-117f89b56930
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.final_rates.field_actual_rate
+    - field.field.node.final_rates.field_add
+    - field.field.node.final_rates.field_margin
+    - field.field.node.final_rates.field_prod
+    - field.field.node.final_rates.field_product_id
+    - field.field.node.final_rates.field_to
+    - field.field.node.final_rates.field_wishlist_quantity
+    - node.type.final_rates
+  module:
+    - user
+id: node.final_rates.default
+targetEntityType: node
+bundle: final_rates
+mode: default
+content:
+  field_actual_rate:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_add:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_margin:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_prod:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_product_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_to:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_wishlist_quantity:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

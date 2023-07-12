@@ -1,0 +1,23 @@
+uuid: 0bbeb9e8-8b0c-494a-9268-37d8e779c5c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_to
+    - node.type.final_rates
+id: node.final_rates.field_to
+field_name: field_to
+entity_type: node
+bundle: final_rates
+label: 'Total Rate'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

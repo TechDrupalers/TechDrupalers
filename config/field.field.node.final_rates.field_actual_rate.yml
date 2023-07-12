@@ -1,0 +1,29 @@
+uuid: 362bbbf8-671a-45f0-9bea-de4c5c52bf5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.node.field_actual_rate
+    - node.type.final_rates
+id: node.final_rates.field_actual_rate
+field_name: field_actual_rate
+entity_type: node
+bundle: final_rates
+label: 'Actual Rate'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product'
+  handler_settings:
+    target_bundles:
+      default: default
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

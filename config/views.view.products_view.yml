@@ -31,6 +31,7 @@ dependencies:
     - user.role.administrator
     - user.role.anonymous
     - user.role.authenticated
+    - user.role.customer
   module:
     - commerce_product
     - hal
@@ -1817,6 +1818,7 @@ display:
             anonymous: anonymous
             authenticated: authenticated
             administrator: administrator
+            customer: customer
             admin: admin
       cache:
         type: tag
