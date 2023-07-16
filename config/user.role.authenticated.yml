@@ -78,6 +78,7 @@ permissions:
   - 'delete own final_rates content'
   - 'delete own vendor_quoted_rate_ content'
   - 'edit any final_rates content'
+  - 'edit any vendor_quoted_rate_ content'
   - 'edit own final_rates content'
   - 'edit own vendor_quoted_rate_ content'
   - 'manage commerce_product_variation commerce_wishlist_item'

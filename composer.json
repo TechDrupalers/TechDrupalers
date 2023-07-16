@@ -15,6 +15,7 @@
     "require": {
         "composer/installers": "^1.9",
         "doctrine/collections": "^2.1",
+        "drupal/address": "^1.12",
         "drupal/admin_toolbar": "3.3",
         "drupal/advanced_cors": "1.4",
         "drupal/asset_injector": "2.16",

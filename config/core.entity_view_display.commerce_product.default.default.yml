@@ -32,7 +32,6 @@ dependencies:
     - commerce_product
     - commerce_wishlist
     - layout_builder
-    - layout_discovery
 third_party_settings:
   layout_builder:
     enabled: false

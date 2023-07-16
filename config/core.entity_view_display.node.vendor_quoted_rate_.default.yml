@@ -6,9 +6,11 @@ dependencies:
     - field.field.node.vendor_quoted_rate_.field_p
     - field.field.node.vendor_quoted_rate_.field_rate
     - field.field.node.vendor_quoted_rate_.field_rate_product_name
+    - field.field.node.vendor_quoted_rate_.field_status
     - field.field.node.vendor_quoted_rate_.field_venodr
     - node.type.vendor_quoted_rate_
   module:
+    - options
     - user
 id: node.vendor_quoted_rate_.default
 targetEntityType: node
@@ -40,7 +42,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 102
+    weight: 107
+    region: content
+  field_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 106
     region: content
   field_venodr:
     type: string

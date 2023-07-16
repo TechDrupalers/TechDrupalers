@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.vendor_quoted_rate_.field_p
     - field.field.node.vendor_quoted_rate_.field_rate
     - field.field.node.vendor_quoted_rate_.field_rate_product_name
+    - field.field.node.vendor_quoted_rate_.field_status
     - field.field.node.vendor_quoted_rate_.field_venodr
     - node.type.vendor_quoted_rate_
   module:
@@ -38,11 +39,17 @@ content:
     third_party_settings: {  }
   field_rate_product_name:
     type: string_textfield
-    weight: 122
+    weight: 127
     region: content
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_status:
+    type: options_select
+    weight: 126
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_venodr:
     type: string_textfield

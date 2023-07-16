@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.final_rates.field_prod
     - field.field.node.final_rates.field_product_id
     - field.field.node.final_rates.field_to
+    - field.field.node.final_rates.field_unit_rate
     - field.field.node.final_rates.field_wishlist_quantity
     - node.type.final_rates
   module:
@@ -68,6 +69,17 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 111
+    region: content
+  field_unit_rate:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 112
     region: content
   field_wishlist_quantity:
     type: number_decimal

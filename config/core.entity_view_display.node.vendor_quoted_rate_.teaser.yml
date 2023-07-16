@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.vendor_quoted_rate_.field_p
     - field.field.node.vendor_quoted_rate_.field_rate
     - field.field.node.vendor_quoted_rate_.field_rate_product_name
+    - field.field.node.vendor_quoted_rate_.field_status
     - field.field.node.vendor_quoted_rate_.field_venodr
     - node.type.vendor_quoted_rate_
   module:
@@ -28,4 +29,5 @@ hidden:
   field_p: true
   field_rate: true
   field_rate_product_name: true
+  field_status: true
   field_venodr: true

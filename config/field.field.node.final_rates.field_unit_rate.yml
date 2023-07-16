@@ -1,0 +1,23 @@
+uuid: d42486a0-a25b-4b45-bb43-ff7629f7142c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_unit_rate
+    - node.type.final_rates
+id: node.final_rates.field_unit_rate
+field_name: field_unit_rate
+entity_type: node
+bundle: final_rates
+label: 'Unit Rate'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal
