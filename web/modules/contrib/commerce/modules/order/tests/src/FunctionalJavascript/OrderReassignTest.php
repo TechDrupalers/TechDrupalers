@@ -63,7 +63,7 @@ class OrderReassignTest extends OrderWebDriverTestBase {
   /**
    * Tests the reassign form with a new user.
    */
-  public function testReassignToNewUser(): void {
+  public function testReassignToNewUser() {
     $this->drupalGet($this->order->toUrl('reassign-form'));
     $this->getSession()->getPage()->fillField('customer_type', 'new');
     $this->assertSession()->assertWaitOnAjaxRequest();
@@ -71,7 +71,7 @@ class OrderReassignTest extends OrderWebDriverTestBase {
       'mail' => 'example@example.com',
     ];
     $this->submitForm($values, 'Reassign order');
-    $collection_url = $this->order->toUrl('canonical', ['absolute' => TRUE]);
+    $collection_url = $this->order->toUrl('collection', ['absolute' => TRUE]);
     $this->assertSession()->addressEquals($collection_url);
     $this->assertSession()->pageTextContains($this->t('The @label has been assigned to customer @customer.', [
       '@label' => $this->order->label(),
@@ -86,11 +86,11 @@ class OrderReassignTest extends OrderWebDriverTestBase {
   /**
    * Tests the reassign form with an existing user.
    */
-  public function testReassignToExistingUser(): void {
+  public function testReassignToExistingUser() {
     $another_user = $this->createUser();
     $this->drupalGet($this->order->toUrl('reassign-form'));
     $this->submitForm(['uid' => $another_user->getAccountName()], 'Reassign order');
-    $collection_url = $this->order->toUrl('canonical', ['absolute' => TRUE]);
+    $collection_url = $this->order->toUrl('collection', ['absolute' => TRUE]);
     $this->assertSession()->addressEquals($collection_url);
     $this->assertSession()->pageTextContains($this->t('The @label has been assigned to customer @customer.', [
       '@label' => $this->order->label(),

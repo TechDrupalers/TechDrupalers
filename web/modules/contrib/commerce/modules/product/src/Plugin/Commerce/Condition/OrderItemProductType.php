@@ -3,7 +3,6 @@
 namespace Drupal\commerce_product\Plugin\Commerce\Condition;
 
 use Drupal\commerce\Plugin\Commerce\Condition\ConditionBase;
-use Drupal\commerce_product\Entity\ProductVariationInterface;
 use Drupal\Core\Entity\EntityInterface;
 
 /**
@@ -30,8 +29,7 @@ class OrderItemProductType extends ConditionBase {
     $order_item = $entity;
     /** @var \Drupal\commerce_product\Entity\ProductVariationInterface $purchased_entity */
     $purchased_entity = $order_item->getPurchasedEntity();
-    if (!$purchased_entity instanceof ProductVariationInterface ||
-      !$purchased_entity->getProduct()) {
+    if (!$purchased_entity || $purchased_entity->getEntityTypeId() != 'commerce_product_variation') {
       return FALSE;
     }
     $product_type = $purchased_entity->getProduct()->bundle();

@@ -52,7 +52,6 @@ use Drupal\commerce_number_pattern\Entity\NumberPattern;
  *     "refresh_frequency",
  *     "sendReceipt",
  *     "receiptBcc",
- *     "receiptSubject",
  *     "traits",
  *     "locked",
  *   },
@@ -105,16 +104,9 @@ class OrderType extends CommerceBundleEntityBase implements OrderTypeInterface {
   /**
    * The receipt BCC email.
    *
-   * @var string
+   * @var bool
    */
   protected $receiptBcc;
-
-  /**
-   * The receipt subject.
-   *
-   * @var string
-   */
-  protected string $receiptSubject = '';
 
   /**
    * {@inheritdoc}
@@ -213,21 +205,6 @@ class OrderType extends CommerceBundleEntityBase implements OrderTypeInterface {
    */
   public function setReceiptBcc($receipt_bcc) {
     $this->receiptBcc = $receipt_bcc;
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getReceiptSubject(): string {
-    return $this->receiptSubject;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setReceiptSubject(string $receipt_subject) {
-    $this->receiptSubject = $receipt_subject;
     return $this;
   }
 

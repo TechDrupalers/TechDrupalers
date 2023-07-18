@@ -45,7 +45,6 @@ class CheckoutIntegrationTest extends OrderKernelTestBase {
     parent::setUp();
 
     $this->installEntitySchema('commerce_log');
-    $this->installConfig('commerce_checkout');
     $this->logStorage = $this->container->get('entity_type.manager')->getStorage('commerce_log');
     $this->logViewBuilder = $this->container->get('entity_type.manager')->getViewBuilder('commerce_log');
   }
@@ -58,7 +57,6 @@ class CheckoutIntegrationTest extends OrderKernelTestBase {
       'type' => 'default',
       'store_id' => $this->store->id(),
       'state' => 'completed',
-      'checkout_flow' => 'default',
     ]);
     $order->save();
     $this->container->get('event_dispatcher')->dispatch(new OrderEvent($order), CheckoutEvents::COMPLETION);

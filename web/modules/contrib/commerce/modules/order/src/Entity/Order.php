@@ -465,15 +465,17 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
         $total_price = $total_price ? $total_price->add($order_item_total) : $order_item_total;
       }
     }
-    $adjustments = $this->collectAdjustments();
-    if ($adjustments) {
-      /** @var \Drupal\commerce_order\AdjustmentTransformerInterface $adjustment_transformer */
-      $adjustment_transformer = \Drupal::service('commerce_order.adjustment_transformer');
-      $adjustments = $adjustment_transformer->combineAdjustments($adjustments);
-      $adjustments = $adjustment_transformer->roundAdjustments($adjustments);
-      foreach ($adjustments as $adjustment) {
-        if (!$adjustment->isIncluded()) {
-          $total_price = $total_price ? $total_price->add($adjustment->getAmount()) : $adjustment->getAmount();
+    if ($total_price) {
+      $adjustments = $this->collectAdjustments();
+      if ($adjustments) {
+        /** @var \Drupal\commerce_order\AdjustmentTransformerInterface $adjustment_transformer */
+        $adjustment_transformer = \Drupal::service('commerce_order.adjustment_transformer');
+        $adjustments = $adjustment_transformer->combineAdjustments($adjustments);
+        $adjustments = $adjustment_transformer->roundAdjustments($adjustments);
+        foreach ($adjustments as $adjustment) {
+          if (!$adjustment->isIncluded()) {
+            $total_price = $total_price->add($adjustment->getAmount());
+          }
         }
       }
     }
@@ -698,7 +700,7 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
       $this->setCustomerId(0);
     }
     // Maintain the order email.
-    if (!$this->getEmail() && !$customer->isAnonymous()) {
+    if (!$this->getEmail() && $customer->isAuthenticated()) {
       $this->setEmail($customer->getEmail());
     }
     // Make sure the billing profile is owned by the order, not the customer.
@@ -861,7 +863,6 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
           'override_labels' => TRUE,
           'label_singular' => t('order item'),
           'label_plural' => t('order items'),
-          'removed_reference' => 'delete',
         ],
       ])
       ->setDisplayOptions('view', [

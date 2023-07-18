@@ -4,8 +4,6 @@ namespace Drupal\commerce_promotion;
 
 use Drupal\commerce\CommerceContentEntityStorage;
 use Drupal\commerce_order\Entity\OrderInterface;
-use Drupal\commerce_promotion\Event\FilterPromotionsEvent;
-use Drupal\commerce_promotion\Event\PromotionEvents;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -103,10 +101,8 @@ class PromotionStorage extends CommerceContentEntityStorage implements Promotion
     }
     // Sort the remaining promotions.
     uasort($promotions, [$this->entityType->getClass(), 'sort']);
-    $event = new FilterPromotionsEvent($promotions, $order);
-    $this->eventDispatcher->dispatch($event, PromotionEvents::FILTER_PROMOTIONS);
 
-    return $event->getPromotions();
+    return $promotions;
   }
 
 }

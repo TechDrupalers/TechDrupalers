@@ -1,7 +1,0 @@
-createnode.example:
-  path: '/createnode/example'
-  defaults:
-    _title: 'Example'
-    _controller: '\Drupal\createnode\Controller\NewNode::build'
-  requirements:
-    _permission: 'access content'

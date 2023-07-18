@@ -2,7 +2,6 @@
 
 namespace Drupal\commerce_store;
 
-use Drupal\commerce\EntityHelper;
 use Drupal\commerce\PurchasableEntityInterface;
 
 /**
@@ -44,8 +43,7 @@ trait SelectStoreTrait {
     }
     else {
       $store = $this->currentStore->getStore();
-      $store_ids = EntityHelper::extractIds($stores);
-      if (!in_array($store->id(), $store_ids, TRUE)) {
+      if (!in_array($store, $stores)) {
         // Indicates that the site listings are not filtered properly.
         throw new \Exception("The given entity can't be purchased from the current store.");
       }

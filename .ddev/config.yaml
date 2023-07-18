@@ -1,4 +1,4 @@
-name: testdrupal
+name: TechDrupalers
 type: drupal9
 docroot: web
 php_version: "8.0"

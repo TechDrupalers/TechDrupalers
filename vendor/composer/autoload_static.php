@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a
+class ComposerStaticInit8f80e35f13323729c95336e91210be3b
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -116,6 +116,7 @@ class ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a
         ),
         'M' => 
         array (
+            'MyCLabs\\Enum\\' => 13,
             'Matrix\\' => 7,
             'Masterminds\\' => 12,
         ),
@@ -158,7 +159,6 @@ class ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a
         'D' => 
         array (
             'Drush\\' => 6,
-            'Drupal\\bootstrap\\' => 17,
             'Drupal\\Driver\\' => 14,
             'Drupal\\Core\\' => 12,
             'Drupal\\Composer\\Plugin\\Scaffold\\' => 32,
@@ -402,6 +402,10 @@ class ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a
         array (
             0 => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet',
         ),
+        'MyCLabs\\Enum\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/myclabs/php-enum/src',
+        ),
         'Matrix\\' => 
         array (
             0 => __DIR__ . '/..' . '/markbaker/matrix/classes/src',
@@ -486,10 +490,6 @@ class ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a
         array (
             0 => __DIR__ . '/..' . '/drush/drush/src',
         ),
-        'Drupal\\bootstrap\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/web/themes/contrib/bootstrap/src',
-        ),
         'Drupal\\Driver\\' => 
         array (
             0 => __DIR__ . '/../..' . '/web/drivers/lib/Drupal/Driver',
@@ -532,7 +532,7 @@ class ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a
         ),
         'Doctrine\\Common\\Collections\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/collections/src',
+            0 => __DIR__ . '/..' . '/doctrine/collections/lib/Doctrine/Common/Collections',
         ),
         'Doctrine\\Common\\Annotations\\' => 
         array (
@@ -680,7 +680,7 @@ class ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
         'PEAR_Exception' => __DIR__ . '/..' . '/pear/pear_exception/PEAR/Exception.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
-        'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
+        'Stringable' => __DIR__ . '/..' . '/myclabs/php-enum/stubs/Stringable.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
@@ -688,11 +688,11 @@ class ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInitc5c33eb49ee02a2651053515e7a8b72a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit8f80e35f13323729c95336e91210be3b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit8f80e35f13323729c95336e91210be3b::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit8f80e35f13323729c95336e91210be3b::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit8f80e35f13323729c95336e91210be3b::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInit8f80e35f13323729c95336e91210be3b::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -105,13 +105,7 @@ class Store extends ContentEntityBase implements StoreInterface {
    * {@inheritdoc}
    */
   public function getEmail() {
-    $email = $this->get('mail')->value;
-    // Defaults to the site email if the store email isn't set.
-    if (empty($email)) {
-      $email = \Drupal::config('system.site')->get('mail') ?: ini_get('sendmail_from');
-    }
-
-    return $email;
+    return $this->get('mail')->value;
   }
 
   /**
@@ -322,7 +316,8 @@ class Store extends ContentEntityBase implements StoreInterface {
 
     $fields['mail'] = BaseFieldDefinition::create('email')
       ->setLabel(t('Email'))
-      ->setDescription(t('Store email notifications are sent from this address. If omitted, the "site" email address will be used.'))
+      ->setDescription(t('Store email notifications are sent from this address.'))
+      ->setRequired(TRUE)
       ->setDisplayOptions('form', [
         'type' => 'email_default',
         'weight' => 1,

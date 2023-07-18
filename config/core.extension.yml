@@ -38,7 +38,6 @@ module:
   contact: 0
   contextual: 0
   cors_ui: 0
-  createnode: 0
   datetime: 0
   dblog: 0
   devel: 0

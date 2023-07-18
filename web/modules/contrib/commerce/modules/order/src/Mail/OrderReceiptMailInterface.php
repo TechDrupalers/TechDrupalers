@@ -16,12 +16,10 @@ interface OrderReceiptMailInterface {
    *   Defaults to the order email.
    * @param string $bcc
    *   The BCC address or addresses (separated by a comma).
-   * @param bool $resend
-   *   Whether the receipt mail is being resent by an administrator.
    *
    * @return bool
    *   TRUE if the email was sent successfully, FALSE otherwise.
    */
-  public function send(OrderInterface $order, $to = NULL, $bcc = NULL, bool $resend = FALSE);
+  public function send(OrderInterface $order, $to = NULL, $bcc = NULL);
 
 }

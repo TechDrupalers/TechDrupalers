@@ -2,9 +2,7 @@
 
 namespace Drupal\Tests\commerce_cart\Kernel;
 
-use Drupal\commerce_product\Entity\ProductVariationInterface;
 use Drupal\Component\Render\FormattableMarkup;
-use Drupal\user\UserInterface;
 
 /**
  * Tests the unsetting of the cart flag when order is placed.
@@ -17,16 +15,9 @@ class CartOrderPlacedTest extends CartKernelTestBase {
   /**
    * The variation to test against.
    *
-   * @var \Drupal\commerce_product\Entity\ProductVariationInterface
+   * @var \Drupal\commerce_product\Entity\ProductVariation
    */
-  protected ProductVariationInterface $variation;
-
-  /**
-   * A sample user.
-   *
-   * @var \Drupal\user\UserInterface
-   */
-  protected UserInterface $user;
+  protected $variation;
 
   /**
    * {@inheritdoc}

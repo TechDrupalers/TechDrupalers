@@ -530,7 +530,7 @@ class OrderTest extends OrderKernelTestBase {
     $order_item->delete();
     $another_order_item->delete();
     $order->recalculateTotalPrice();
-    $this->assertEquals(new Price('2.12', 'USD'), $order->getTotalPrice());
+    $this->assertNull($order->getTotalPrice());
   }
 
   /**

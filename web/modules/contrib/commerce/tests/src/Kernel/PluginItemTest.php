@@ -59,7 +59,6 @@ class PluginItemTest extends CommerceKernelTestBase {
         'number' => '9.99',
         'currency_code' => 'USD',
       ],
-      'type' => 'total',
     ];
     $entity = EntityTest::create([
       'test_conditions' => [
