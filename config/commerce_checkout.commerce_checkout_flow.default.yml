@@ -30,6 +30,9 @@ configuration:
     review:
       step: review
       weight: 2
+    payment_information:
+      step: _disabled
+      weight: 7
     completion_message:
       step: complete
       weight: 3
@@ -47,9 +50,6 @@ configuration:
       step: _sidebar
       weight: 6
       allow_multiple: false
-    payment_information:
-      step: _disabled
-      weight: 7
     payment_process:
       step: _disabled
       weight: 8
