@@ -30,27 +30,27 @@ configuration:
     review:
       step: review
       weight: 2
-    payment_information:
-      step: _disabled
-      weight: 7
     completion_message:
       step: complete
-      weight: 3
+      weight: 5
       message:
         value: "Your order number is [commerce_order:order_number].\r\nYou can view your order on your account page when logged in."
         format: plain_text
     completion_register:
       step: complete
-      weight: 4
+      weight: 6
     order_summary:
       step: _sidebar
-      weight: 5
+      weight: 7
       view: null
     coupon_redemption:
       step: _sidebar
-      weight: 6
-      allow_multiple: false
-    payment_process:
-      step: _disabled
       weight: 8
+      allow_multiple: false
+    payment_information:
+      step: review
+      weight: 3
+    payment_process:
+      step: payment
+      weight: 4
       capture: true
