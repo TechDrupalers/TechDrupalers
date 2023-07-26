@@ -1,8 +1,9 @@
-uuid: 147dd156-785e-465a-a829-79454149f7fc
+uuid: e562de10-144f-486a-bc75-aad23acb05d6
 langcode: en
 status: true
 dependencies:
   config:
+    - commerce_product.commerce_product_type.default
     - field.storage.node.field_p
     - node.type.vendor_quoted_rate_
 id: node.vendor_quoted_rate_.field_p
@@ -15,5 +16,14 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  handler: 'default:commerce_product'
+  handler_settings:
+    target_bundles:
+      default: default
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

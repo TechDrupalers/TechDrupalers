@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.final_rates.field_actual_rate
     - field.field.node.final_rates.field_add
     - field.field.node.final_rates.field_margin
-    - field.field.node.final_rates.field_prod
+    - field.field.node.final_rates.field_pro
     - field.field.node.final_rates.field_product_id
     - field.field.node.final_rates.field_to
     - field.field.node.final_rates.field_unit_rate
@@ -53,19 +53,23 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_prod:
-    type: string_textfield
-    weight: 127
+  field_pro:
+    type: entity_reference_autocomplete
+    weight: 134
     region: content
     settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_product_id:
-    type: string_textfield
-    weight: 126
+    type: entity_reference_autocomplete
+    weight: 133
     region: content
     settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }

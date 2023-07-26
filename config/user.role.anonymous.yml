@@ -14,6 +14,7 @@ dependencies:
   module:
     - comment
     - commerce_checkout
+    - commerce_invoice
     - commerce_order
     - commerce_product
     - commerce_store
@@ -54,6 +55,7 @@ permissions:
   - 'create certificate content'
   - 'create commerce_product_attribute'
   - 'create customer profile'
+  - 'create default commerce_invoice'
   - 'create default commerce_order'
   - 'create default commerce_product'
   - 'create final_rates content'
@@ -63,6 +65,7 @@ permissions:
   - 'delete any final_rates content'
   - 'delete any vendor_quoted_rate_ content'
   - 'delete commerce_product_attribute'
+  - 'delete default commerce_invoice'
   - 'delete default commerce_order'
   - 'delete own default commerce_product'
   - 'delete own final_rates content'
@@ -79,18 +82,22 @@ permissions:
   - 'update any default commerce_product'
   - 'update any default commerce_wishlist'
   - 'update commerce_product_attribute'
+  - 'update default commerce_invoice'
   - 'update default commerce_order'
   - 'update own default commerce_product'
   - 'update own default commerce_wishlist'
   - 'view any commerce_wishlist'
   - 'view any default commerce_wishlist'
+  - 'view commerce_invoice'
   - 'view commerce_order'
   - 'view commerce_product'
   - 'view commerce_product_attribute'
   - 'view commerce_store'
+  - 'view default commerce_invoice'
   - 'view default commerce_order'
   - 'view default commerce_product'
   - 'view online commerce_store'
+  - 'view own commerce_invoice'
   - 'view own commerce_order'
   - 'view own commerce_wishlist'
   - 'view own default commerce_wishlist'

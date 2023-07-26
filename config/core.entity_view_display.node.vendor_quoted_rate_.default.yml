@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.vendor_quoted_rate_.field_p
+    - field.field.node.vendor_quoted_rate_.field_product_name_vendor_rates
     - field.field.node.vendor_quoted_rate_.field_rate
-    - field.field.node.vendor_quoted_rate_.field_rate_product_name
     - field.field.node.vendor_quoted_rate_.field_status
     - field.field.node.vendor_quoted_rate_.field_venodr
     - node.type.vendor_quoted_rate_
@@ -18,12 +18,20 @@ bundle: vendor_quoted_rate_
 mode: default
 content:
   field_p:
-    type: string
+    type: entity_reference_label
     label: above
     settings:
-      link_to_entity: false
+      link: true
     third_party_settings: {  }
-    weight: 101
+    weight: 108
+    region: content
+  field_product_name_vendor_rates:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
     region: content
   field_rate:
     type: number_decimal
@@ -35,14 +43,6 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 105
-    region: content
-  field_rate_product_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 107
     region: content
   field_status:
     type: list_default

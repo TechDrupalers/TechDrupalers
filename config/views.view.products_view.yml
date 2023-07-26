@@ -56,57 +56,6 @@ display:
     display_options:
       title: 'Products View'
       fields:
-        rendered_entity:
-          id: rendered_entity
-          table: commerce_product
-          field: rendered_entity
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: commerce_product
-          plugin_id: rendered_entity
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          view_mode: default
         field_1:
           id: field_1
           table: commerce_product__field_1
@@ -2174,6 +2123,136 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        uuid_5:
+          id: uuid_5
+          table: node
+          field: uuid
+          relationship: reverse__node__field_add
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: uuid
+          plugin_id: field
+          label: 'Final Rates Content Type UUID '
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        uuid_6:
+          id: uuid_6
+          table: node
+          field: uuid
+          relationship: reverse__node__field_product_name_vendor_rates
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: uuid
+          plugin_id: field
+          label: 'Vendor Rates UUID  '
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: mini
         options:
@@ -2266,7 +2345,276 @@ display:
             operator_limit_selection: false
             operator_list: {  }
       style:
-        type: default
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            field_1: field_1
+            field_1_bumper______pounches: field_1_bumper______pounches
+            field_actual_rate: field_actual_rate
+            field_d: field_d
+            field_fumigation: field_fumigation
+            field_gross_weight_per_pack_: field_gross_weight_per_pack_
+            field_hs: field_hs
+            product_id: product_id
+            field_ingredients: field_ingredients
+            field_inner_package_material_amo: field_inner_package_material_amo
+            field_is_this_product_form_human: field_is_this_product_form_human
+            field_local_transport: field_local_transport
+            field_mac: field_mac
+            field_m: field_m
+            field_manufacturing_process: field_manufacturing_process
+            field_ou: field_ou
+            field_product_id: field_product_id
+            field_pro: field_pro
+            field_product_scientific_name: field_product_scientific_name
+            field_quoted_rate: field_quoted_rate
+            field_select_category: field_select_category
+            field_select_certification: field_select_certification
+            field_t: field_t
+            field_to: field_to
+            field_vendor: field_vendor
+            uuid: uuid
+            uuid_1: uuid_1
+            uuid_2: uuid_2
+            uuid_3: uuid_3
+            sku: sku
+            price__number: price__number
+            uuid_4: uuid_4
+            uuid_5: uuid_5
+            uuid_6: uuid_6
+          default: '-1'
+          info:
+            field_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_1_bumper______pounches:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_actual_rate:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_d:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_fumigation:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_gross_weight_per_pack_:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_hs:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            product_id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_ingredients:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_inner_package_material_amo:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_is_this_product_form_human:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_local_transport:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_mac:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_m:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_manufacturing_process:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_ou:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_product_id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pro:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_product_scientific_name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_quoted_rate:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_select_category:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_select_certification:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_t:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_to:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_vendor:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uuid:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uuid_1:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uuid_2:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uuid_3:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            sku:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            price__number:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uuid_4:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uuid_5:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uuid_6:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
       row:
         type: fields
       query:
@@ -2305,6 +2653,26 @@ display:
           admin_label: 'field_vendor: User'
           plugin_id: standard
           required: false
+        reverse__node__field_add:
+          id: reverse__node__field_add
+          table: commerce_product_field_data
+          field: reverse__node__field_add
+          relationship: none
+          group_type: group
+          admin_label: field_add
+          entity_type: commerce_product
+          plugin_id: entity_reverse
+          required: false
+        reverse__node__field_product_name_vendor_rates:
+          id: reverse__node__field_product_name_vendor_rates
+          table: commerce_product_field_data
+          field: reverse__node__field_product_name_vendor_rates
+          relationship: none
+          group_type: group
+          admin_label: field_product_name_vendor_rates
+          entity_type: commerce_product
+          plugin_id: entity_reverse
+          required: false
         variations_target_id:
           id: variations_target_id
           table: commerce_product__variations
@@ -2328,7 +2696,6 @@ display:
         - url.query_args
         - user.roles
       tags:
-        - 'config:core.entity_view_display.commerce_product.default.default'
         - 'config:field.storage.commerce_product.field_1'
         - 'config:field.storage.commerce_product.field_1_bumper______pounches'
         - 'config:field.storage.commerce_product.field_actual_rate'
@@ -2370,7 +2737,6 @@ display:
         - url.query_args
         - user.roles
       tags:
-        - 'config:core.entity_view_display.commerce_product.default.default'
         - 'config:field.storage.commerce_product.field_1'
         - 'config:field.storage.commerce_product.field_1_bumper______pounches'
         - 'config:field.storage.commerce_product.field_actual_rate'
@@ -2428,7 +2794,6 @@ display:
         - url
         - user.roles
       tags:
-        - 'config:core.entity_view_display.commerce_product.default.default'
         - 'config:field.storage.commerce_product.field_1'
         - 'config:field.storage.commerce_product.field_1_bumper______pounches'
         - 'config:field.storage.commerce_product.field_actual_rate'

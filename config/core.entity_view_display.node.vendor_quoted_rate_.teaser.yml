@@ -5,8 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.vendor_quoted_rate_.field_p
+    - field.field.node.vendor_quoted_rate_.field_product_name_vendor_rates
     - field.field.node.vendor_quoted_rate_.field_rate
-    - field.field.node.vendor_quoted_rate_.field_rate_product_name
     - field.field.node.vendor_quoted_rate_.field_status
     - field.field.node.vendor_quoted_rate_.field_venodr
     - node.type.vendor_quoted_rate_
@@ -27,7 +27,7 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   field_p: true
+  field_product_name_vendor_rates: true
   field_rate: true
-  field_rate_product_name: true
   field_status: true
   field_venodr: true

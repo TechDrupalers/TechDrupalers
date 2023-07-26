@@ -1,17 +1,16 @@
-uuid: 5ad89982-ca61-47d0-a4d8-7959fd8250e1
+uuid: 1c5a3eb9-a0de-4656-81a8-6f7205ebc305
 langcode: en
 status: true
 dependencies:
   module:
+    - commerce_product
     - node
-id: node.field_rate_product_name
-field_name: field_rate_product_name
+id: node.field_product_name_vendor_rates
+field_name: field_product_name_vendor_rates
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
+  target_type: commerce_product
 module: core
 locked: false
 cardinality: 1

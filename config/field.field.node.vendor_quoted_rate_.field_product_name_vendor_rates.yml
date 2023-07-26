@@ -1,16 +1,16 @@
-uuid: 90cd70be-b10a-48f9-80f3-19a950cc4801
+uuid: c6bc5fc7-9ab6-4ff5-817d-c4122e4c6e62
 langcode: en
 status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.default
-    - field.storage.node.field_product_id
-    - node.type.final_rates
-id: node.final_rates.field_product_id
-field_name: field_product_id
+    - field.storage.node.field_product_name_vendor_rates
+    - node.type.vendor_quoted_rate_
+id: node.vendor_quoted_rate_.field_product_name_vendor_rates
+field_name: field_product_name_vendor_rates
 entity_type: node
-bundle: final_rates
-label: 'Product ID'
+bundle: vendor_quoted_rate_
+label: 'Product Name'
 description: ''
 required: false
 translatable: false

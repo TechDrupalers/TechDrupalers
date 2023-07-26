@@ -27,6 +27,13 @@ configuration:
     review:
       step: review
       weight: 2
+    payment_information:
+      step: review
+      weight: 3
+    payment_process:
+      step: payment
+      weight: 4
+      capture: false
     completion_message:
       step: complete
       weight: 5
@@ -44,13 +51,3 @@ configuration:
       step: _sidebar
       weight: 8
       allow_multiple: false
-    payment_information:
-      step: review
-      weight: 3
-    payment_process:
-      step: payment
-      weight: 4
-      capture: true
-  guest_order_assign: false
-  guest_new_account: false
-  guest_new_account_notify: false

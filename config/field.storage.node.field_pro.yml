@@ -1,17 +1,16 @@
-uuid: d4f97cee-0fe7-411b-9ba0-7e0465faeea8
+uuid: 44fb45a6-bf63-429b-80b6-4261bb4c92c8
 langcode: en
 status: true
 dependencies:
   module:
+    - commerce_product
     - node
-id: node.field_prod
-field_name: field_prod
+id: node.field_pro
+field_name: field_pro
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
+  target_type: commerce_product
 module: core
 locked: false
 cardinality: 1

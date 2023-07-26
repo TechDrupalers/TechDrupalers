@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.vendor_quoted_rate_.field_p
+    - field.field.node.vendor_quoted_rate_.field_product_name_vendor_rates
     - field.field.node.vendor_quoted_rate_.field_rate
-    - field.field.node.vendor_quoted_rate_.field_rate_product_name
     - field.field.node.vendor_quoted_rate_.field_status
     - field.field.node.vendor_quoted_rate_.field_venodr
     - node.type.vendor_quoted_rate_
@@ -23,10 +23,22 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_p:
-    type: string_textfield
-    weight: 121
+    type: entity_reference_autocomplete
+    weight: 128
     region: content
     settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_product_name_vendor_rates:
+    type: entity_reference_autocomplete
+    weight: 127
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
@@ -35,14 +47,6 @@ content:
     weight: 125
     region: content
     settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_rate_product_name:
-    type: string_textfield
-    weight: 127
-    region: content
-    settings:
-      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_status:
